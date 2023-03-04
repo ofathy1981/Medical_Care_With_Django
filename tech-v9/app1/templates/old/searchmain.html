@@ -1,0 +1,90 @@
+{% include 'navbar.html' %}
+{% load staticfiles %}
+{% load static %}
+{% load crispy_forms_tags %}
+
+
+{% block content %}
+<!--<script src='{% static "js/jquery-3.1.1.min.js"  %}'></script>-->
+<!--<script src='{% static "js/bootstrap.min.js"  %}'></script>-->
+<script src='{% static "js/moment.min.js"  %}'></script>
+<script src='{% static "js/bootstrap-datetimepicker.js"  %}'></script>
+<link href='{% static   "css/bootstrap-datetimepicker.min.css"  %}' rel="stylesheet">
+
+
+
+
+
+
+
+<style type="text/css">
+@font-face {
+    font-family: 'num';
+    src: url('{% static '/fonts/Bahij_TheSansArabic-Bold.ttf' %}');
+    font-weight: 500;
+    font-style: normal;
+    font-size:11pt;
+}
+h3{
+    font-family:'num';
+    font-size:16pt;
+}
+    .box{
+
+        
+        display: none;
+        margin-top: 20px;
+
+    }
+
+
+
+.conatiner{
+margin-top: 100px;
+}
+
+.ta{
+margin-bottom: 70px;
+}
+</style>
+<script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+
+<div class="conatiner justify-content-center" >
+<center><nav class="navbar navbar-light col-md-6"  style="background-color: #e3f2fd;">
+   <h2 class="lead2">SEARCH  |  choose  what  your  query  is  for </h2>
+</nav></center>
+ <hr class="my-4">
+      <div class="card-deck justify-content-center mb-3 text-center">
+  <div class="card border-primary mb-3  "  style="max-width: 33rem;  box-shadow">
+          <div class="card-header ">
+            <h4 class="my-0 font-weight-normal ">PROBLEMS-DATA</h4>
+          </div>
+          <div class="card-body">
+
+            <h1 class="card-title pricing-card-title"><center><img class="" src='{% static "imge/search1.png"  %}' alt="Generic placeholder image" width="140" height="140">
+         </center>  <small class="text-muted"></small></h1>
+             <a href="{% url 'searchp' %}"><button type="button" data-toggle="modal" data-target="#printermodal" class="btn btn-lg btn-block btn-info">GO</button></a>
+          </div>
+        </div>
+
+  <div class="card border-primary  mb-3" style="max-width: 33rem; box-shadow">
+          <div class="card-header">
+            <h4 class="my-0 font-weight-normal">DEMANDS-DATA</h4>
+          </div>
+          <div class="card-body">
+
+            <h1 class="card-title pricing-card-title"><center><img class="" src='{% static "imge/search2.png"  %}' alt="Generic placeholder image" width="140" height="140">
+         </center>  <small class="text-muted"></small></h1>
+             <a href="{% url 'searchd' %}"><button type="button" data-toggle="modal" data-target="#printermodal" class="btn btn-lg btn-block btn-info">GO</button></a>
+          </div>
+        </div>
+</div>
+ <hr class="my-4">
+</div>
+
+<!-------------##############################################################################################----->
+
+
+
+
+   {% endblock %}

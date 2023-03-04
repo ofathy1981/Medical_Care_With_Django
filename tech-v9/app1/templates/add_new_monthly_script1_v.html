@@ -1,0 +1,411 @@
+ {% extends 'base.html' %}
+ {% include 'navbar.html' %}
+ {% include 'footer.html' %}
+{%  load static %}
+{% load staticfiles %}
+{% load crispy_forms_tags %}
+
+
+{% block content %}
+<!--<script src='{% static "js/jquery-3.1.1.min.js"  %}'></script>-->
+<!--<script src='{% static "js/bootstrap.min.js"  %}'></script>-->
+
+
+<script type="text/javascript">
+window.onload = function(){ 
+
+
+
+    document.getElementById("btnPrint").onclick = function () {
+        printElement(document.getElementById("printThis"));
+    }
+    
+    function printElement(elem) {
+        var domClone = elem.cloneNode(true);
+        
+        var $printSection = document.getElementById("printSection");
+        
+        if (!$printSection) {
+            var $printSection = document.createElement("div");
+            $printSection.id = "printSection";
+            document.body.appendChild($printSection);
+        }
+        
+        $printSection.innerHTML = "";
+        $printSection.appendChild(domClone);
+        window.print();
+    }
+};
+    
+    
+    </script>
+
+<style>
+.container{
+margin-top: 100px;
+margin-bottom: 70px;
+}
+.vv{
+background-color: #004C99
+
+}
+.v{
+background-color: #004C99
+
+}
+
+@media print {
+
+    body {-webkit-print-color-adjust: exact;}
+    .table td.mytd{
+
+background-color: rgba(182, 184, 178, 0.945) important!;
+}
+    }
+
+@media print {
+
+       .noPrint {display:none;}
+
+       }
+
+
+
+
+@media screen {
+  #printSection {
+      display: none;
+  }
+}
+
+@media print {
+  body * {
+    visibility:hidden;
+  }
+  #printSection, #printSection * {
+    visibility:visible;
+  }
+  #printSection {
+    position:absolute;
+    left:0;
+    top:0;
+  }
+}
+
+
+</style>
+
+
+<div class="container" >
+
+<center><div class="col-md-12 justify-content-center text-white list-group-item vv "> تسجيل  علاج شهرى لموظف حالى  </div></center>
+
+<div class="row  align-items-center float fluid justify-content-center ">
+    <div class="row align-items-center  float fluid justify-content-center">
+<div class="col-md-12 justify-content-center float fluid  ">
+ <form method='POST' action= " ">{% csrf_token %}
+
+    <div class="row">
+      <div class="col-md-4 "> {{ form1.auth_doc|as_crispy_field }} </div>
+      <div class="col-md-4 "> {{ form1.medical_number|as_crispy_field }} </div>
+      <div class="col-md-4 "> {{ form1.patient_name|as_crispy_field }} </div>
+
+   </div>
+  <div class="row">
+    {% if form1.medic4_name.value %}<div class="col-md-3 "> {{ form1.medic4_name|as_crispy_field }} </div>{% endif %}
+    {% if form1.medic3_name.value %}<div class="col-md-3 "> {{ form1.medic3_name|as_crispy_field }} </div>{% endif %}
+    {% if form1.medic2_name.value %}<div class="col-md-3 "> {{ form1.medic2_name|as_crispy_field }} </div>{% endif %}
+    {% if form1.medic1_name.value %}<div class="col-md-3 "> {{ form1.medic1_name|as_crispy_field }} </div>{% endif %}
+
+  </div>
+   <div class="row">
+  {% if form1.medic8_name.value %}<div class="col-md-3 "> {{ form1.medic8_name|as_crispy_field }} </div>{% endif %}
+  {% if form1.medic7_name.value %}<div class="col-md-3 "> {{ form1.medic7_name|as_crispy_field }} </div>{% endif %}
+  {% if form1.medic6_name.value %}<div class="col-md-3 "> {{ form1.medic6_name|as_crispy_field }} </div>{% endif %}
+  {% if form1.medic5_name.value %}<div class="col-md-3 "> {{ form1.medic5_name|as_crispy_field }} </div>{% endif %}
+
+</div>
+
+<div class="row">
+  {% if form1.medic12_name.value %}<div class="col-md-3 "> {{ form1.medic12_name|as_crispy_field }} </div>{% endif %}
+  {% if form1.medic11_name.value %}<div class="col-md-3 "> {{ form1.medic11_name|as_crispy_field }} </div>{% endif %}
+  {% if form1.medic10_name.value %}<div class="col-md-3 "> {{ form1.medic10_name|as_crispy_field }} </div>{% endif %}
+  {% if form1.medic9_name.value %}<div class="col-md-3 "> {{ form1.medic9_name|as_crispy_field }} </div>{% endif %}
+
+</div>
+<div class="row">
+  {% if form1.medic16_name.value %}   <div class="col-md-3 "> {{ form1.medic16_name|as_crispy_field }} </div>{% endif %}
+  {% if form1.medic15_name.value %}  <div class="col-md-3 "> {{ form1.medic15_name|as_crispy_field }} </div>{% endif %}
+  {% if form1.medic14_name.value %}  <div class="col-md-3 "> {{ form1.medic14_name|as_crispy_field }} </div>{% endif %}
+  {% if form1.medic13_name.value %}  <div class="col-md-3 "> {{ form1.medic13_name|as_crispy_field }} </div>{% endif %}
+
+</div>
+
+<div class="row">
+  {% if form1.medic20_name.value %}
+  <div class="col-md-3 "> {{ form1.medic20_name|as_crispy_field }} </div>
+
+
+ {% endif %}
+  {% if form1.medic19_name.value %}
+  <div class="col-md-3 "> {{ form1.medic19_name|as_crispy_field }} </div>
+
+
+  {% endif %}
+  {% if form1.medic18_name.value  %}
+  <div class="col-md-3 "> {{ form1.medic18_name|as_crispy_field }} </div>
+
+  {% endif %} 
+
+  {% if form1.medic17_name.value %}
+
+  <div class="col-md-3 "> {{ form1.medic17_name|as_crispy_field }} </div>
+
+  {% endif %} 
+
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+{% if monthly_medical_script1_res.master %}
+<a class= 'btn btn-primary btn-lg' style="font-size: large;color:cornsilk; " href="{{   request.META.HTTP_REFERER   }}"> الغاء</a>
+<b> <input class= 'btn  btn-primary  btn-lg'  style="font-size: large; "  value="إضافه  " type=submit ></b>
+
+{% elif  monthly_medical_script1_res.Added  %}
+<a class= 'btn btn-primary btn-lg' style="font-size: large;color:cornsilk; " href="{{   request.META.HTTP_REFERER   }}"> الغاء</a>
+
+<button type="button" class="btn btn-primary btn-lg" style="font-size: large; " data-toggle="modal" data-target="#MyModal"><B>
+  PRINT</B>
+</button>
+{% else %}
+<a class= 'btn btn-primary btn-lg' style="font-size: large;color:cornsilk; " href="{{   request.META.HTTP_REFERER   }}"> الغاء</a>
+
+<button type="button" class="btn btn-primary btn-lg" style="font-size: large; " data-toggle="modal" data-target="#MyModal"><B>
+  PRINT</B>
+</button>
+<b> <input class= 'btn  btn-primary  btn-lg'  style="font-size: large; "  value="إضافه  " type=submit ></b>
+{% endif %}
+
+
+
+</form>
+</div>
+    </div>
+</div>
+</div>
+<!--
+ <div class="col-md-4">
+
+ <form method='POST' action= ''>{% csrf_token %}
+
+ {{form|crispy}}
+<a class="btn btn-primary" href= {{  clicker }} >clcik me</a>
+ <input class= 'btn btn-primary' type=submit  onClick="{{  clicker }}">
+ </form>
+ </div>
+
+     <div class="col-md-4">
+
+ <form method='POST' action= ''>{% csrf_token %}
+
+ {{form|crispy}}
+<a class="btn btn-primary" href= {{  clicker }} >clcik me</a>
+ <input class= 'btn btn-primary' type=submit onClick="{{  clicker }}">
+ </form>
+ </div>
+-->
+
+
+
+
+
+
+
+
+<!---------------------->
+
+   <div id="printThis">
+  <div id="MyModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+    
+    <div class="modal-dialog modal-lg">
+      
+      <!-- Modal Content: begins -->
+      <div class="modal-content">
+        
+        <!-- Modal Header -->
+        <div class="modal-header">
+            <button type="button" class="close no-print" data-dismiss="modal" aria-label="Close"><span aria-hidden="true"><img class=" " src='{% static "imge/Logo1.bmp"  %}' alt="Generic placeholder image" width="60" height="90"></span></button>
+           <h4 class="modal-title" id="gridSystemModalLabel"> الشركة المصرية العامة للسياحة والفنادق</h4>
+
+        </div>
+      
+        <!-- Modal Body -->  
+        <div class="modal-body">
+          <div class="body-message">
+            <h4 style="font-family: Verdana, Geneva, Tahoma, sans-serif;"> paper_code ::: {{ monthly_medical_script1_res.paper_code }} </h4>
+            
+            <center> <p> روشتة علاج شهرى  </p></center>
+            <table class="table">
+                <tbody>
+
+                  <tr>
+ 
+                    <td>{{ monthly_medical_script1_res.medical_number}}</td>
+              
+                    <td align="right" style="background-color: rgba(182, 184, 178, 0.945)!important;">  الرقم الطبى</td>
+                      <td  > {{ monthly_medical_script1_res.patient_name}} </td>
+                    <td align="right" style="background-color: rgba(182, 184, 178, 0.945)!important;">الاسم </td>
+                  </tr>
+                     
+
+
+                  <tr> 
+                    <td>{{ monthly_medical_script1_res.timestamp}}</td>
+                    <td align="right" style="background-color: rgba(182, 184, 178, 0.945)!important;" class="mytd"> التــــــاريخ </td>
+                    <td>{{ monthly_medical_script1_res.auth_doc}}</td>
+                    <td align="right" style="background-color: rgba(182, 184, 178, 0.945)!important;" class="mytd">  طبيب العيادة  المعالج </td>
+                 </tr>
+                  <tr>
+                    {% if monthly_medical_script1_res.medic2_name %}
+                    <td> {{ monthly_medical_script1_res.medic2_name }}</td>
+                    <td align="right"> بند علاج رقم 2 </td>
+                     {% endif  %}
+                     {% if monthly_medical_script1_res.medic1_name %}
+                     <td>{{ monthly_medical_script1_res.medic1_name }} </td>
+                     <td align="right"> بند علاج رقم 1 </td>
+                      {% endif  %}
+
+
+                  </tr>
+
+
+              
+                 <tr>
+                    {% if monthly_medical_script1_res.medic4_name %}
+                    <td>{{ monthly_medical_script1_res.medic4_name }} </td>
+                    <td align="right"> بند علاج رقم 4 </td>
+                     {% endif  %}
+
+
+
+                    {% if monthly_medical_script1_res.medic3_name %}
+                     <td> {{ monthly_medical_script1_res.medic3_name }}</td>
+                    <td align="right"> بند علاج رقم 3 </td>
+                     {% endif  %}
+
+
+                  </tr>
+                  <tr>
+                    {% if monthly_medical_script1_res.medic6_name %}
+                     <td> {{ monthly_medical_script1_res.medic6_name }}</td>
+                    <td align="right"> بند علاج رقم 6 </td>
+                     {% endif  %}
+                     {% if monthly_medical_script1_res.medic5_name %}
+                     <td> {{ monthly_medical_script1_res.medic5_name }}</td>
+                     <td align="right"> بند علاج رقم 5 </td>
+                      {% endif  %}
+ 
+                  </tr>
+                  <tr>
+
+                     {% if monthly_medical_script1_res.medic8_name %}
+                     <td> {{ monthly_medical_script1_res.medic8_name }}</td>
+                     <td align="right"> بند علاج رقم 8 </td>
+                      {% endif  %}
+                      {% if monthly_medical_script1_res.medic7_name %}
+                      <td>{{ monthly_medical_script1_res.medic7_name }} </td>
+                      <td align="right"> بند علاج رقم 7 </td>
+                       {% endif  %}
+                  </tr>
+                  <tr>
+
+
+                      {% if monthly_medical_script1_res.medic10_name %}
+                      <td>{{ monthly_medical_script1_res.medic10_name }} </td>
+                      <td align="right"> بند علاج رقم 10 </td>
+                       {% endif  %}
+                       {% if monthly_medical_script1_res.medic9_name %}
+                       <td> {{ monthly_medical_script1_res.medic9_name }}</td>
+                      <td align="right"> بند علاج رقم 9 </td>
+                       {% endif  %}
+                  </tr>
+                  <tr>
+                    {% if monthly_medical_script1_res.medic12_name %}
+                     <td> {{ monthly_medical_script1_res.medic12_name }}</td>
+                    <td align="right"> بند علاج رقم 12 </td>
+                     {% endif  %}
+                     {% if monthly_medical_script1_res.medic11_name %}
+                     <td> {{ monthly_medical_script1_res.medic11_name }}</td>
+                     <td align="right"> بند علاج رقم 11 </td>
+                      {% endif  %}
+                  </tr>
+                  <tr>
+
+                     {% if monthly_medical_script1_res.medic14_name %}
+                     <td> {{ monthly_medical_script1_res.medic14_name }}</td>
+                     <td align="right"> بند علاج رقم 14 </td>
+                      {% endif  %}
+                      {% if monthly_medical_script1_res.medic13_name %}
+                      <td>{{ monthly_medical_script1_res.medic13_name }} </td>
+                      <td align="right"> بند علاج رقم 13 </td>
+                       {% endif  %}
+                  </tr>
+                  
+                  <tr>
+ 
+ 
+                      {% if monthly_medical_script1_res.medic16_name %}
+                      <td>{{ monthly_medical_script1_res.medic16_name }} </td>
+                      <td align="right"> بند علاج رقم 16 </td>
+                       {% endif  %}
+                       {% if monthly_medical_script1_res.medic15_name %}
+                       <td> {{ monthly_medical_script1_res.medic15_name }}</td>
+                      <td align="right"> بند علاج رقم 15 </td>
+                       {% endif  %}
+                  </tr>                                                 
+                  <tr>
+                    {% if monthly_medical_script1_res.medic18_name %}
+                    <td> {{ monthly_medical_script1_res.medic18_name }}</td>
+                   <td align="right"> بند علاج رقم 18 </td>
+                    {% endif  %}
+                    {% if monthly_medical_script1_res.medic17_name %}
+                    <td> {{ monthly_medical_script1_res.medic17_name }}</td>
+                    <td align="right"> بند علاج رقم 17 </td>
+                     {% endif  %}
+                     </tr>
+              
+                 
+              
+              
+              
+              
+                </tbody>
+              </table>
+            <!-- ------------------------------------------------------------------------ -->
+          </div>
+        </div>
+      
+        <!-- Modal Footer -->
+        <div class="modal-footer noPrint">
+         <button class="btn noPrint" data-dismiss="modal" aria-hidden="true">Close</button>
+        <button id="btnPrint" type="button" class="btn btn-default">Print</button>
+        </div>
+      
+      </div>
+      <!-- Modal Content: ends -->
+      
+    </div>
+      </div>
+  </div>
+  
+
+   {% endblock %}

@@ -1,0 +1,244 @@
+ {% extends 'base.html' %}
+{% include 'navbar.html' %}
+{%  load static %}
+{% load staticfiles %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+<script src="http://code.highcharts.com/highcharts.js"></script>
+<script src="http://code.highcharts.com/modules/exporting.js"></script>
+    <script src='{% static "js/moment.min.js"  %}'></script>
+<script src='{% static "js/bootstrap-datetimepicker.js"  %}'></script>
+<link href='{% static   "css/bootstrap-datetimepicker.min.css"  %}' rel="stylesheet">
+<link href='{% static   "css/bootstrap-datetimepicker.css"  %}' rel="stylesheet">
+
+ <script type="text/javascript">
+
+
+ $(function(){
+    $('#id_case_number').val({{ case_res.case_number  }})
+});
+
+ </script>
+
+<script type="text/javascript">
+$(function () {
+    $('.datepicker').datetimepicker(
+    {
+        format: 'YYYY-MM-DD ',
+        sideBySide: true
+    }
+    );
+})
+
+
+;
+</script>
+<style>
+@media print {
+    .navbar {
+        display: block;
+        border-width:0 !important;
+    }
+    .navbar-toggle {
+        display:none;
+    }
+}
+.textarea{
+text-align: right;
+}
+
+    .list-group{
+ margin-top:90px;
+ padding:0px;
+
+    }
+    .panel{
+ margin-top:90px;
+
+    }
+.list-group{
+ margin-bottom:90px;
+}
+@font-face {
+    font-family: 'f2';
+    src: url('{% static '/fonts/Almudid.ttf' %}');
+    font-weight: 500;
+    font-style: normal;
+    font-size:9pt;
+}
+table tr td {
+font-family:'f2';
+
+}
+    .container{
+
+     margin-top:130px;
+
+    }
+    #id_sitting_decision{
+    font-family:'f2';
+    font-size:15pt;
+    font-style: bold;
+}
+</style>
+<html>
+<body>
+<div class="container">
+  <div class="list-group">
+  <div class="list-group-item active"><center>معلومات تفصيليه عن  الدعوى </center></div>
+
+    <table class="table">
+        <th>المحكمه</th>
+        <th>موضوع الدعوى تفصيلا</th>
+
+        <th>موضوع الدعوى </th>
+
+        <th><span>السنه</span><span>رقم الدعوى</span><span>المحكمه</span>    </th>
+
+  <tbody>
+
+  <tr>
+  <td> {{  case_res.case_court }} </td>
+  <td> {{ case_res.case_subject_detail  }} </td>
+  <td> {{  case_res.case_subject }} </td>
+      <td><span>{{ case_res.case_year  }}</span> / <span>{{ case_res.case_number  }}</span>/<span>{{ case_res.case_court  }}</span></td>
+
+
+
+
+  </tr>
+
+
+
+
+  </tbody><tr><td></td></tr>
+
+</table>
+      <div>
+<button type="button" class="btn btn-success" data-toggle="modal" data-target="#exampleModalLong">إضافة جلسه جديده</button>
+      </div>
+  <a href="#" class="list-group-item active">الجلسات الخاصه بالدعوى </a>
+ <table class="table">
+     <thead>
+        <th>المحامى الحاضر</th>
+        <th>قرار الجلسه</th>
+        <th>تاريخ الجلسه</th>
+
+
+</thead>
+  <tbody>
+  {% for obj in sitting_list %}
+{% if obj.case_number == case_res.case_number  %}
+  <tr>
+
+   <td> {{ obj.attend_lawyer }} </td>
+   <td> {{ obj.sitting_decision }} </td>
+   <td> {{ obj.sitting_date }} </td>
+
+
+
+  </tr>
+
+{% endif %}
+{% endfor %}
+
+  </tbody>
+
+</table>
+
+
+
+
+  </div>
+
+
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- Button trigger modal -->
+
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">إضافة جلسه </h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+
+       <form autocomplete="off" method='POST' action= ''  name="myform" > {% csrf_token %}
+
+ {{form|crispy}}
+
+ <input class= 'btn btn-primary btn-lg'  value="الغاء" type=reset >
+
+ <input class= 'btn btn-primary btn-lg' value="حفظ" type=submit >
+ </form>      </div>
+      <div class="modal-footer">
+       <center> <button type="button" class="btn btn-secondary" data-dismiss="modal">اغلاق</button></center>
+
+
+      </div>
+    </div>
+  </div>
+
+<!-- Button trigger modal -->
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>ghj
+      <div class="modal-body">
+        the modeal bodyhjhhjfgjhfghj
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+</body>
+</html>
+
+
+<!--
+  <div class="list-group">
+  <div class="list-group-item">{{ pc_res.problem_desc }}</div>
+  <div class="list-group-item"> {{ pc_res.problem_date }}</div>
+  <div class="list-group-item">{{ pc_res.user_fullname}}</div>
+  <div class="list-group-item">{{ pc_res.user_sector}}</div>
+  <div class="list-group-item">{{ pc_res.pc_type }}</div>
+
+
+-->
+
+
+   {% endblock %}
+
+

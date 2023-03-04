@@ -1,0 +1,168 @@
+
+{% include 'navbar.html' %}
+
+
+{% block content %}
+
+
+
+<style>
+
+    .bb{
+ margin-bottom: 50px;
+ margin-top:90px;
+
+}
+.cc{
+ margin-top:0px;
+ margin-bottom: 90px;
+}
+table{
+    font-size: 9px;
+}
+
+
+</style>
+<html>
+<body>
+<ul class="nav nav-tabs nav-pills bb " id="myTab" role="tablist">
+
+  <li class="nav-item">
+    <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Switches Detailes</a>
+  </li>
+
+</ul>
+<div class="tab-content" id="myTabContent">
+  <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+      
+<table class="table table-bordered table-striped ">
+  <thead class="thead-inverse">
+    <tr class="table-success">
+      <th >مسلسل</th>
+      <th>اسم الفرع</th>
+      <th>رقم الطابق</th>
+      <th>اسم المصنع</th>
+      <th>رقم موديل</th>
+      <th>عدد المنافذ</th>
+      <th>تمت الاضافه بواسطة </th>
+      <th>تاريخ الاضافه</th>
+      <th>ِAddress</th>
+    </tr>
+  </thead>
+  <tbody>
+  {% for obj in switchs_list %}
+
+   <tr> 
+   <th scope="row"> {{ obj.id }}</th>
+   <td>  {{ obj.bransh }} </td>
+   <td>  {{ obj.floor }}  </td>
+   <td>  {{ obj.switch_vendor }}  </td>
+   <td>  {{ obj.switch_model }}  </td>
+   <td>  {{ obj.port_numbers }}  </td>
+   <td>  {{ obj.publisher }}  </td>
+   <td>  {{ obj.ip }}  </td>
+   <td>  {{ obj.created }}  </td>
+   </tr>
+
+  {% endfor %}
+  </tbody>
+</table>
+
+
+<ul class="pagination justify-content-center ">
+    <li class="page-item ">
+        {% if switchs_list.has_previous %}
+            <a class="page-link"  href="?page={{ switchs_list.previous_page_number }}">previous</a>
+        {% endif %}
+    </li>   
+ <li class="page-item "><a class="page-link" >Page</a></li>
+ <li class="page-item ">
+
+  <a class="page-link active" href="#">  {{ switchs_list.number }} </a> </li> <li class="page-item "> <a class="page-link" >of</a></li>  <li class="page-item "><a class="page-link" href="#">{{ switchs_list.paginator.num_pages }}.</a>
+    </li>
+    <li class="page-item">
+        {% if switchs_list.has_next %}
+            <a class="page-link" href="?page={{ switchs_list.next_page_number }}">next</a>
+        {% endif %}
+    </li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <div class="tab-pane fade" id="print" role="tabpanel" aria-labelledby="print-tab">...</div>
+  <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">...</div>
+  <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">...</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+
+
+
+
+
+
+
+
+
+
+   {% endblock %}
+</body>
+</html>
+

@@ -1,0 +1,128 @@
+{% include 'navbar.html' %}
+{% load staticfiles %}
+{% load static %}
+{% load crispy_forms_tags %}
+
+
+{% block content %}
+<<script src='{% static "js/jquery-3.1.1.min.js"  %}'></script>
+<script src='{% static "js/bootstrap.min.js"  %}'></script>
+<script src='{% static "js/moment.min.js"  %}'></script>
+<script src='{% static "js/bootstrap-datetimepicker.js"  %}'></script>
+<link href='{% static   "css/bootstrap-datetimepicker.min.css"  %}' rel="stylesheet">
+
+
+
+
+
+
+
+<style type="text/css">
+@font-face {
+    font-family: 'num';
+    src: url('{% static '/fonts/Bahij_TheSansArabic-Bold.ttf' %}');
+    font-weight: 500;
+    font-style: normal;
+    font-size:11pt;
+}
+h3{
+    font-family:'num';
+    font-size:16pt;
+}
+    .box{
+
+        
+        display: none;
+        margin-top: 20px;
+
+    }
+
+
+
+.conatiner{
+margin-top: 70px;
+}
+
+.ta{
+margin-bottom: 70px;
+}
+</style>
+
+<div class="conatiner" >
+
+
+<script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+
+<script type="text/javascript">
+
+$(document).ready(function(){
+
+    $('input[type="checkbox"]').click(function(){
+
+        var inputValue = $(this).attr("value");
+
+        $("." + inputValue).fadeToggle();
+
+    });
+
+});
+
+</script>
+
+</head>
+
+<body>
+<center><img src="{% static 'imge/search.jpg' %}"/></center>
+ <form method='POST' class="form-control" action= ''>{% csrf_token %}
+<h3 class> P r o b l e m  -  S e a r c h </h3>
+<input type="checkbox"  name="colorCheckbox" value="red" unchecked> <a class="btn btn-secondary"> <span class="glyphicon glyphicon-search"></span><strong>Search By Sector Name </strong></a>
+<input type="checkbox" name="colorCheckbox" value="green" unchecked><a class="btn btn-secondary"><span class="glyphicon glyphicon-search"></span><strong>Search By ProblemType<strong></a>
+<input type="checkbox" name="colorCheckbox" value="blue" unchecked><a class="btn btn-secondary"><span class="glyphicon glyphicon-search"></span><strong> Search By User Name  </strong></a>
+<div class="red box card card-body">Select the Sector Name you want Search {{ f1|crispy }} <strong></strong> </div>
+
+ <div class="green box card card-body"><strong>Select your problem Type {{ f2|crispy }} </strong> </div>  
+
+  <div class="blue box card card-body"><strong>Enter Name of the User you want to search for {{ f3|crispy }}</strong></div>
+
+
+
+
+
+
+
+
+
+
+
+<input class= 'btn btn-info btn-lg' value="SEARCH" type=submit ">
+ </form>
+
+<table class="table table-hover ta" >
+    <tr class="table-warning">
+      <th >مسلسل</th>
+     <th>اسم المستخدم</th>
+      <th>القطاع</th>
+      <th>وصف المشكله</th>
+
+
+
+
+
+    </tr>
+{% for obj in q %}
+<tr><td>{{ obj.id}}</td><td>{{ obj.user_fullname}}</td><td>{{ obj.user_sector }}</td><td>{{ obj.problem_desc }}</td><td>{{ title }}</td></tr>
+
+
+{% endfor %}
+
+</table>
+ </div>
+</div>
+</div>
+
+<!-------------##############################################################################################----->
+
+
+
+
+   {% endblock %}

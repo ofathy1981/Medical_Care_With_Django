@@ -1,0 +1,60 @@
+
+{% load staticfiles %}
+{% load static %}
+
+{% block content %}
+       <script src="{% static 'js/jquery-3.1.1.slim.min.js' %}"  crossorigin="anonymous"></script>
+
+<style>
+
+
+
+</style>
+    <link href="{% static 'css/adminsrep.css'  %}"  rel="stylesheet">
+       <script type="text/javascript" src="{% static 'js/adminsrep.js' %}"></script>
+
+
+<!-- Latest compiled and minified CSS -->
+
+
+    <div id="collapseDVR3" class="panel-collapse collapse in">
+        <div class="tree ">
+            <ul>
+                <li> <span><i class="fa fa-folder-open"></i> ???????</span>
+                    <ul>
+                        <li>	<span><i class="fa fa-minus-square"></i> ?????? ???????</span>
+                            <ul>
+                                <li> <span> ??? ???? ??????? </span> </li>
+                            </ul>
+                        </li>
+                        <li>	<span><i class="fa fa-minus-square"></i> ?????? </span>
+                            <ul>
+                                <li> <span> ??????? </span></li>
+                                <li>	<span><i class="fa fa-minus-square"></i> ???????</span>
+                                    <ul>
+                                        <li> <span><i class="fa fa-minus-square"></i> ???????</span>
+                                            <ul>
+                                                <li> <span> ???????</span></li>
+                                                <li> <span> ???????</span></li>
+                                            </ul>
+                                        </li>
+                                        <li> <span> ???????</span> </li>
+                                        <li> <span> ???????</span> </li>
+                                    </ul>
+                                </li>
+                                <li> <span> ???????</span></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+                <li> <span><i class="fa fa-folder-open"></i> ???????2</span>
+                    <ul>
+                        <li>	<span> ???????</span> </li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+
+   {% endblock %}

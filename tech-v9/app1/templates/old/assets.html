@@ -1,0 +1,462 @@
+ {% extends 'base.html' %}
+{% include 'navbar.html' %}
+{%  load static %}
+{% load staticfiles %}
+
+{% block content %}
+ <style type="text/css">
+
+ .dropdownmenu ul {
+    background: #ffffff;
+    width: 100%;
+}
+ .list-inline{	background: #30A6E6;
+}
+ .uu {
+list-style-type:none;
+	background: #30A6E6;
+}
+
+ @font-face {
+    font-family:'f3';
+    src: url('{% static '/fonts/SuperstarX.ttf' %}');
+    font-weight: 300;
+    font-style: normal;
+}
+
+
+  h4{
+    font-family:'f3';
+    font-size:18px;
+}
+
+
+
+
+.dropdownmenu ul, .dropdownmenu li {
+	margin: 0;
+	padding: 0;
+	list-style-type:none;
+    float:left;
+}
+.dropdownmenu ul {
+	background: #30A6E6;
+	width: 100%;
+}
+.dropdownmenu li {
+	float: left;
+	position: relative;
+	width:auto;
+	background: #30A6E6;
+}
+.dropdownmenu a {
+	background: #30A6E6;
+	color: #FFFFFF;
+	display: block;
+	font: bold 12px/20px sans-serif;
+	padding: 10px 25px;
+	text-align: center;
+	text-decoration: none;
+	-webkit-transition: all .25s ease;
+	-moz-transition: all .25s ease;
+	-ms-transition: all .25s ease;
+	-o-transition: all .25s ease;
+	transition: all .25s ease;
+}
+.dropdownmenu li:hover a {
+	background: #000000;
+}
+#submenu {
+	left: 0;
+	opacity: 0;
+	position: absolute;
+	bottom: 35px;
+	visibility: hidden;
+	z-index: 1;
+}
+li:hover ul#submenu {
+	opacity: 1;
+	top: 40px;	/* adjust this as per top nav padding top & bottom comes */
+	visibility: visible;
+}
+#submenu li {
+	float: left;
+	width: 100%;
+}
+#submenu a:hover {
+	background: #DF4B05;
+}
+#submenu a {
+	background-color:#000000;
+}
+
+
+
+ </style>
+<div class="container">
+      <div class="card-deck mb-3 text-center">
+        <div class="card mb-3 box-shadow">
+          <div class="card-header">
+            <h4 class="my-0 font-weight-normal">C O P I E R S</h4>
+          </div>
+          <div class="card-body">
+            <h1 class="card-title pricing-card-title"><center><img class="" src='{% static "imge/copier.jpg"  %}' alt="Generic placeholder image" width="140" height="140">
+         </center>  <small class="text-muted"></small></h1>
+
+            <button type="button" data-toggle="modal" data-target="#copiermodal" class="btn btn-lg btn-block btn-outline-primary">MANAGE</button>
+          </div>
+        </div>
+        <div class="card mb-3 box-shadow">
+          <div class="card-header">
+            <h4 class="my-0 font-weight-normal">S C A N N E R S</h4>
+          </div>
+          <div class="card-body">
+            <h1 class="card-title pricing-card-title"><center><img class="" src='{% static "imge/scanner.jpg"  %}' alt="Generic placeholder image" width="140" height="140">
+         </center>  <small class="text-muted"></small></h1>
+
+            <button type="button" data-toggle="modal" data-target="#scannermodal" class="btn btn-lg btn-block btn-outline-primary">MANAGE</button>
+          </div>
+        </div>
+        <div class="card mb-3 box-shadow">
+          <div class="card-header">
+            <h4 class="my-0 font-weight-normal">P R I N T E R S</h4>
+          </div>
+          <div class="card-body">
+
+            <h1 class="card-title pricing-card-title"><center><img class="" src='{% static "imge/print.jpg"  %}' alt="Generic placeholder image" width="140" height="140">
+         </center>  <small class="text-muted"></small></h1>
+             <button type="button" data-toggle="modal" data-target="#printermodal" class="btn btn-lg btn-block btn-outline-primary">MANAGE</button>
+          </div>
+        </div>
+        <div class="card mb-3 box-shadow">
+          <div class="card-header">
+            <h4 class="my-0 font-weight-normal">C O M P U T E R S</h4>
+          </div>
+          <div class="card-body">
+            <h1 class="card-title pricing-card-title"><center><img class="" src='{% static "imge/pc.jpg"  %}' alt="Generic placeholder image" width="140" height="140">
+         </center> <small class="text-muted"></small></h1>
+
+            <a ><button type="button" data-toggle="modal" data-target="#pcmodal" class="btn btn-lg btn-block btn-outline-primary">MANAGE</button></a>
+          </div>
+        </div>
+
+      </div>
+
+
+    </div>
+
+<!-- ****************************************************************************************************************  -->
+
+
+      <div class="card-deck mb-3 text-center">
+               <div class="card mb-3 box-shadow">
+          <div class="card-header">
+            <h4 class="my-0 font-weight-normal">J U N K  PARTS</h4>
+          </div>
+          <div class="card-body">
+            <h1 class="card-title pricing-card-title"><center><img class="" src='{% static "imge/junk.png"  %}' alt="Generic placeholder image" width="140" height="140">
+         </center>  <small class="text-muted"></small></h1>
+
+            <a><button type="button" data-toggle="modal" data-target="#junkmodal" class="btn btn-lg btn-block btn-outline-primary">MANAGE</button></a>
+          </div>
+        </div>
+        <div class="card mb-3 box-shadow">
+          <div class="card-header">
+            <h4 class="my-0 font-weight-normal">B L U E P R I N T S</h4>
+          </div>
+          <div class="card-body">
+            <h1 class="card-title pricing-card-title"><center><img class="" src='{% static "imge/blueprint.jpg"  %}' alt="Generic placeholder image" width="140" height="140">
+         </center>  <small class="text-muted"></small></h1>
+
+            <a><button type="button" data-toggle="modal" data-target="#blueprintmodal" class="btn btn-lg btn-block btn-outline-primary">MANAGE</button></a>
+          </div>
+        </div>
+
+
+        <div class="card mb-3 box-shadow">
+          <div class="card-header">
+            <h4 class="my-0 font-weight-normal">S T A T I S T I C S</h4>
+          </div>
+          <div class="card-body">
+
+            <h1 class="card-title pricing-card-title"><center><img class="" src='{% static "imge/statistics.jpg"  %}' alt="Generic placeholder image" width="140" height="140">
+         </center>  <small class="text-muted"></small></h1>
+            <a  href="{% url 'reports' %}"> <button type="button" class="btn btn-lg btn-block btn-outline-primary">MANAGE</button></a>
+          </div>
+        </div>
+
+
+
+        <div class="card mb-3 box-shadow">
+          <div class="card-header">
+            <h4 class="my-0 font-weight-normal">I N F R A S T R U C T U R E</h4>
+          </div>
+          <div class="card-body">
+            <h1 class="card-title pricing-card-title"><center><img class="" src='{% static "imge/accessor.jpg"  %}' alt="Generic placeholder image" width="140" height="140">
+         </center> <small class="text-muted"></small></h1>
+
+            <a ><button type="button" data-toggle="modal" data-target="#infra" class="btn btn-lg btn-block btn-outline-primary">MANAGE</button></a>
+          </div>
+        </div>
+
+      </div>
+
+
+
+
+ <!--******************************************************************************************************************-->
+ <!-- Button trigger modal -->
+
+
+<!-- Modal -->
+<div class="modal fade" id="infra" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+          <h5 class="modal-title" id="infraLabel"><p>CHOOSE AN ACTION FOR COMPUTERS MANAGEMENT</p></h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body ">
+<div class="row align-items-start fluid">
+    <div class="col-md-3"><div class="dropdown"><button class="btn  btn-outline-info  btn-lg dropdown-toggle" type="submit" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">ADD N E W</button>
+
+
+
+
+
+  <div class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu" aria-labelledby="dropdownMenuButton">
+<a class="dropdown-item" href="{% url 'add_asset_server' %}"><button class="btn btn-outline-danger custom my-2 my-sm-0 btn-lg" type="submit">S E R V E R</button></a>
+<a class="dropdown-item" href="{% url 'add_asset_switch' %}"><button class="btn btn-outline-danger custom my-2 my-sm-0 btn-lg" type="submit">S W I T C H     </button></a>
+<a class="dropdown-item" href="{% url 'add_asset_accesspoint' %}"><button class="btn btn-outline-danger custom my-2 my-sm-0 btn-lg" type="submit">ACCESS-POINT</button></a>
+<a class="dropdown-item" href="{% url 'add_asset_stick' %}"><button class="btn btn-outline-danger custom my-2 my-sm-0 btn-lg" type="submit">WIRELESS STICK</button></a>
+
+<a class="dropdown-item" href="{% url 'add_asset_repeater' %}"><button class="btn btn-outline-danger custom my-2 my-sm-0 btn-lg" type="submit">WIRELESS REPEATER</button></a>
+<a class="dropdown-item" href="{% url 'add_asset_rack' %}"><button class="btn btn-outline-danger custom my-2 my-sm-0 btn-lg" type="submit">RACK</button></a>
+
+<a class="dropdown-item" href="{% url 'add_asset_router' %}"><button class="btn  btn-outline-danger custom my-2 my-sm-0 btn-lg" type="submit">ROUTER</button></a>
+<a class="dropdown-item" href="{% url 'add_asset_device' %}"><button class="btn btn-outline-danger custom my-2 my-sm-0 btn-lg" type="submit">OTHER DEVICS</button></a>
+
+  </div>
+</div>
+  </div>
+
+<!--#######################################################################################################-->
+        <div class="col-md-3"><div class="dropdown"><button class="btn  btn-outline-info  btn-lg dropdown-toggle" type="submit" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">EDIT-ITEMS</button>
+
+
+
+
+
+  <div class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu" aria-labelledby="dropdownMenuButton">
+<a class="dropdown-item" href="{% url 'servers_detail' %}"><button class="btn btn-outline-danger fluid custom my-2 my-sm-0 btn-lg" type="submit">SERVER</button></a>
+<a class="dropdown-item" href="{% url 'switchs_detail' %}"><button class="btn btn-outline-danger custom my-2 my-sm-0 btn-lg" type="submit">SWITCH     </button></a>
+<a class="dropdown-item" href="{% url 'accesspoints_detail' %}"><button class="btn btn-outline-danger custom my-2 my-sm-0 btn-lg" type="submit">ACCESS   POINT</button></a>
+<a class="dropdown-item" href="{% url 'sticks_detail' %}"><button class="btn btn-outline-danger custom my-2 my-sm-0 btn-lg" type="submit">WIRELESS   STICK</button></a>
+<a class="dropdown-item" href="{% url 'repeaters_detail' %}"><button class="btn btn-outline-danger custom my-2 my-sm-0 btn-lg" type="submit">WIRELESS  REPEATER</button></a>
+<a class="dropdown-item" href="{% url 'racks_detail' %}"><button class="btn btn-outline-danger custom my-2 my-sm-0 btn-lg" type="submit">RACK</button></a>
+<a class="dropdown-item" href="{% url 'routers_detail' %}"><button class="btn  btn-outline-danger custom my-2 my-sm-0 btn-lg" type="submit">ROUTER</button></a>
+<a class="dropdown-item" href="{% url 'devices_detail' %}"><button class="btn btn-outline-danger custom my-2 my-sm-0 btn-lg" type="submit">OTHER - DEVICS</button></a>
+
+  </div>
+</div>
+  </div>
+
+<!--#######################################################################################################-->
+        <div class="col-md-3"><div class="dropdown"><button class="btn  btn-outline-info  btn-lg dropdown-toggle" type="submit" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">BROWSE</button>
+
+
+
+
+
+  <div class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu" aria-labelledby="dropdownMenuButton">
+<a class="dropdown-item" href="{% url 'servers_list' %}"><button class="btn btn-outline-danger fluid custom my-2 my-sm-0 btn-lg" type="submit">SERVER</button></a>
+<a class="dropdown-item" href="{% url 'switchs_list' %}"><button class="btn btn-outline-danger custom my-2 my-sm-0 btn-lg" type="submit">SWITCH     </button></a>
+<a class="dropdown-item" href="{% url 'accesspoints_list' %}"><button class="btn btn-outline-danger custom my-2 my-sm-0 btn-lg" type="submit">ACCESS- POINT</button></a>
+<a class="dropdown-item" href="{% url 'sticks_list' %}"><button class="btn btn-outline-danger custom my-2 my-sm-0 btn-lg" type="submit">WIRELESS  STICK</button></a>
+      <a class="dropdown-item" href="{% url 'repeaters_list' %}"><button class="btn btn-outline-danger custom my-2 my-sm-0 btn-lg" type="submit">WIRELESS REPEATER</button></a>
+<a class="dropdown-item" href="{% url 'racks_list' %}"><button class="btn btn-outline-danger custom my-2 my-sm-0 btn-lg" type="submit">RACK</button></a>
+<a class="dropdown-item" href="{% url 'routers_list' %}"><button class="btn  btn-outline-danger custom my-2 my-sm-0 btn-lg" type="submit">ROUTER</button></a>
+<a class="dropdown-item" href="{% url 'devices_list' %}"><button class="btn btn-outline-danger custom my-2 my-sm-0 btn-lg" type="submit">OTHER--DEVICS</button></a>
+
+  </div>
+</div>
+  </div>
+
+<!--########################################################################################################-->
+</div>  </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!--********************************************************************************************************** -->
+<div class="modal fade" id="printermodal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+          <h5 class="modal-title" id="printermodalLabel"><p>CHOOSE AN ACTION FOR PRINTERS MANAGEMENT</p></h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+<center><div class="row"><div class="col-md-3"></div>
+  <div class="col-md-3"><a   href="{% url 'add_asset_printer' %}"><button type="button" class="btn btn-primary btn-lg">Add New</button></a></div>
+  <div class="col-md-3"><a   href="{% url 'printers_detail' %}"><button type="button" class="btn btn-success btn-lg">Edit Item</button></a></div>
+ <div class="col-md-3"><a   href="{% url 'printers_list' %}"><button type="button" class="btn btn-warning btn-lg">List All</button></a></div>
+</div>  </center>    </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+
+      </div>
+    </div>
+  </div>
+</div>
+<!--********************************************************************************************************** -->
+
+<div class="modal fade" id="scannermodal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+          <h5 class="modal-title" id="scannermodalLabel"><p>CHOOSE AN ACTION FOR SCANNERS MANAGEMENT</p></h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+<center><div class="row"><div class="col-md-3"></div>
+    <div class="col-md-3"><a   href="{% url 'add_asset_scanner' %}"><button type="button" class="btn btn-primary btn-lg">Add New</button></a></div>
+    <div class="col-md-3"><a   href="{% url 'scanners_detail' %}"><button type="button" class="btn btn-success btn-lg">Edit Item</button></a></div>
+    <div class="col-md-3"><a   href="{% url 'scanners_list' %}"><button type="button" class="btn btn-warning btn-lg">List All</button></a></div>
+</div>  </center>    </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+
+      </div>
+    </div>
+  </div>
+</div>
+  <!--********************************************************************************************************** -->
+<div class="modal fade" id="blueprintmodal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+          <h5 class="modal-title" id="blueprintLabel"><p>CHOOSE AN ACTION FOR BLUEPRINTS MANAGEMENT</p></h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+<center><div class="row"><div class="col-md-3"></div>
+    <div class="col-md-3"><a   href="{% url 'add_asset_blueprint' %}"><button type="button" class="btn btn-primary btn-lg">Add New</button></a></div>
+    <div class="col-md-3"><a   href="{% url 'blueprints_detail' %}"><button type="button" class="btn btn-success btn-lg">Edit Item</button></a></div>
+    <div class="col-md-3"><a   href="{% url 'blueprints_list' %}"><button type="button" class="btn btn-warning btn-lg">List All</button></a></div>
+</div>  </center>    </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+
+      </div>
+    </div>
+  </div>
+</div>
+   <!--********************************************************************************************************** -->
+<div class="modal fade" id="junkmodal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+          <h5 class="modal-title" id="junkLabel"><p>CHOOSE AN ACTION FOR BLUEPRINTS MANAGEMENT</p></h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+<center><div class="row"><div class="col-md-3"></div>
+    <div class="col-md-3"><a   href="{% url 'add_new_junk' %}"><button type="button" class="btn btn-primary btn-lg">Add New</button></a></div>
+    <div class="col-md-3"><a   href="{% url 'junks_detail' %}"><button type="button" class="btn btn-success btn-lg">Edit Item</button></a></div>
+    <div class="col-md-3"><a   href="{% url 'junks_list' %}"><button type="button" class="btn btn-warning btn-lg">List All</button></a></div>
+</div>  </center>    </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+
+      </div>
+    </div>
+  </div>
+</div>
+ <!--********************************************************************************************************** -->
+<div class="modal fade" id="copiermodal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+          <h5 class="modal-title" id="copiermodalLabel"><p>CHOOSE AN ACTION FOR COPIERS MANAGEMENT</p></h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+<center><div class="row"><div class="col-md-3"></div>
+    </a>
+    <div class="col-md-3"><a   href="{% url 'add_asset_copier' %}"><button type="button" class="btn btn-primary btn-lg">Add New</button></a></div>
+<div class="col-md-3"><a   href="{% url 'copiers_detail' %}"><button type="button" class="btn btn-success btn-lg">Edit Item</button></a></div>
+ <div class="col-md-3"><a   href="{% url 'copiers_list' %}"><button type="button" class="btn btn-warning btn-lg">List All</button></a></div>
+</div>  </center>    </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+
+      </div>
+    </div>
+  </div>
+</div>
+ <!--###########################################################################################################-->
+ <div class="modal fade" id="pcmodal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+          <h5 class="modal-title" id="pcmodalLabel"><p>CHOOSE AN ACTION FOR COMPUTERS MANAGEMENT</p></h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+<div class="row"><div class="col-md-3"><img class="" src='{% static "imge/desktop.png"  %}' alt="Generic placeholder image" width="80" height="80"></div>
+  <div class="col-md-3"><a   href="{% url 'add_asset_pc' %}"><button type="button" class="btn btn-primary btn-lg">Add New</button></a></div>
+  <div class="col-md-3"><a   href="{% url 'computers_detail' %}"><button type="button" class="btn btn-success btn-lg">Edit Item</button></a></div>
+  <div class="col-md-3"><a   href="{% url 'computers_list' %}"><button type="button" class="btn btn-warning btn-lg">List All</button></a></div>
+</div>
+  <hr class="my-4">
+<div class="row"><div class="col-md-3"><img class="" src='{% static "imge/lab.png"  %}' alt="Generic placeholder image" width="80" height="80"></div>
+  <div class="col-md-3"><a   href="{% url 'add_asset_lab' %}"><button type="button" class="btn btn-primary btn-lg">Add New</button></a></div>
+  <div class="col-md-3"><a   href="{% url 'labs_detail' %}"><button type="button" class="btn btn-success btn-lg">Edit Item</button></a></div>
+  <div class="col-md-3"><a   href="{% url 'labs_list' %}"><button type="button" class="btn btn-warning btn-lg">List All</button></a></div>
+</div>
+
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+
+ <nav class="dropdownmenu float"  style="background:#ffffff">
+  <ul  class="list-inline" style="list-style-type:circle;background="#30A6E6">
+    <li><a href="{% url 'searchasst' %}">SEARCH-MAIN-DATA</a></li>
+    <li><a href="{% url 'searchasst2' %}">SEARCH-DETAILED-DATA </a></li>
+
+    <li><a href="#">LIVE CHAT</a></li>
+    <li><a href="#">TASKS</a></li>
+    <li><a target="_blank" href="https://webmail.egoth.com.eg/">MAILING</a></li>
+  </ul>
+</nav>
+
+   {% endblock %}
+
+

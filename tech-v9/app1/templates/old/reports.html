@@ -1,0 +1,2472 @@
+
+{% include 'navbar.html' %}
+{% load static %}
+
+{% block content %}
+
+<script type="text/javascript">
+
+
+$('.click_me').click(function(event){
+            event.preventDefault();
+            $('.ul_lists').hide();
+            $(this).next('.ul_lists').show();
+
+       });
+
+</script>
+<style >
+
+
+.fixed { height:400px; overflow:hidden;  }
+.scrollit { height:400px; overflow-y:scroll; background:lightgray; }
+#list-home-list{
+    font-size:13pt;
+}
+@font-face {
+    font-family: 'num';
+    src: url('{% static '/fonts/Carre.otf' %}');
+    font-weight: 500;
+    font-style: normal;
+    font-size:11pt;
+}
+
+a.logo{
+
+
+
+}
+#sidebar{
+
+}
+table tbody tr td{
+    font-family:'num';
+    font-size:8pt;
+}
+
+.re {
+    padding-top: 10px;
+    padding-right: 10px;
+    padding-bottom: 0px;
+    padding-left: 20px;
+}
+.bb{
+margin-top:20px;
+
+}
+#pc1{
+
+margin-top:20px;}
+.cc{
+margin-top:90px;
+margin-bottom:160px;
+}
+#b01 {
+    color: red;
+    font-family:'f4';
+
+}
+#sidebar {
+    overflow: hidden;
+    z-index: 3;
+}
+#sidebar .list-group {
+    min-width: 400px;
+    background-color: #003366;
+    min-height: 100vh;
+    margin-right: 6px;
+}
+#sidebar i {
+    margin-right: 6px;
+}
+
+#sidebar .list-group-item {
+    border-radius: 0;
+    background-color: #0066CC;
+    color: #ccc;
+    border-left: 0;
+    border-right: 0;
+    border-color: #CCE5FF;
+    white-space: nowrap;
+    font-family:'f6';
+    font-size:9pt;
+
+}
+
+/* highlight active menu */
+#sidebar .list-group-item:not(.collapsed) {
+    background-color: #004C99;
+}
+
+/* closed state */
+#sidebar .list-group .list-group-item[aria-expanded="false"]::after {
+  content: " ";
+  font-family: 'f6';
+  display: inline;
+  text-align: left;
+  padding-left: 5px;
+}
+
+/* open state */
+#sidebar .list-group .list-group-item[aria-expanded="true"] {
+  background-color: #660000;
+}
+#sidebar .list-group .list-group-item[aria-expanded="true"]::after {
+  content: "";
+  font-family: 'f6';
+  display: inline;
+  text-align: left;
+  padding-left: 5px;
+}
+
+/* level 1*/
+#sidebar .list-group .collapse .list-group-item,
+#sidebar .list-group .collapsing .list-group-item  {
+  padding-left: 20px;
+}
+
+/* level 2*/
+#sidebar .list-group .collapse > .collapse .list-group-item,
+#sidebar .list-group .collapse > .collapsing .list-group-item {
+  padding-left: 30px;
+}
+
+/* level 3*/
+#sidebar .list-group .collapse > .collapse > .collapse .list-group-item {
+  padding-left: 40px;
+}
+
+@media (max-width:768px) {
+    #sidebar {
+        min-width: 35px;
+        max-width: 40px;
+        overflow-y: auto;
+        overflow-x: visible;
+        transition: all 0.25s ease;
+        transform: translateX(-45px);
+        position: fixed;
+        z-index: 1; /* Stay on top */
+        top: 0; /* Stay at the top */
+    }
+    
+    #sidebar.show {
+        transform: translateX(0);
+    }
+
+    #sidebar::-webkit-scrollbar{ width: 0px; }
+    
+    #sidebar, #sidebar .list-group {
+        min-width: 35px;
+        overflow: visible;
+    }
+    /* overlay sub levels on small screens */
+    #sidebar .list-group .collapse.show, #sidebar .list-group .collapsing {
+        position: relative;
+        z-index: 1;
+        width: 190px;
+        top: 0;
+    }
+    #sidebar .list-group > .list-group-item {
+        text-align: left;
+        padding: .75rem .5rem;
+    }
+    /* hide caret icons of top level when collapsed */
+    #sidebar .list-group > .list-group-item[aria-expanded="true"]::after,
+    #sidebar .list-group > .list-group-item[aria-expanded="false"]::after {
+        display:none;
+    }
+}
+
+.collapse.show {
+  visibility: visible;
+}
+.collapsing {
+  visibility: visible;
+  height: 0;
+  -webkit-transition-property: height, visibility;
+  transition-property: height, visibility;
+  -webkit-transition-timing-function: ease-out;
+  transition-timing-function: ease-out;
+}
+.collapsing.width {
+  -webkit-transition-property: width, visibility;
+  transition-property: width, visibility;
+  width: 0;
+  height: 100%;
+  -webkit-transition-timing-function: ease-out;
+  transition-timing-function: ease-out;
+}
+.container-fluid{
+margin-top:80px;
+
+}
+</style>
+<html>
+<body>
+<div class="container-fluid ">
+    <div class="row d-flex d-md-block cc  justify-content-end ">
+
+        <div class="col-md-3 float-top float-right col-1 pl-0 pr-0 collapse width show float-right   justify-content-end affix " id="sidebar">
+                <div class="list-group border-0 card text-center text-md-left">
+
+
+<center><a  class="list-group-item d-inline-block btn-primary collapsed"  aria-expanded="false"><i class="fa fa-database"></i> <span id="h" class="d-none d-md-inline"><b id="b01">A S S E T S</b> </span></a></center>
+               
+<a href="#menu2" class="list-group-item d-inline-block collapsed" data-toggle="collapse" aria-expanded="false"><i class="fa fa-arrow-circle-o-down"></i> <span class="d-none d-md-inline">اجهزة الحاسب</span></a>
+                <div class="collapse" id="menu2" data-parent="#sidebar">
+           <a href="#pc1" class="list-group-item" data-parent="#menu9" data-toggle="collapse" data-target="#demo2" aria-expanded="false">  <i class="fa fa-university" >   جاردن سيتى</i></a>
+           <a href="#demo3" class="list-group-item" data-parent="#menu9"  data-toggle="collapse" data-target="#demo3" aria-expanded="false"> <i class="fa fa-university" >المهندسيين</i> </a>
+           <a href="#" class="list-group-item" data-parent="#menu9" data-toggle="collapse" data-target="#demo4" aria-expanded="false"> <i class="fa fa-university" >الفواله</i></a>
+          <a href="#" class="list-group-item" data-parent="#menu9" data-toggle="collapse" data-target="#demo5" aria-expanded="false"> <i class="fa fa-university" >سيتى بنك</i></a>
+          <a href="#" class="list-group-item" data-parent="#menu9"  data-toggle="collapse" data-target="#demo6" aria-expanded="false"> <i class="fa fa-university" >قصر النيل </i></a>
+          <a href="#" class="list-group-item" data-parent="#menu9" data-toggle="collapse" data-target="#demo7" aria-expanded="false"> <i class="fa fa-university" >التوفيقيه</i></a>
+                </div>
+
+
+<a href="#menu4" class="list-group-item d-inline-block collapsed" data-toggle="collapse" aria-expanded="false"><i class="fa fa-arrow-circle-o-down"></i> <span  class="d-none d-md-inline">الطــــابعـــات</span></a>
+                <div class="collapse" id="menu4" data-parent="#sidebar">
+           <a href="#print1" class="list-group-item" data-parent="#menu9" data-toggle="collapse" data-target="#demo22" aria-expanded="false">  <i class="fa fa-university" >   جاردن سيتى</i></a>
+           <a href="#" class="list-group-item" data-parent="#menu9" data-toggle="collapse" data-target="#demo32" aria-expanded="false"> <i class="fa fa-university" >المهندسيين</i> </a>
+           <a href="#" class="list-group-item" data-parent="#menu9" data-toggle="collapse" data-target="#demo42" aria-expanded="false"> <i class="fa fa-university" >الفواله</i></a>
+          <a href="#" class="list-group-item" data-parent="#menu9" data-toggle="collapse" data-target="#demo52" aria-expanded="false"> <i class="fa fa-university" >سيتى بنك</i></a>
+          <a href="#" class="list-group-item" data-parent="#menu9"  data-toggle="collapse" data-target="#demo62" aria-expanded="false"> <i class="fa fa-university" >قصر النيل </i></a>
+          <a href="#" class="list-group-item" data-parent="#menu9" data-toggle="collapse" data-target="#demo72" aria-expanded="false"> <i class="fa fa-university" >التوفيقيه</i></a>
+                </div>
+
+<a href="#menu5" class="list-group-item d-inline-block collapsed" data-toggle="collapse" aria-expanded="false"><i class="fa fa-arrow-circle-o-down"></i> <span  class="d-none d-md-inline">المــاسح الضــوئى</span></a>
+                <div class="collapse" id="menu5" data-parent="#sidebar">
+        <a href="#scan1" class="list-group-item" data-parent="#menu9"data-toggle="collapse" data-target="#demo23" aria-expanded="false">  <i class="fa fa-university" >   جاردن سيتى</i></a>
+           <a href="#" class="list-group-item" data-parent="#menu9" data-toggle="collapse" data-target="#demo33" aria-expanded="false"> <i class="fa fa-university" >المهندسيين</i> </a>
+           <a href="#" class="list-group-item" data-parent="#menu9"data-toggle="collapse" data-target="#demo43" aria-expanded="false"> <i class="fa fa-university" >الفواله</i></a>
+          <a href="#" class="list-group-item" data-parent="#menu9" data-toggle="collapse" data-target="#demo53" aria-expanded="false"> <i class="fa fa-university" >سيتى بنك</i></a>
+          <a href="#" class="list-group-item" data-parent="#menu9" data-toggle="collapse" data-target="#demo63" aria-expanded="false"> <i class="fa fa-university" >قصر النيل </i></a>
+          <a href="#" class="list-group-item" data-parent="#menu9" data-toggle="collapse" data-target="#demo73" aria-expanded="false"> <i class="fa fa-university" >التوفيقيه</i></a>
+                </div>
+
+
+<a href="#menu6" class="list-group-item d-inline-block collapsed" data-toggle="collapse" aria-expanded="false"><i class="fa fa-arrow-circle-o-down "></i> <span class="d-none d-md-inline">ماكينات التصوير</span></a>
+                <div class="collapse" id="menu6" data-parent="#sidebar">
+        <a href="#" class="list-group-item" data-parent="#menu9"data-toggle="collapse" data-target="#demo24" aria-expanded="false">  <i class="fa fa-university" >   جاردن سيتى</i></a>
+           <a href="#" class="list-group-item" data-parent="#menu9" data-toggle="collapse" data-target="#demo34" aria-expanded="false" > <i class="fa fa-university" >المهندسيين</i> </a>
+           <a href="#" class="list-group-item" data-parent="#menu9" data-toggle="collapse" data-target="#demo44" aria-expanded="false"> <i class="fa fa-university" >الفواله</i></a>
+          <a href="#" class="list-group-item" data-parent="#menu9" data-toggle="collapse" data-target="#demo45" aria-expanded="false"> <i class="fa fa-university" >سيتى بنك</i></a>
+          <a href="#" class="list-group-item" data-parent="#menu9" data-toggle="collapse" data-target="#demo46" aria-expanded="false"> <i class="fa fa-university" >قصر النيل </i></a>
+          <a href="#" class="list-group-item" data-parent="#menu9" data-toggle="collapse" data-target="#demo47" aria-expanded="false"> <i class="fa fa-university" >التوفيقيه</i></a>
+                </div>
+
+
+
+<center><a  class="list-group-item d-inline-block collapsed" " aria-expanded="false"><i class="fa fa-database"></i> <span id="h" class="d-none d-md-inline"><b id="b01">INFRASTRUCTURE</b> </span></a></center>
+            
+
+
+<a href="#menu8" class="list-group-item d-inline-block collapsed" data-toggle="collapse" aria-expanded="false"><i class="fa fa-arrow-circle-o-down"></i> <span class="d-none d-md-inline">SERVERS</span></a>
+                <div class="collapse" id="menu8" data-parent="#sidebar">
+                   <a href="#" class="list-group-item" data-parent="#menu8">  <i class="fa fa-university" >   GardenCity</i></a>
+                    <a href="#" class="list-group-item" data-parent="#menu8" > <i class="fa fa-university" >Mohandseen</i> </a>
+                    <a href="#" class="list-group-item" data-parent="#menu8"> <i class="fa fa-university" >Fawalla</i></a>
+                    <a href="#" class="list-group-item" data-parent="#menu8"> <i class="fa fa-university" >CityBank</i></a>
+                    <a href="#" class="list-group-item" data-parent="#menu8" > <i class="fa fa-university" >KaserElNile </i></a>
+                    <a href="#" class="list-group-item" data-parent="#menu8"> <i class="fa fa-university" >Tawfikia</i></a>
+                </div>
+
+
+<a href="#menu9" class="list-group-item d-inline-block collapsed" data-toggle="collapse" aria-expanded="false"><i class="fa fa-arrow-circle-o-down"></i> <span class="d-none d-md-inline">SWITCHES </span></a>
+                <div class="collapse" id="menu9" data-parent="#sidebar">
+
+                   <a href="#" class="list-group-item" data-parent="#menu9">  <i class="fa fa-university" >   GardenCity</i></a>
+                    <a href="#" class="list-group-item" data-parent="#menu9" > <i class="fa fa-university" >Mohandseen</i> </a>
+                    <a href="#" class="list-group-item" data-parent="#menu9"> <i class="fa fa-university" >Fawalla</i></a>
+                    <a href="#" class="list-group-item" data-parent="#menu9"> <i class="fa fa-university" >CityBank</i></a>
+                    <a href="#" class="list-group-item" data-parent="#menu9" > <i class="fa fa-university" >KaserElNile </i></a>
+                    <a href="#" class="list-group-item" data-parent="#menu9"> <i class="fa fa-university" >Tawfikia</i></a>
+                </div>
+
+
+
+
+<a href="#menu10" class="list-group-item d-inline-block collapsed" data-toggle="collapse" aria-expanded="false"><i class="fa fa-arrow-circle-o-down"></i> <span class="d-none d-md-inline">ACCESS POINTS</span></a>
+                <div class="collapse" id="menu10" data-parent="#sidebar">
+                     <a href="#" class="list-group-item" data-parent="#menu10"><i class="fa fa-university" >GardenCity</i></a>
+                    <a href="#" class="list-group-item" data-parent="#menu10" ><i class="fa fa-university" >Mohandseen </i></a>
+                    <a href="#" class="list-group-item" data-parent="#menu10"><i class="fa fa-university" >Fawalla</i></a>
+                    <a href="#" class="list-group-item" data-parent="#menu10"><i class="fa fa-university" >CityBank</i></a>
+                    <a href="#" class="list-group-item" data-parent="#menu10" ><i class="fa fa-university" >KaserElNile</i> </a>
+                    <a href="#" class="list-group-item" data-parent="#menu10"><i class="fa fa-university" >Tawfikia</i></a>
+
+
+
+
+                </div>
+
+<a href="#menu11" class="list-group-item d-inline-block collapsed" data-toggle="collapse" aria-expanded="false"><i class="fa fa-arrow-circle-o-down"></i> <span class="d-none d-md-inline">WIRELESS STICKS </span></a>
+                <div class="collapse" id="menu11" data-parent="#sidebar">
+           <a href="#" class="list-group-item" data-parent="#menu11">  <i class="fa fa-university" >   GardenCity</i></a>
+            <a href="#" class="list-group-item" data-parent="#menu11" > <i class="fa fa-university" >Mohandseen</i> </a>
+            <a href="#" class="list-group-item" data-parent="#menu11"> <i class="fa fa-university" >Fawalla</i></a>
+            <a href="#" class="list-group-item" data-parent="#menu11"> <i class="fa fa-university" >CityBank</i></a>
+            <a href="#" class="list-group-item" data-parent="#menu11" > <i class="fa fa-university" >KaserElNile </i></a>
+            <a href="#" class="list-group-item" data-parent="#menu11"> <i class="fa fa-university" >Tawfikia</i></a>
+                </div>
+
+
+<a href="#menu12" class="list-group-item d-inline-block collapsed" data-toggle="collapse" aria-expanded="false"><i class="fa fa-arrow-circle-o-down"></i> <span class="d-none d-md-inline">REPEATERS </span></a>
+                <div class="collapse" id="menu12" data-parent="#sidebar">
+                   <a href="#" class="list-group-item" data-parent="#menu12">  <i class="fa fa-university" >   GardenCity</i></a>
+                    <a href="#" class="list-group-item" data-parent="#menu12" > <i class="fa fa-university" >Mohandseen</i> </a>
+                    <a href="#" class="list-group-item" data-parent="#menu12"> <i class="fa fa-university" >Fawalla</i></a>
+                    <a href="#" class="list-group-item" data-parent="#menu12"> <i class="fa fa-university" >CityBank</i></a>
+                    <a href="#" class="list-group-item" data-parent="#menu12" > <i class="fa fa-university" >KaserElNile </i></a>
+                    <a href="#" class="list-group-item" data-parent="#menu12"> <i class="fa fa-university" >Tawfikia</i></a>
+                </div>
+
+
+
+
+
+            </div>
+
+        </div>
+
+
+
+       <main class="col-md-9 float-left col bb px-5 pl-md-2 pt-2 main">
+            <a href="#" data-target="#sidebar" data-toggle="collapse"><i class="fa fa-navicon fa-2x py-2 p-1"></i></a>
+            <div class="page-header">
+            </div>
+            <hr>
+            <div class="row">
+                <div class="col-lg-6">
+                                  <div id="demo" class="width collapse show" aria-expanded="true">
+                        <div class="list-group" style="width:400px">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+
+                    </div>
+
+
+
+
+
+    </div>
+</div>
+
+<br/>
+  <!--------------------------computers------------------------------------------->
+<div class="container collapse in" id="demo2">
+
+
+<nav class="navbar navbar-light col-md-6"  style="background-color: #e3f2fd;">
+   <h3 class="lead"> جاردن سيتى |احصائيات اجهزة الحاسب </h3>
+</nav>
+
+
+
+
+
+   <!--------------------------------------------------------------------->     
+
+
+
+
+
+
+
+<div class="row"  >
+  <div class="col-md-4 re">
+    <div class="list-group" id="list-tab" role="tablist">
+      <a class="list-group-item list-group-item-action active" id="list-home-list" data-toggle="list" href="#list-home" role="tab" aria-controls="home">بيان بالاجهزه ذات الامكانيات المنخفضه</a>
+<table class="table table-striped">
+
+  <tbody>
+
+      <tr>
+      <th scope="row"></th>
+      <td>اجمالى</td>
+      <td>{{ gpclow }}</td>
+    </tr>
+  </tbody>
+</table>
+
+    </div>
+  </div>
+
+      <div class="col-md-4 re">
+    <div class="list-group" id="list-tab" role="tablist">
+      <a class="list-group-item list-group-item-action active" id="list-home-list" data-toggle="list" href="#list-home" role="tab" aria-controls="home">بيان بالاجهزه ذات الامكانيات المتوسطه</a>
+<table class="table table-striped">
+
+  <tbody>
+      <tr>
+      <th scope="row"></th>
+      <td>اجمالى</td>
+      <td>{{ gpcmid }}</td>
+    </tr>
+  </tbody>
+</table>
+
+
+    </div>
+  </div>
+      <hr class="my-4">
+
+</div>
+
+    <div class="row"  >
+  <div class="col-md-4 re">
+    <div class="list-group" id="list-tab" role="tablist">
+      <a class="list-group-item list-group-item-action active" id="list-home-list" data-toggle="list" href="#list-home" role="tab" aria-controls="home">بيان بالاجهزه ذات الامكانيات المرتفعه</a>
+<table class="table table-striped">
+
+  <tbody>
+
+      <tr>
+      <th scope="row"></th>
+      <td>اجمالى</td>
+      <td>{{ gpchigh }}</td>
+    </tr>
+  </tbody>
+</table>
+
+    </div>
+  </div>
+
+      <div class="col-md-4 re">
+    <div class="list-group" id="list-tab" role="tablist">
+      <a class="list-group-item list-group-item-action active" id="list-home-list" data-toggle="list" href="#list-home" role="tab" aria-controls="home">بيان  اجمالى بالاجهزه </a>
+<table class="table table-striped">
+
+  <tbody>
+    </tr>
+      <tr>
+      <th scope="row"></th>
+      <td>اجمالى</td>
+      <td>{{ allpcg }}</td>
+    </tr>
+  </tbody>
+</table>
+
+
+    </div>
+  </div>
+</div>
+  <hr class="my-4">
+
+</div>
+
+
+
+
+
+
+
+<div class="container collapse" id="demo3" aria-expanded="false">
+
+
+
+<nav class="navbar navbar-light col-md-6"  style="background-color: #e3f2fd;">
+   <h3 class="lead">المهندسيين | احصائيات اجهزة الحاسب </h3>
+</nav>
+
+
+
+
+
+   <!--------------------------------------------------------------------->
+<div class="row"  >
+  <div class="col-md-4 re">
+    <div class="list-group" id="list-tab" role="tablist">
+      <a class="list-group-item list-group-item-action active" id="list-home-list" data-toggle="list" href="#list-home" role="tab" aria-controls="home">بيان بالاجهزه ذات الامكانيات المنخفضه</a>
+<table class="table table-striped">
+
+  <tbody>
+      <tr>
+      <th scope="row"></th>
+      <td>اجمالى</td>
+      <td>{{ mpclow  }}</td>
+    </tr>
+  </tbody>
+</table>
+
+    </div>
+  </div>
+
+      <div class="col-md-4 re">
+    <div class="list-group" id="list-tab" role="tablist">
+      <a class="list-group-item list-group-item-action active" id="list-home-list" data-toggle="list" href="#list-home" role="tab" aria-controls="home">بيان بالاجهزه ذات الامكانيات المتوسطه</a>
+<table class="table table-striped">
+
+  <tbody>
+
+      <tr>
+      <th scope="row"></th>
+      <td>اجمالى</td>
+      <td>{{ mpchigh }}</td>
+    </tr>
+  </tbody>
+</table>
+
+
+    </div>
+  </div>
+      <hr class="my-4">
+
+</div>
+
+    <div class="row"  >
+  <div class="col-md-4 re">
+    <div class="list-group" id="list-tab" role="tablist">
+      <a class="list-group-item list-group-item-action active" id="list-home-list" data-toggle="list" href="#list-home" role="tab" aria-controls="home">بيان بالاجهزه ذات الامكانيات المرتفعه</a>
+<table class="table table-striped">
+
+  <tbody>
+
+      <tr>
+      <th scope="row"></th>
+      <td>اجمالى</td>
+      <td>{{ mpchigh }}</td>
+    </tr>
+  </tbody>
+</table>
+
+    </div>
+  </div>
+
+      <div class="col-md-4 re">
+    <div class="list-group" id="list-tab" role="tablist">
+      <a class="list-group-item list-group-item-action active" id="list-home-list" data-toggle="list" href="#list-home" role="tab" aria-controls="home">بيان  اجمالى بالاجهزه</a>
+<table class="table table-striped">
+
+  <tbody>
+
+      <tr class="btn-secondary">
+      <th scope="row"></th>
+      <td>اجمالى</td>
+      <td>{{ allpcm }}</td>
+    </tr>
+  </tbody>
+</table>
+
+
+    </div>
+  </div>
+</div>
+  <hr class="my-4">
+</div>
+<!--******************************************************************************************************************-->
+
+<div class="container collapse" id="demo4" aria-expanded="false">
+
+
+
+<nav class="navbar navbar-light col-md-6"  style="background-color: #e3f2fd;">
+   <h3 class="lead">الفواله | احصائيات اجهزة الحاسب </h3>
+</nav>
+
+
+
+
+
+   <!--------------------------------------------------------------------->
+<div class="row"  >
+  <div class="col-md-4 re">
+    <div class="list-group" id="list-tab" role="tablist">
+      <a class="list-group-item list-group-item-action active" id="list-home-list" data-toggle="list" href="#list-home" role="tab" aria-controls="home">بيان بالاجهزه ذات الامكانيات المنخفضه</a>
+<table class="table table-striped">
+
+  <tbody>
+
+      <tr>
+      <th scope="row"></th>
+      <td>اجمالى</td>
+      <td>{{ fpclow}}</td>
+    </tr>
+  </tbody>
+</table>
+
+    </div>
+  </div>
+
+      <div class="col-md-4 re">
+    <div class="list-group" id="list-tab" role="tablist">
+      <a class="list-group-item list-group-item-action active" id="list-home-list" data-toggle="list" href="#list-home" role="tab" aria-controls="home">بيان بالاجهزه ذات الامكانيات المتوسطه</a>
+<table class="table table-striped">
+
+  <tbody>
+       <th scope="row"></th>
+      <td>اجمالى</td>
+      <td>{{ fpcmid }}</td>
+    </tr>
+  </tbody>
+</table>
+
+
+    </div>
+  </div>
+      <hr class="my-4">
+
+</div>
+
+    <div class="row"  >
+  <div class="col-md-4 re">
+    <div class="list-group" id="list-tab" role="tablist">
+      <a class="list-group-item list-group-item-action active" id="list-home-list" data-toggle="list" href="#list-home" role="tab" aria-controls="home">بيان بالاجهزه ذات الامكانيات المرتفعه</a>
+<table class="table table-striped">
+
+  <tbody>
+
+      <tr>
+      <th scope="row"></th>
+      <td>اجمالى</td>
+      <td>{{ fpchigh}}</td>
+    </tr>
+  </tbody>
+</table>
+
+    </div>
+  </div>
+
+      <div class="col-md-4 re">
+    <div class="list-group" id="list-tab" role="tablist">
+      <a class="list-group-item list-group-item-action active" id="list-home-list" data-toggle="list" href="#list-home" role="tab" aria-controls="home">بيان  اجمالى بالاجهزه</a>
+<table class="table table-striped">
+
+  <tbody>
+
+   <tr class="btn-secondary">
+      <th scope="row"></th>
+      <td>اجمالى</td>
+      <td>{{ allpcf }}</td>
+    </tr>
+  </tbody>
+</table>
+
+
+    </div>
+  </div>
+</div>
+  <hr class="my-4">
+</div>
+<!--******************************************************************************************************************-->
+<!--******************************************************************************************************************-->
+
+<div class="container collapse" id="demo5" aria-expanded="false">
+
+
+
+<nav class="navbar navbar-light col-md-6"  style="background-color: #e3f2fd;">
+   <h3 class="lead">سيتى بنك | احصائيات اجهزة الحاسب </h3>
+</nav>
+
+
+
+
+
+   <!--------------------------------------------------------------------->
+<div class="row"  >
+  <div class="col-md-4 re">
+    <div class="list-group" id="list-tab" role="tablist">
+      <a class="list-group-item list-group-item-action active" id="list-home-list" data-toggle="list" href="#list-home" role="tab" aria-controls="home">بيان بالاجهزه ذات الامكانيات المنخفضه</a>
+<table class="table table-striped">
+
+  <tbody>
+
+      <tr>
+      <th scope="row"></th>
+      <td>اجمالى</td>
+      <td>{{ cpclow}}</td>
+    </tr>
+  </tbody>
+</table>
+
+    </div>
+  </div>
+
+      <div class="col-md-4 re">
+    <div class="list-group" id="list-tab" role="tablist">
+      <a class="list-group-item list-group-item-action active" id="list-home-list" data-toggle="list" href="#list-home" role="tab" aria-controls="home">بيان بالاجهزه ذات الامكانيات المتوسطه</a>
+<table class="table table-striped">
+
+  <tbody>
+       <th scope="row"></th>
+      <td>اجمالى</td>
+      <td>{{ cpcmid }}</td>
+    </tr>
+  </tbody>
+</table>
+
+
+    </div>
+  </div>
+      <hr class="my-4">
+
+</div>
+
+    <div class="row"  >
+  <div class="col-md-4 re">
+    <div class="list-group" id="list-tab" role="tablist">
+      <a class="list-group-item list-group-item-action active" id="list-home-list" data-toggle="list" href="#list-home" role="tab" aria-controls="home">بيان بالاجهزه ذات الامكانيات المرتفعه</a>
+<table class="table table-striped">
+
+  <tbody>
+
+      <tr>
+      <th scope="row"></th>
+      <td>اجمالى</td>
+      <td>{{ cpchigh }}</td>
+    </tr>
+  </tbody>
+</table>
+
+    </div>
+  </div>
+
+      <div class="col-md-4 re">
+    <div class="list-group" id="list-tab" role="tablist">
+      <a class="list-group-item list-group-item-action active" id="list-home-list" data-toggle="list" href="#list-home" role="tab" aria-controls="home">بيان  اجمالى بالاجهزه</a>
+<table class="table table-striped">
+
+  <tbody>
+
+   <tr class="btn-secondary">
+      <th scope="row"></th>
+      <td>اجمالى</td>
+      <td> {{ allpcc }}</td>
+    </tr>
+  </tbody>
+</table>
+
+
+    </div>
+  </div>
+</div>
+  <hr class="my-4">
+</div>
+<!--******************************************************************************************************************-->
+
+<div class="container collapse" id="demo6" aria-expanded="false">
+
+
+
+<nav class="navbar navbar-light col-md-6"  style="background-color: #e3f2fd;">
+   <h3 class="lead">فصر النيل | احصائيات اجهزة الحاسب </h3>
+</nav>
+
+
+
+
+
+   <!--------------------------------------------------------------------->
+<div class="row"  >
+  <div class="col-md-4 re">
+    <div class="list-group" id="list-tab" role="tablist">
+      <a class="list-group-item list-group-item-action active" id="list-home-list" data-toggle="list" href="#list-home" role="tab" aria-controls="home">بيان بالاجهزه ذات الامكانيات المنخفضه</a>
+<table class="table table-striped">
+
+  <tbody>
+
+      <tr>
+      <th scope="row"></th>
+      <td>اجمالى</td>
+      <td>{{ kpclow }}</td>
+    </tr>
+  </tbody>
+</table>
+
+    </div>
+  </div>
+
+      <div class="col-md-4 re">
+    <div class="list-group" id="list-tab" role="tablist">
+      <a class="list-group-item list-group-item-action active" id="list-home-list" data-toggle="list" href="#list-home" role="tab" aria-controls="home">بيان بالاجهزه ذات الامكانيات المتوسطه  </a>
+<table class="table table-striped">
+
+  <tbody>
+       <th scope="row"></th>
+      <td>اجمالى</td>
+      <td>{{ kpcmid }}</td>
+    </tr>
+  </tbody>
+</table>
+
+
+    </div>
+  </div>
+      <hr class="my-4">
+
+</div>
+
+    <div class="row"  >
+  <div class="col-md-4 re">
+    <div class="list-group" id="list-tab" role="tablist">
+      <a class="list-group-item list-group-item-action active" id="list-home-list" data-toggle="list" href="#list-home" role="tab" aria-controls="home">بيان بالاجهزه ذات الامكانيات المرتفعه</a>
+<table class="table table-striped">
+
+  <tbody>
+
+      <tr>
+      <th scope="row"></th>
+      <td>اجمالى</td>
+      <td>{{ kpchigh }}</td>
+    </tr>
+  </tbody>
+</table>
+
+    </div>
+  </div>
+
+      <div class="col-md-4 re">
+    <div class="list-group" id="list-tab" role="tablist">
+      <a class="list-group-item list-group-item-action active" id="list-home-list" data-toggle="list" href="#list-home" role="tab" aria-controls="home">بيان  اجمالى بالاجهزه</a>
+<table class="table table-striped">
+
+  <tbody>
+
+   <tr class="btn-secondary">
+      <th scope="row"></th>
+      <td>اجمالى</td>
+      <td>{{ allpck }}</td>
+    </tr>
+  </tbody>
+</table>
+
+
+    </div>
+  </div>
+</div>
+  <hr class="my-4">
+</div>
+<!--******************************************************************************************************************-->
+
+<div class="container collapse" id="demo7" aria-expanded="false">
+
+
+
+<nav class="navbar navbar-light col-md-6"  style="background-color: #e3f2fd;">
+   <h3 class="lead">التوفيقيه | احصائيات اجهزة الحاسب </h3>
+</nav>
+
+
+
+
+
+   <!--------------------------------------------------------------------->
+<div class="row"  >
+  <div class="col-md-4 re">
+    <div class="list-group" id="list-tab" role="tablist">
+      <a class="list-group-item list-group-item-action active" id="list-home-list" data-toggle="list" href="#list-home" role="tab" aria-controls="home">بيان بالاجهزه ذات الامكانيات المنخفضه</a>
+<table class="table table-striped">
+
+  <tbody>
+
+      <tr>
+      <th scope="row"></th>
+      <td>اجمالى</td>
+      <td>{{ tpclow }}</td>
+    </tr>
+  </tbody>
+</table>
+
+    </div>
+  </div>
+
+      <div class="col-md-4 re">
+    <div class="list-group" id="list-tab" role="tablist">
+      <a class="list-group-item list-group-item-action active" id="list-home-list" data-toggle="list" href="#list-home" role="tab" aria-controls="home">بيان بالاجهزه ذات الامكانيات المتوسطه</a>
+<table class="table table-striped">
+
+  <tbody>
+       <th scope="row"></th>
+      <td>اجمالى</td>
+      <td>{{ tpcmid }}</td>
+    </tr>
+  </tbody>
+</table>
+
+
+    </div>
+  </div>
+      <hr class="my-4">
+
+</div>
+
+    <div class="row"  >
+  <div class="col-md-4 re">
+    <div class="list-group" id="list-tab" role="tablist">
+      <a class="list-group-item list-group-item-action active" id="list-home-list" data-toggle="list" href="#list-home" role="tab" aria-controls="home">بيان بالاجهزه ذات الامكانيات المرتفعه</a>
+<table class="table table-striped">
+
+  <tbody>
+
+      <tr>
+      <th scope="row"></th>
+      <td>اجمالى</td>
+      <td>{{ tpchigh }}</td>
+    </tr>
+  </tbody>
+</table>
+
+    </div>
+  </div>
+
+      <div class="col-md-4 re">
+    <div class="list-group" id="list-tab" role="tablist">
+      <a class="list-group-item list-group-item-action active" id="list-home-list" data-toggle="list" href="#list-home" role="tab" aria-controls="home">بيان  اجمالى بالاجهزه</a>
+<table class="table table-striped">
+
+  <tbody>
+
+   <tr class="btn-secondary">
+      <th scope="row"></th>
+      <td>اجمالى</td>
+      <td>{{ allpct }}</td>
+    </tr>
+  </tbody>
+</table>
+
+
+    </div>
+  </div>
+</div>
+  <hr class="my-4">
+</div>
+<!--******************************************************************************************************************-->
+  <!--------------------------printers------------------------------------------->
+<div class="container collapse in" id="demo22">
+
+
+<nav class="navbar navbar-light col-md-6"  style="background-color: #e3f2fd;">
+   <h3 class="lead"> جاردن سيتى |احصائيات الطابعات </h3>
+</nav>
+
+
+
+
+
+   <!--------------------------------------------------------------------->
+
+
+
+
+
+
+
+<div class="row"  >
+  <div class="col-md-4 re">
+    <div class="list-group" id="list-tab" role="tablist">
+      <a class="list-group-item list-group-item-action active" id="list-home-list" data-toggle="list" href="#list-home" role="tab" aria-controls="home">بيان بالطابعات الليزر</a>
+<table class="table table-striped">
+
+  <tbody>
+
+      <tr>
+      <th scope="row"></th>
+      <td>اجمالى</td>
+      <td>{{ gprinterlaser }}</td>
+    </tr>
+  </tbody>
+</table>
+
+    </div>
+  </div>
+
+      <div class="col-md-4 re">
+    <div class="list-group" id="list-tab" role="tablist">
+      <a class="list-group-item list-group-item-action active" id="list-home-list" data-toggle="list" href="#list-home" role="tab" aria-controls="home">بيان بالطابعات الالوان</a>
+<table class="table table-striped">
+
+  <tbody>
+      <tr>
+      <th scope="row"></th>
+      <td>اجمالى</td>
+      <td>{{ gprinterink }}</td>
+    </tr>
+  </tbody>
+</table>
+
+
+    </div>
+  </div>
+      <hr class="my-4">
+
+</div>
+
+    <div class="row"  >
+  <div class="col-md-4 re">
+    <div class="list-group" id="list-tab" role="tablist">
+      <a class="list-group-item list-group-item-action active" id="list-home-list" data-toggle="list" href="#list-home" role="tab" aria-controls="home">بيان بالطابعات ذات المهام المتعدده</a>
+<table class="table table-striped">
+
+  <tbody>
+
+      <tr>
+      <th scope="row"></th>
+      <td>اجمالى</td>
+      <td>{{ gprintermfp }}</td>
+    </tr>
+  </tbody>
+</table>
+
+    </div>
+  </div>
+
+      <div class="col-md-4 re">
+    <div class="list-group" id="list-tab" role="tablist">
+      <a class="list-group-item list-group-item-action active" id="list-home-list" data-toggle="list" href="#list-home" role="tab" aria-controls="home">بيان  اجمالى الطابعات </a>
+<table class="table table-striped">
+
+  <tbody>
+    </tr>
+      <tr>
+      <th scope="row"></th>
+      <td>اجمالى</td>
+      <td>{{ allprinterg }}</td>
+    </tr>
+  </tbody>
+</table>
+
+
+    </div>
+  </div>
+</div>
+  <hr class="my-4">
+
+</div>
+
+
+
+
+
+
+
+<div class="container collapse" id="demo32" aria-expanded="false">
+
+
+
+<nav class="navbar navbar-light col-md-6"  style="background-color: #e3f2fd;">
+   <h3 class="lead">المهندسيين | احصائيات الطابعات </h3>
+</nav>
+
+
+
+
+
+   <!--------------------------------------------------------------------->
+<div class="row"  >
+  <div class="col-md-4 re">
+    <div class="list-group" id="list-tab" role="tablist">
+      <a class="list-group-item list-group-item-action active" id="list-home-list" data-toggle="list" href="#list-home" role="tab" aria-controls="home">بيان بالطابعات الليزر</a>
+<table class="table table-striped">
+
+  <tbody>
+      <tr>
+      <th scope="row"></th>
+      <td>اجمالى</td>
+      <td>{{ mprinterlaser }}</td>
+    </tr>
+  </tbody>
+</table>
+
+    </div>
+  </div>
+
+      <div class="col-md-4 re">
+    <div class="list-group" id="list-tab" role="tablist">
+      <a class="list-group-item list-group-item-action active" id="list-home-list" data-toggle="list" href="#list-home" role="tab" aria-controls="home">بيان بالطابعات الالوان</a>
+<table class="table table-striped">
+
+  <tbody>
+
+      <tr>
+      <th scope="row"></th>
+      <td>اجمالى</td>
+      <td>{{ mprinterink }} </td>
+    </tr>
+  </tbody>
+</table>
+
+
+    </div>
+  </div>
+      <hr class="my-4">
+
+</div>
+
+    <div class="row"  >
+  <div class="col-md-4 re">
+    <div class="list-group" id="list-tab" role="tablist">
+      <a class="list-group-item list-group-item-action active" id="list-home-list" data-toggle="list" href="#list-home" role="tab" aria-controls="home">بيان بالطابعات ذات المهام المتعدده</a>
+<table class="table table-striped">
+
+  <tbody>
+
+      <tr>
+      <th scope="row"></th>
+      <td>اجمالى</td>
+      <td>{{ mprintermfp }}</td>
+    </tr>
+  </tbody>
+</table>
+
+    </div>
+  </div>
+
+      <div class="col-md-4 re">
+    <div class="list-group" id="list-tab" role="tablist">
+      <a class="list-group-item list-group-item-action active" id="list-home-list" data-toggle="list" href="#list-home" role="tab" aria-controls="home">بيان  اجمالى الطابعات</a>
+<table class="table table-striped">
+
+  <tbody>
+
+      <tr class="btn-secondary">
+      <th scope="row"></th>
+      <td>اجمالى</td>
+      <td>{{ allprinterm }}</td>
+    </tr>
+  </tbody>
+</table>
+
+
+    </div>
+  </div>
+</div>
+  <hr class="my-4">
+</div>
+<!--******************************************************************************************************************-->
+
+<div class="container collapse" id="demo42" aria-expanded="false">
+
+
+
+<nav class="navbar navbar-light col-md-6"  style="background-color: #e3f2fd;">
+   <h3 class="lead">الفواله | احصائيات الطابعات </h3>
+</nav>
+
+
+
+
+
+   <!--------------------------------------------------------------------->
+<div class="row"  >
+  <div class="col-md-4 re">
+    <div class="list-group" id="list-tab" role="tablist">
+      <a class="list-group-item list-group-item-action active" id="list-home-list" data-toggle="list" href="#list-home" role="tab" aria-controls="home">بيان بالطابعات الليزر</a>
+<table class="table table-striped">
+
+  <tbody>
+
+      <tr>
+      <th scope="row"></th>
+      <td>اجمالى</td>
+      <td>{{ fprinterlaser }}</td>
+    </tr>
+  </tbody>
+</table>
+
+    </div>
+  </div>
+
+      <div class="col-md-4 re">
+    <div class="list-group" id="list-tab" role="tablist">
+      <a class="list-group-item list-group-item-action active" id="list-home-list" data-toggle="list" href="#list-home" role="tab" aria-controls="home">بيان بالطابعات الالوان</a>
+<table class="table table-striped">
+
+  <tbody>
+       <th scope="row"></th>
+      <td>اجمالى</td>
+      <td>{{ fprinterink }}</td>
+    </tr>
+  </tbody>
+</table>
+
+
+    </div>
+  </div>
+      <hr class="my-4">
+
+</div>
+
+    <div class="row"  >
+  <div class="col-md-4 re">
+    <div class="list-group" id="list-tab" role="tablist">
+      <a class="list-group-item list-group-item-action active" id="list-home-list" data-toggle="list" href="#list-home" role="tab" aria-controls="home">بيان بالطابعات ذات المهام المتعدده</a>
+<table class="table table-striped">
+
+  <tbody>
+
+      <tr>
+      <th scope="row"></th>
+      <td>اجمالى</td>
+      <td>{{ fprintermfp }}</td>
+    </tr>
+  </tbody>
+</table>
+
+    </div>
+  </div>
+
+      <div class="col-md-4 re">
+    <div class="list-group" id="list-tab" role="tablist">
+      <a class="list-group-item list-group-item-action active" id="list-home-list" data-toggle="list" href="#list-home" role="tab" aria-controls="home">بيان  اجمالى الطابعات</a>
+<table class="table table-striped">
+
+  <tbody>
+
+   <tr class="btn-secondary">
+      <th scope="row"></th>
+      <td>اجمالى</td>
+      <td>{{ allprinterf }}</td>
+    </tr>
+  </tbody>
+</table>
+
+
+    </div>
+  </div>
+</div>
+  <hr class="my-4">
+</div>
+<!--******************************************************************************************************************-->
+<!--******************************************************************************************************************-->
+
+<div class="container collapse" id="demo52" aria-expanded="false">
+
+
+
+<nav class="navbar navbar-light col-md-6"  style="background-color: #e3f2fd;">
+   <h3 class="lead">سيتى بنك | احصائيات الطابعات </h3>
+</nav>
+
+
+
+
+
+   <!--------------------------------------------------------------------->
+<div class="row"  >
+  <div class="col-md-4 re">
+    <div class="list-group" id="list-tab" role="tablist">
+      <a class="list-group-item list-group-item-action active" id="list-home-list" data-toggle="list" href="#list-home" role="tab" aria-controls="home">بيان بالطابعات الليزر</a>
+<table class="table table-striped">
+
+  <tbody>
+
+      <tr>
+      <th scope="row"></th>
+      <td>اجمالى</td>
+      <td>{{ cprinterlaser }}</td>
+    </tr>
+  </tbody>
+</table>
+
+    </div>
+  </div>
+
+      <div class="col-md-4 re">
+    <div class="list-group" id="list-tab" role="tablist">
+      <a class="list-group-item list-group-item-action active" id="list-home-list" data-toggle="list" href="#list-home" role="tab" aria-controls="home">بيان بالطابعات الالوان</a>
+<table class="table table-striped">
+
+  <tbody>
+       <th scope="row"></th>
+      <td>اجمالى</td>
+      <td>{{ cprinterink }}</td>
+    </tr>
+  </tbody>
+</table>
+
+
+    </div>
+  </div>
+      <hr class="my-4">
+
+</div>
+
+    <div class="row"  >
+  <div class="col-md-4 re">
+    <div class="list-group" id="list-tab" role="tablist">
+      <a class="list-group-item list-group-item-action active" id="list-home-list" data-toggle="list" href="#list-home" role="tab" aria-controls="home">بيان بالطابعات ذات المهام المتعدده</a>
+<table class="table table-striped">
+
+  <tbody>
+
+      <tr>
+      <th scope="row"></th>
+      <td>اجمالى</td>
+      <td>{{ cprintermfp }}</td>
+    </tr>
+  </tbody>
+</table>
+
+    </div>
+  </div>
+
+      <div class="col-md-4 re">
+    <div class="list-group" id="list-tab" role="tablist">
+      <a class="list-group-item list-group-item-action active" id="list-home-list" data-toggle="list" href="#list-home" role="tab" aria-controls="home">بيان  اجمالى الطابعات</a>
+<table class="table table-striped">
+
+  <tbody>
+
+   <tr class="btn-secondary">
+      <th scope="row"></th>
+      <td>اجمالى</td>
+      <td>{{ allprinterc }}</td>
+    </tr>
+  </tbody>
+</table>
+
+
+    </div>
+  </div>
+</div>
+  <hr class="my-4">
+</div>
+<!--******************************************************************************************************************-->
+
+<div class="container collapse" id="demo62" aria-expanded="false">
+
+
+
+<nav class="navbar navbar-light col-md-6"  style="background-color: #e3f2fd;">
+   <h3 class="lead">فصر النيل | احصائيات الطابعات </h3>
+</nav>
+
+
+
+
+
+   <!--------------------------------------------------------------------->
+<div class="row"  >
+  <div class="col-md-4 re">
+    <div class="list-group" id="list-tab" role="tablist">
+      <a class="list-group-item list-group-item-action active" id="list-home-list" data-toggle="list" href="#list-home" role="tab" aria-controls="home">بيان بالطابعات الليزر</a>
+<table class="table table-striped">
+
+  <tbody>
+
+      <tr>
+      <th scope="row"></th>
+      <td>اجمالى</td>
+      <td>{{ kprinterlaser }}</td>
+    </tr>
+  </tbody>
+</table>
+
+    </div>
+  </div>
+
+      <div class="col-md-4 re">
+    <div class="list-group" id="list-tab" role="tablist">
+      <a class="list-group-item list-group-item-action active" id="list-home-list" data-toggle="list" href="#list-home" role="tab" aria-controls="home">بيان بالطابعات الالوان</a>
+<table class="table table-striped">
+
+  <tbody>
+       <th scope="row"></th>
+      <td>اجمالى</td>
+      <td>{{ kprinterink }}</td>
+    </tr>
+  </tbody>
+</table>
+
+
+    </div>
+  </div>
+      <hr class="my-4">
+
+</div>
+
+    <div class="row"  >
+  <div class="col-md-4 re">
+    <div class="list-group" id="list-tab" role="tablist">
+      <a class="list-group-item list-group-item-action active" id="list-home-list" data-toggle="list" href="#list-home" role="tab" aria-controls="home">بيان بالطابعات ذات المهام المتعدده</a>
+<table class="table table-striped">
+
+  <tbody>
+
+      <tr>
+      <th scope="row"></th>
+      <td>اجمالى</td>
+      <td>{{ kprintermfp }}</td>
+    </tr>
+  </tbody>
+</table>
+
+    </div>
+  </div>
+
+      <div class="col-md-4 re">
+    <div class="list-group" id="list-tab" role="tablist">
+      <a class="list-group-item list-group-item-action active" id="list-home-list" data-toggle="list" href="#list-home" role="tab" aria-controls="home">بيان  اجمالى الطابعات</a>
+<table class="table table-striped">
+
+  <tbody>
+
+   <tr class="btn-secondary">
+      <th scope="row"></th>
+      <td>اجمالى</td>
+      <td>{{ allprinterk }}</td>
+    </tr>
+  </tbody>
+</table>
+
+
+    </div>
+  </div>
+</div>
+  <hr class="my-4">
+</div>
+<!--******************************************************************************************************************-->
+
+<div class="container collapse" id="demo72" aria-expanded="false">
+
+
+
+<nav class="navbar navbar-light col-md-6"  style="background-color: #e3f2fd;">
+   <h3 class="lead">التوفيقيه | احصائيات الطابعات </h3>
+</nav>
+
+
+
+
+
+   <!--------------------------------------------------------------------->
+<div class="row"  >
+  <div class="col-md-4 re">
+    <div class="list-group" id="list-tab" role="tablist">
+      <a class="list-group-item list-group-item-action active" id="list-home-list" data-toggle="list" href="#list-home" role="tab" aria-controls="home">بيان بالطابعات الليزر</a>
+<table class="table table-striped">
+
+  <tbody>
+
+      <tr>
+      <th scope="row"></th>
+      <td>اجمالى</td>
+      <td>{{ tprinterlaser }}</td>
+    </tr>
+  </tbody>
+</table>
+
+    </div>
+  </div>
+
+      <div class="col-md-4 re">
+    <div class="list-group" id="list-tab" role="tablist">
+      <a class="list-group-item list-group-item-action active" id="list-home-list" data-toggle="list" href="#list-home" role="tab" aria-controls="home">بيان بالطابعات الالوان</a>
+<table class="table table-striped">
+
+  <tbody>
+       <th scope="row"></th>
+      <td>اجمالى</td>
+      <td>{{ tprinterink }}</td>
+    </tr>
+  </tbody>
+</table>
+
+
+    </div>
+  </div>
+      <hr class="my-4">
+
+</div>
+
+    <div class="row"  >
+  <div class="col-md-4 re">
+    <div class="list-group" id="list-tab" role="tablist">
+      <a class="list-group-item list-group-item-action active" id="list-home-list" data-toggle="list" href="#list-home" role="tab" aria-controls="home">بيان بالطابعات ذات المهام المتعدده</a>
+<table class="table table-striped">
+
+  <tbody>
+
+      <tr>
+      <th scope="row"></th>
+      <td>اجمالى</td>
+      <td>{{ tprintermfp }}</td>
+    </tr>
+  </tbody>
+</table>
+
+    </div>
+  </div>
+
+      <div class="col-md-4 re">
+    <div class="list-group" id="list-tab" role="tablist">
+      <a class="list-group-item list-group-item-action active" id="list-home-list" data-toggle="list" href="#list-home" role="tab" aria-controls="home">بيان  اجمالى الطابعات</a>
+<table class="table table-striped">
+
+  <tbody>
+
+   <tr class="btn-secondary">
+      <th scope="row"></th>
+      <td>اجمالى</td>
+      <td>{{ allprintert }}</td>
+    </tr>
+  </tbody>
+</table>
+
+
+    </div>
+  </div>
+</div>
+  <hr class="my-4">
+</div>
+<!--******************************************************************************************************************-->
+   <!--------------------------scanners------------------------------------------->
+<div class="container collapse in" id="demo23">
+
+
+<nav class="navbar navbar-light col-md-6"  style="background-color: #e3f2fd;">
+   <h3 class="lead"> جاردن سيتى |احصائيات الماسح الضوئى </h3>
+</nav>
+
+
+
+
+
+   <!--------------------------------------------------------------------->
+
+
+
+
+
+
+
+<div class="row"  >
+  <div class="col-md-4 re">
+    <div class="list-group" id="list-tab" role="tablist">
+      <a class="list-group-item list-group-item-action active" id="list-home-list" data-toggle="list" href="#list-home" role="tab" aria-controls="home">بيان بالماسح الضوئى العادى</a>
+<table class="table table-striped">
+
+  <tbody>
+
+      <tr>
+      <th scope="row"></th>
+      <td>اجمالى</td>
+      <td>{{ gscannorm }}</td>
+    </tr>
+  </tbody>
+</table>
+
+    </div>
+  </div>
+
+      <div class="col-md-4 re">
+    <div class="list-group" id="list-tab" role="tablist">
+      <a class="list-group-item list-group-item-action active" id="list-home-list" data-toggle="list" href="#list-home" role="tab" aria-controls="home">بيان بالماسح الضوئى السريع</a>
+<table class="table table-striped">
+
+  <tbody>
+      <tr>
+      <th scope="row"></th>
+      <td>اجمالى</td>
+      <td>{{ gscanhigh }}</td>
+    </tr>
+  </tbody>
+</table>
+
+
+    </div>
+  </div>
+      <hr class="my-4">
+
+</div>
+
+        <div class="col-md-4 re">
+    <div class="list-group" id="list-tab" role="tablist">
+      <a class="list-group-item list-group-item-action active" id="list-home-list" data-toggle="list" href="#list-home" role="tab" aria-controls="home">بيان  اجمالى الماسحات الضوئيه </a>
+<table class="table table-striped">
+
+  <tbody>
+    </tr>
+      <tr>
+      <th scope="row"></th>
+      <td>اجمالى</td>
+      <td>{{ allscanng }}</td>
+    </tr>
+  </tbody>
+</table>
+
+
+    </div>
+  </div>
+</div>
+  <hr class="my-4">
+
+</div>
+
+
+
+
+
+
+
+<div class="container collapse" id="demo33" aria-expanded="false">
+
+
+
+<nav class="navbar navbar-light col-md-6"  style="background-color: #e3f2fd;">
+   <h3 class="lead">المهندسيين | احصائيات الماسح الضوئى </h3>
+</nav>
+
+
+
+
+
+   <!--------------------------------------------------------------------->
+<div class="row"  >
+  <div class="col-md-4 re">
+    <div class="list-group" id="list-tab" role="tablist">
+      <a class="list-group-item list-group-item-action active" id="list-home-list" data-toggle="list" href="#list-home" role="tab" aria-controls="home">بيان بيان بالماسح الضوئى العادى</a>
+<table class="table table-striped">
+
+  <tbody>
+      <tr>
+      <th scope="row"></th>
+      <td>اجمالى</td>
+      <td>{{ mscannorm }}</td>
+    </tr>
+  </tbody>
+</table>
+
+    </div>
+  </div>
+
+      <div class="col-md-4 re">
+    <div class="list-group" id="list-tab" role="tablist">
+      <a class="list-group-item list-group-item-action active" id="list-home-list" data-toggle="list" href="#list-home" role="tab" aria-controls="home">بيان بيان بالماسح الضوئى السريع</a>
+<table class="table table-striped">
+
+  <tbody>
+
+      <tr>
+      <th scope="row"></th>
+      <td>اجمالى</td>
+      <td>{{ mscanhigh }}</td>
+    </tr>
+  </tbody>
+</table>
+
+
+    </div>
+  </div>
+      <hr class="my-4">
+
+</div>
+
+
+      <div class="col-md-4 re">
+    <div class="list-group" id="list-tab" role="tablist">
+      <a class="list-group-item list-group-item-action active" id="list-home-list" data-toggle="list" href="#list-home" role="tab" aria-controls="home">بيان  اجمالى الماسحات الضوئيه</a>
+<table class="table table-striped">
+
+  <tbody>
+
+      <tr class="btn-secondary">
+      <th scope="row"></th>
+      <td>اجمالى</td>
+      <td>{{ allscannm }}</td>
+    </tr>
+  </tbody>
+</table>
+
+
+    </div>
+  </div>
+</div>
+  <hr class="my-4">
+</div>
+<!--******************************************************************************************************************-->
+
+<div class="container collapse" id="demo43" aria-expanded="false">
+
+
+
+<nav class="navbar navbar-light col-md-6"  style="background-color: #e3f2fd;">
+   <h3 class="lead">الفواله | احصائيات الماسح الضوئى </h3>
+</nav>
+
+
+
+
+
+   <!--------------------------------------------------------------------->
+<div class="row"  >
+  <div class="col-md-4 re">
+    <div class="list-group" id="list-tab" role="tablist">
+      <a class="list-group-item list-group-item-action active" id="list-home-list" data-toggle="list" href="#list-home" role="tab" aria-controls="home">بيان  بالماسح الضوئى العادى</a>
+<table class="table table-striped">
+
+  <tbody>
+
+      <tr>
+      <th scope="row"></th>
+      <td>اجمالى</td>
+      <td>{{ fscannorm }}</td>
+    </tr>
+  </tbody>
+</table>
+
+    </div>
+  </div>
+
+      <div class="col-md-4 re">
+    <div class="list-group" id="list-tab" role="tablist">
+      <a class="list-group-item list-group-item-action active" id="list-home-list" data-toggle="list" href="#list-home" role="tab" aria-controls="home">بيان بالماسح الضوئى السريع</a>
+<table class="table table-striped">
+
+  <tbody>
+       <th scope="row"></th>
+      <td>اجمالى</td>
+      <td>{{ fscanhigh }}</td>
+    </tr>
+  </tbody>
+</table>
+
+
+    </div>
+  </div>
+      <hr class="my-4">
+
+</div>
+
+
+      <div class="col-md-4 re">
+    <div class="list-group" id="list-tab" role="tablist">
+      <a class="list-group-item list-group-item-action active" id="list-home-list" data-toggle="list" href="#list-home" role="tab" aria-controls="home">بيان  اجمالى الماسحات الضوئيه</a>
+<table class="table table-striped">
+
+  <tbody>
+
+   <tr class="btn-secondary">
+      <th scope="row"></th>
+      <td>اجمالى</td>
+      <td>{{ allscannf }}</td>
+    </tr>
+  </tbody>
+</table>
+
+
+    </div>
+  </div>
+</div>
+  <hr class="my-4">
+</div>
+<!--******************************************************************************************************************-->
+<!--******************************************************************************************************************-->
+
+<div class="container collapse" id="demo53" aria-expanded="false">
+
+
+
+<nav class="navbar navbar-light col-md-6"  style="background-color: #e3f2fd;">
+   <h3 class="lead">سيتى بنك | احصائيات الماسح الضوئى </h3>
+</nav>
+
+
+
+
+
+   <!--------------------------------------------------------------------->
+<div class="row"  >
+  <div class="col-md-4 re">
+    <div class="list-group" id="list-tab" role="tablist">
+      <a class="list-group-item list-group-item-action active" id="list-home-list" data-toggle="list" href="#list-home" role="tab" aria-controls="home">بيان بالماسح الضوئى العادى</a>
+<table class="table table-striped">
+
+  <tbody>
+
+      <tr>
+      <th scope="row"></th>
+      <td>اجمالى</td>
+      <td>{{ cscannorm }}</td>
+    </tr>
+  </tbody>
+</table>
+
+    </div>
+  </div>
+
+      <div class="col-md-4 re">
+    <div class="list-group" id="list-tab" role="tablist">
+      <a class="list-group-item list-group-item-action active" id="list-home-list" data-toggle="list" href="#list-home" role="tab" aria-controls="home">بيان بالماسح الضوئى السريع</a>
+<table class="table table-striped">
+
+  <tbody>
+       <th scope="row"></th>
+      <td>اجمالى</td>
+      <td>{{ cscanhigh }}</td>
+    </tr>
+  </tbody>
+</table>
+
+
+    </div>
+  </div>
+      <hr class="my-4">
+
+</div>
+
+
+
+      <div class="col-md-4 re">
+    <div class="list-group" id="list-tab" role="tablist">
+      <a class="list-group-item list-group-item-action active" id="list-home-list" data-toggle="list" href="#list-home" role="tab" aria-controls="home">بيان  اجمالى الماسحات الضوئيه</a>
+<table class="table table-striped">
+
+  <tbody>
+
+   <tr class="btn-secondary">
+      <th scope="row"></th>
+      <td>اجمالى</td>
+      <td>{{ allscannc }}</td>
+    </tr>
+  </tbody>
+</table>
+
+
+    </div>
+  </div>
+</div>
+  <hr class="my-4">
+</div>
+<!--******************************************************************************************************************-->
+
+<div class="container collapse" id="demo63" aria-expanded="false">
+
+
+
+<nav class="navbar navbar-light col-md-6"  style="background-color: #e3f2fd;">
+   <h3 class="lead">فصر النيل | احصائيات الماسح الضوئى </h3>
+</nav>
+
+
+
+
+
+   <!--------------------------------------------------------------------->
+<div class="row"  >
+  <div class="col-md-4 re">
+    <div class="list-group" id="list-tab" role="tablist">
+      <a class="list-group-item list-group-item-action active" id="list-home-list" data-toggle="list" href="#list-home" role="tab" aria-controls="home">بيان بالماسح الضوئى العادى</a>
+<table class="table table-striped">
+
+  <tbody>
+
+      <tr>
+      <th scope="row"></th>
+      <td>اجمالى</td>
+      <td>{{ kscannorm }}</td>
+    </tr>
+  </tbody>
+</table>
+
+    </div>
+  </div>
+
+      <div class="col-md-4 re">
+    <div class="list-group" id="list-tab" role="tablist">
+      <a class="list-group-item list-group-item-action active" id="list-home-list" data-toggle="list" href="#list-home" role="tab" aria-controls="home">بيان بالماسح الضوئى السريع</a>
+<table class="table table-striped">
+
+  <tbody>
+       <th scope="row"></th>
+      <td>اجمالى</td>
+      <td>{{ kscanhigh }}</td>
+    </tr>
+  </tbody>
+</table>
+
+
+    </div>
+  </div>
+      <hr class="my-4">
+
+</div>
+
+   
+
+      <div class="col-md-4 re">
+    <div class="list-group" id="list-tab" role="tablist">
+      <a class="list-group-item list-group-item-action active" id="list-home-list" data-toggle="list" href="#list-home" role="tab" aria-controls="home">بيان  اجمالى الماسحات الضوئيه</a>
+<table class="table table-striped">
+
+  <tbody>
+
+   <tr class="btn-secondary">
+      <th scope="row"></th>
+      <td>اجمالى</td>
+      <td>{{ allscannk }}</td>
+    </tr>
+  </tbody>
+</table>
+
+
+    </div>
+  </div>
+</div>
+  <hr class="my-4">
+</div>
+<!--******************************************************************************************************************-->
+
+<div class="container collapse" id="demo73" aria-expanded="false">
+
+
+
+<nav class="navbar navbar-light col-md-6"  style="background-color: #e3f2fd;">
+   <h3 class="lead">التوفيقيه | احصائيات الماسح الضوئى </h3>
+</nav>
+
+
+
+
+
+   <!--------------------------------------------------------------------->
+<div class="row"  >
+  <div class="col-md-4 re">
+    <div class="list-group" id="list-tab" role="tablist">
+      <a class="list-group-item list-group-item-action active" id="list-home-list" data-toggle="list" href="#list-home" role="tab" aria-controls="home">بيان بالماسح الضوئى العادى</a>
+<table class="table table-striped">
+
+  <tbody>
+
+      <tr>
+      <th scope="row"></th>
+      <td>اجمالى</td>
+      <td>{{ tscannorm }}</td>
+    </tr>
+  </tbody>
+</table>
+
+    </div>
+  </div>
+
+      <div class="col-md-4 re">
+    <div class="list-group" id="list-tab" role="tablist">
+      <a class="list-group-item list-group-item-action active" id="list-home-list" data-toggle="list" href="#list-home" role="tab" aria-controls="home">بيان بالماسح الضوئى السريع</a>
+<table class="table table-striped">
+
+  <tbody>
+       <th scope="row"></th>
+      <td>اجمالى</td>
+      <td>{{ tscanhigh }}</td>
+    </tr>
+  </tbody>
+</table>
+
+
+    </div>
+  </div>
+      <hr class="my-4">
+
+</div>
+
+   
+
+      <div class="col-md-4 re">
+    <div class="list-group" id="list-tab" role="tablist">
+      <a class="list-group-item list-group-item-action active" id="list-home-list" data-toggle="list" href="#list-home" role="tab" aria-controls="home">بيان  اجمالى الماسحات الضوئيه</a>
+<table class="table table-striped">
+
+  <tbody>
+
+   <tr class="btn-secondary">
+      <th scope="row"></th>
+      <td>اجمالى</td>
+      <td>{{ allscannt}}</td>
+    </tr>
+  </tbody>
+</table>
+
+
+    </div>
+  </div>
+</div>
+  <hr class="my-4">
+</div>
+<!--******************************************************************************************************************-->
+  <!--------------------------copiers------------------------------------------->
+<div class="container collapse in" id="demo24">
+
+
+<nav class="navbar navbar-light col-md-6"  style="background-color: #e3f2fd;">
+   <h3 class="lead"> جاردن سيتى |احصائيات ماكينات التصوير </h3>
+</nav>
+
+
+
+
+
+   <!--------------------------------------------------------------------->
+
+
+
+
+
+
+
+<div class="row"  >
+  <div class="col-md-4 re">
+    <div class="list-group" id="list-tab" role="tablist">
+      <a class="list-group-item list-group-item-action active" id="list-home-list" data-toggle="list" href="#list-home" role="tab" aria-controls="home">بيان ماكينات التصوير التى تدعم الطباعه الشبكيه</a>
+<table class="table table-striped">
+
+  <tbody>
+
+      <tr>
+      <th scope="row"></th>
+      <td>اجمالى</td>
+      <td>{{ gcopierdata }}</td>
+    </tr>
+  </tbody>
+</table>
+
+    </div>
+  </div>
+
+      <div class="col-md-4 re">
+    <div class="list-group" id="list-tab" role="tablist">
+      <a class="list-group-item list-group-item-action active" id="list-home-list" data-toggle="list" href="#list-home" role="tab" aria-controls="home">بيان ماكينات التصوير التى لا تدعم الطباعه الشبكيه</a>
+<table class="table table-striped">
+
+  <tbody>
+      <tr>
+      <th scope="row"></th>
+      <td>اجمالى</td>
+      <td>{{ gcopiernodata }}</td>
+    </tr>
+  </tbody>
+</table>
+
+
+    </div>
+  </div>
+      <hr class="my-4">
+
+</div>
+
+
+
+      <div class="col-md-4 re">
+    <div class="list-group" id="list-tab" role="tablist">
+      <a class="list-group-item list-group-item-action active" id="list-home-list" data-toggle="list" href="#list-home" role="tab" aria-controls="home">بيان  اجمالى ماكينات  التصوير </a>
+<table class="table table-striped">
+
+  <tbody>
+    </tr>
+      <tr>
+      <th scope="row"></th>
+      <td>اجمالى</td>
+      <td>{{ allcopierg }}</td>
+    </tr>
+  </tbody>
+</table>
+
+
+    </div>
+  </div>
+</div>
+  <hr class="my-4">
+
+</div>
+
+
+
+
+
+
+
+<div class="container collapse" id="demo34" aria-expanded="false">
+
+
+
+<nav class="navbar navbar-light col-md-6"  style="background-color: #e3f2fd;">
+   <h3 class="lead">المهندسيين | احصائيات ماكينات التصوير </h3>
+</nav>
+
+
+
+
+
+   <!--------------------------------------------------------------------->
+<div class="row"  >
+  <div class="col-md-4 re">
+    <div class="list-group" id="list-tab" role="tablist">
+      <a class="list-group-item list-group-item-action active" id="list-home-list" data-toggle="list" href="#list-home" role="tab" aria-controls="home">بيان ماكينات التصوير التى تدعم الطباعه الشبكيه</a>
+<table class="table table-striped">
+
+  <tbody>
+      <tr>
+      <th scope="row"></th>
+      <td>اجمالى</td>
+      <td>{{ mcopierdata }}</td>
+    </tr>
+  </tbody>
+</table>
+
+    </div>
+  </div>
+
+      <div class="col-md-4 re">
+    <div class="list-group" id="list-tab" role="tablist">
+      <a class="list-group-item list-group-item-action active" id="list-home-list" data-toggle="list" href="#list-home" role="tab" aria-controls="home">بيان ماكينات التصوير التى  لاتدعم الطباعه الشبكيه</a>
+<table class="table table-striped">
+
+  <tbody>
+
+      <tr>
+      <th scope="row"></th>
+      <td>اجمالى</td>
+      <td>{{ mcopiernodata }}</td>
+    </tr>
+  </tbody>
+</table>
+
+
+    </div>
+  </div>
+      <hr class="my-4">
+
+</div>
+
+
+      <div class="col-md-4 re">
+    <div class="list-group" id="list-tab" role="tablist">
+      <a class="list-group-item list-group-item-action active" id="list-home-list" data-toggle="list" href="#list-home" role="tab" aria-controls="home">بيان  اجمالى ماكينات التصوير</a>
+<table class="table table-striped">
+
+  <tbody>
+
+      <tr class="btn-secondary">
+      <th scope="row"></th>
+      <td>اجمالى</td>
+      <td>{{ allcopierm }}</td>
+    </tr>
+  </tbody>
+</table>
+
+
+    </div>
+  </div>
+</div>
+  <hr class="my-4">
+</div>
+<!--******************************************************************************************************************-->
+
+<div class="container collapse" id="demo44" aria-expanded="false">
+
+
+
+<nav class="navbar navbar-light col-md-6"  style="background-color: #e3f2fd;">
+   <h3 class="lead">الفواله | احصائيات ماكينات التصوير </h3>
+</nav>
+
+
+
+
+
+   <!--------------------------------------------------------------------->
+<div class="row"  >
+  <div class="col-md-4 re">
+    <div class="list-group" id="list-tab" role="tablist">
+      <a class="list-group-item list-group-item-action active" id="list-home-list" data-toggle="list" href="#list-home" role="tab" aria-controls="home">بيان ماكينات التصوير التى  تدعم الطباعه الشبكيه</a>
+<table class="table table-striped">
+
+  <tbody>
+
+      <tr>
+      <th scope="row"></th>
+      <td>اجمالى</td>
+      <td>{{ fcopierdata }}</td>
+    </tr>
+  </tbody>
+</table>
+
+    </div>
+  </div>
+
+      <div class="col-md-4 re">
+    <div class="list-group" id="list-tab" role="tablist">
+      <a class="list-group-item list-group-item-action active" id="list-home-list" data-toggle="list" href="#list-home" role="tab" aria-controls="home">بيان ماكينات التصوير التى  لاتدعم الطباعه الشبكيه</a>
+<table class="table table-striped">
+
+  <tbody>
+       <th scope="row"></th>
+      <td>اجمالى</td>
+      <td>{{ fcopiernodata }}</td>
+    </tr>
+  </tbody>
+</table>
+
+
+    </div>
+  </div>
+      <hr class="my-4">
+
+</div>
+
+ 
+      <div class="col-md-4 re">
+    <div class="list-group" id="list-tab" role="tablist">
+      <a class="list-group-item list-group-item-action active" id="list-home-list" data-toggle="list" href="#list-home" role="tab" aria-controls="home">بيان  اجمالى ماكينات التصوير</a>
+<table class="table table-striped">
+
+  <tbody>
+
+   <tr class="btn-secondary">
+      <th scope="row"></th>
+      <td>اجمالى</td>
+      <td>{{ allcopierf }}</td>
+    </tr>
+  </tbody>
+</table>
+
+
+    </div>
+  </div>
+</div>
+  <hr class="my-4">
+</div>
+<!--******************************************************************************************************************-->
+<!--******************************************************************************************************************-->
+
+<div class="container collapse" id="demo45" aria-expanded="false">
+
+
+
+<nav class="navbar navbar-light col-md-6"  style="background-color: #e3f2fd;">
+   <h3 class="lead">سيتى بنك | احصائيات ماكينات التصوير </h3>
+</nav>
+
+
+
+
+
+   <!--------------------------------------------------------------------->
+<div class="row"  >
+  <div class="col-md-4 re">
+    <div class="list-group" id="list-tab" role="tablist">
+      <a class="list-group-item list-group-item-action active" id="list-home-list" data-toggle="list" href="#list-home" role="tab" aria-controls="home">بيان ماكينات التصوير التى  تدعم الطباعه الشبكيه</a>
+<table class="table table-striped">
+
+  <tbody>
+
+      <tr>
+      <th scope="row"></th>
+      <td>اجمالى</td>
+      <td>{{ ccopierdata }}</td>
+    </tr>
+  </tbody>
+</table>
+
+    </div>
+  </div>
+
+      <div class="col-md-4 re">
+    <div class="list-group" id="list-tab" role="tablist">
+      <a class="list-group-item list-group-item-action active" id="list-home-list" data-toggle="list" href="#list-home" role="tab" aria-controls="home">بيان ماكينات التصوير التى  لاتدعم الطباعه الشبكيه</a>
+<table class="table table-striped">
+
+  <tbody>
+       <th scope="row"></th>
+      <td>اجمالى</td>
+      <td>{{ ccopiernodata }}</td>
+    </tr>
+  </tbody>
+</table>
+
+
+    </div>
+  </div>
+      <hr class="my-4">
+
+</div>
+
+      <div class="col-md-4 re">
+    <div class="list-group" id="list-tab" role="tablist">
+      <a class="list-group-item list-group-item-action active" id="list-home-list" data-toggle="list" href="#list-home" role="tab" aria-controls="home">بيان  اجمالى ماكينات التصوير</a>
+<table class="table table-striped">
+
+  <tbody>
+
+   <tr class="btn-secondary">
+      <th scope="row"></th>
+      <td>اجمالى</td>
+      <td>{{ allcopierc }}</td>
+    </tr>
+  </tbody>
+</table>
+
+
+    </div>
+  </div>
+</div>
+  <hr class="my-4">
+</div>
+<!--******************************************************************************************************************-->
+
+<div class="container collapse" id="demo46" aria-expanded="false">
+
+
+
+<nav class="navbar navbar-light col-md-6"  style="background-color: #e3f2fd;">
+   <h3 class="lead">فصر النيل | احصائيات اجهزة الحاسب </h3>
+</nav>
+
+
+
+
+
+   <!--------------------------------------------------------------------->
+<div class="row"  >
+  <div class="col-md-4 re">
+    <div class="list-group" id="list-tab" role="tablist">
+      <a class="list-group-item list-group-item-action active" id="list-home-list" data-toggle="list" href="#list-home" role="tab" aria-controls="home">بيان ماكينات التصوير التى تدعم الطباعه الشبكيه</a>
+<table class="table table-striped">
+
+  <tbody>
+
+      <tr>
+      <th scope="row"></th>
+      <td>اجمالى</td>
+      <td>{{ kcopierdata }}</td>
+    </tr>
+  </tbody>
+</table>
+
+    </div>
+  </div>
+
+      <div class="col-md-4 re">
+    <div class="list-group" id="list-tab" role="tablist">
+      <a class="list-group-item list-group-item-action active" id="list-home-list" data-toggle="list" href="#list-home" role="tab" aria-controls="home">بيان ماكينات التصوير التى  لاتدعم الطباعه الشبكيه</a>
+<table class="table table-striped">
+
+  <tbody>
+       <th scope="row"></th>
+      <td>اجمالى</td>
+      <td>{{ kcopiernodata }}</td>
+    </tr>
+  </tbody>
+</table>
+
+
+    </div>
+  </div>
+      <hr class="my-4">
+
+</div>
+
+      <div class="col-md-4 re">
+    <div class="list-group" id="list-tab" role="tablist">
+      <a class="list-group-item list-group-item-action active" id="list-home-list" data-toggle="list" href="#list-home" role="tab" aria-controls="home">بيان  اجمالى ماكينات التصوير</a>
+<table class="table table-striped">
+
+  <tbody>
+
+   <tr class="btn-secondary">
+      <th scope="row"></th>
+      <td>اجمالى</td>
+      <td>{{ allcopierk }}</td>
+    </tr>
+  </tbody>
+</table>
+
+
+    </div>
+  </div>
+</div>
+  <hr class="my-4">
+</div>
+<!--******************************************************************************************************************-->
+
+<div class="container collapse" id="demo47" aria-expanded="false">
+
+
+
+<nav class="navbar navbar-light col-md-6"  style="background-color: #e3f2fd;">
+   <h3 class="lead">التوفيقيه | احصائيات  ماكينات التصوير </h3>
+</nav>
+
+
+
+
+
+   <!--------------------------------------------------------------------->
+<div class="row"  >
+  <div class="col-md-4 re">
+    <div class="list-group" id="list-tab" role="tablist">
+      <a class="list-group-item list-group-item-action active" id="list-home-list" data-toggle="list" href="#list-home" role="tab" aria-controls="home">بيان ماكينات التصوير التى  تدعم الطباعه الشبكيه</a>
+<table class="table table-striped">
+
+  <tbody>
+
+      <tr>
+      <th scope="row"></th>
+      <td>اجمالى</td>
+      <td >{{ tcopierdata }}</td>
+    </tr>
+  </tbody>
+</table>
+
+    </div>
+  </div>
+
+      <div class="col-md-4 re">
+    <div class="list-group" id="list-tab" role="tablist">
+      <a class="list-group-item list-group-item-action active" id="list-home-list" data-toggle="list" href="#list-home" role="tab" aria-controls="home">بيان ماكينات التصوير التى  لاتدعم الطباعه الشبكيه</a>
+<table class="table table-striped">
+
+  <tbody>
+       <th scope="row"></th>
+      <td>اجمالى</td>
+      <td>{{ tcopiernodata }}</td>
+    </tr>
+  </tbody>
+</table>
+
+
+    </div>
+  </div>
+      <hr class="my-4">
+
+</div>
+
+      <div class="col-md-4 re">
+    <div class="list-group" id="list-tab" role="tablist">
+      <a class="list-group-item list-group-item-action active" id="list-home-list" data-toggle="list" href="#list-home" role="tab" aria-controls="home">بيان  اجمالى ماكينات التصوير</a>
+<table class="table table-striped">
+
+  <tbody>
+
+   <tr class="btn-secondary">
+      <th scope="row"></th>
+      <td>اجمالى</td>
+      <td>{{ allcopiert }}</td>
+    </tr>
+  </tbody>
+</table>
+
+
+    </div>
+  </div>
+</div>
+  <hr class="my-4">
+</div>
+<!--******************************************************************************************************************-->
+
+
+<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" />
+ <!--   <script src="//cdnjs.cloudflare.com/ajax/libs/popper.js/1.13.0/umd/popper.min.js"></script> -->
+
+
+
+
+</body>
+</html>
+
+   {% endblock %}
+
+

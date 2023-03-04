@@ -1,0 +1,142 @@
+ {% extends 'base.html' %}
+{% include 'navbar.html' %}
+{%  load static %}
+{% load staticfiles %}
+
+{% block content %}
+<script src="http://code.highcharts.com/highcharts.js"></script>
+<script src="http://code.highcharts.com/modules/exporting.js"></script>
+<style>
+
+    .list-group{
+ margin-top:90px;
+ padding:0px;
+
+    }
+    .panel{
+ margin-top:90px;
+
+    }
+
+</style>
+<html>
+<body>
+
+
+
+<table class="table">
+  <thead class="thead-inverse">
+    <tr>
+      <th>اسم المستخدم</th>
+      <th>اسم القطاع</th>
+      <th>نوع القطعه التالڤه</th>
+      <th>المگان الحالى</th>
+      <th>حالة النقل</th>
+      <th>المگان الساپق</th>
+      <th>Actions</th>
+
+    </tr>
+  </thead>
+  <tbody>
+  {% for obj in junks_list %}
+
+   <tr>
+   <td>  {{ obj.junk_user }} </td>
+   <td>  {{ obj.user_sector }}  </td>
+   <td>  {{ obj.junk_type  }} </td>
+
+       {% if  obj.pstatus %}
+       <td>  {{ obj.bransh }} </td> <td><center><img class="" src='{% static "imge/in.png"  %}'  width="30" height="30"></center></td>
+       {% else %}
+       <td>  {{ obj.transto }} </td><td><center><img class="" src='{% static "imge/out.png"  %}'  width="30" height="30"></center></td>
+
+       {% endif %}
+
+
+       {% if not  obj.pstatus %}
+       <td>  {{ obj.bransh }} </td>
+       {% else %}
+       <td>  -----------</td>
+
+       {% endif %}
+ <td> <a href='{% url "junk_detail" id=obj.id %}'><button type="button" class="btn btn-danger btn-lg">حذف</button></a>||<a href='{% url "junk_update" id=obj.id %}'> <button type="button"  class="btn btn-info btn-lg">تعديل</button></a>||<a href='{% url "trans_the_junk" id=obj.id %}'> <button type="button"  class="btn btn-success btn-lg">نقــل</button></a></td>
+
+</td>
+
+
+
+  {% endfor %}
+  </tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>
+
+
+<!--
+  <div class="list-group">
+  <div class="list-group-item">{{ instance.problem_desc }}</div>
+  <div class="list-group-item"> {{ instance.problem_date }}</div>
+  <div class="list-group-item">{{ instance.user_fullname}}</div>
+  <div class="list-group-item">{{ instance.user_sector}}</div>
+  <div class="list-group-item">{{ instance.lab_type }}</div>
+
+
+-->
+
+
+   {% endblock %}
+
+

@@ -1,0 +1,47 @@
+
+{% include 'navbar2.html' %}
+{%  load static %}
+
+
+{% block content %}
+
+
+<style>
+
+    .alert{
+ margin-top: 200px;
+
+    }
+
+@font-face {
+    font-family: 'f2';
+    src: url('{% static '/fonts/myfont.otf' %}');
+    font-weight: 500;
+    font-style: normal;
+    font-size:22pt;
+}
+.ss{
+font-family:'f2';
+
+}
+
+</style>
+<html>
+<body>
+<div class="alert alert-success ss" role="alert"><h3>
+
+    تمت الاضافه  بنجاح 
+    <a href="{{request.META.HTTP_REFERER}}">
+    اضغط هنا
+    </a>
+    لتسجيل اخر او
+    <a href="{% url 'assets'%}">
+    هنا
+        </a>
+    للصفحه الرئيسيه
+</h3>
+</div>
+   {% endblock %}
+</body>
+</html>
+

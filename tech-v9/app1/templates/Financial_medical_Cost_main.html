@@ -1,0 +1,120 @@
+
+{% include 'navbar.html' %}
+{% load staticfiles %}
+{% load static %}
+
+{% block content %}
+
+{% load crispy_forms_tags %}
+<link rel="stylesheet" href="{% static 'css/jquery-ui.css' %}"  rel="stylesheet">
+<script type="text/javascript" src="{% static 'js/jquery-1.12.4.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/jquery-ui.js' %}"></script>
+
+
+<script type="text/javascript">
+  var res1=[];
+
+for(i=0;i<={{ qslen }};){
+     {% for obj1 in qs %}
+res1[i]="{{obj1.patient_name}}";
+i=i+1;
+{% endfor %}
+}
+var res = res1.splice(0, Math.ceil(res1.length / 2));
+res1=[]
+
+</script>
+
+
+
+<style>
+.container{
+
+  margin-top: 160px;
+}
+    .bb{
+ margin-top:auto;
+
+}
+.cc{
+ margin-top:0px;
+ margin-bottom: 90px;
+}
+
+@font-face {
+    font-family: 'f1';
+    src: url('{% static '/fonts/Almudid.ttf' %}');
+    font-weight: 500;
+    font-style: normal;
+    font-size:15pt;
+}
+
+
+.p{
+    font-family:'f2';
+    
+    
+}
+#scripts{
+  background-color:rgb(142, 175, 236);
+  }
+body{
+  background-image:url('{% static '/imge/back.jpeg' %}');
+  background-size:cover;
+}
+</style>
+<html>
+<body>
+    <div class="container">
+<div class="row">
+      <div class="col-md-4">
+        <div class="card mb-4 shadow-sm">
+          <svg class="bd-placeholder-img card-img-top" width="100%" height="30" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Thumbnail"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"></rect><text x="50%" y="50%" fill="#eceeef" dy=".3em"><center><img class=" " src='{% static "imge/direct_member.png"  %}' alt="Generic placeholder image" width="150" height="100">
+          </center></text></svg>
+          <div class="card-body">
+            <p class="card-text"></p>
+            <div class="d-flex justify-content-centers align-items-center">
+              <div class="btn-group">
+                <center><a class="btn btn-info"style="font-size: large;color:cornsilk; "> إضافــــــة تكالـــــيف علاجية لاعضاء مجلس</a></center>
+              </div>
+              <small class="text-muted"></small>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4 justify-content-center">
+        <div class="card mb-4 shadow-sm">
+          <svg class="bd-placeholder-img card-img-top" width="100%" height="30" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Thumbnail"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"></rect><text x="50%" y="50%" fill="#eceeef" dy=".3em"><center><img class=" " src='{% static "imge/retired_emp.png"  %}' alt="Generic placeholder image" width="150" height="100">
+          </center></text></svg>
+          <div class="card-body">
+            <p class="card-text"></p>
+            <div class="d-flex justify-content-center align-items-center">
+              <div class="btn-group">
+                <center><a class="btn btn-info"style="font-size: large;color:cornsilk; "> إضافــــــة تكالـــــيف علاجية للمعاشات</a></center>
+    
+              </div>
+              <small class="text-muted"></small>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card mb-4 shadow-sm">
+          <svg class="bd-placeholder-img card-img-top" width="100%" height="30" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Thumbnail"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"></rect><text x="50%" y="50%" fill="#eceeef" dy=".3em"><center><img class=" " src='{% static "imge/emp_duty.png"  %}' alt="Generic placeholder image" width="150" height="100">
+          </center></text></svg>
+          <div class="card-body">
+            <p class="card-text"></p>
+            <div class="d-flex justify-content-center align-items-center">
+              <div class="btn-group">
+                <center><a class="btn btn-info" href='{% url "financial_main1"  %}' style="font-size: large;color:cornsilk; "> إضافــــــة تكالـــــيف علاجية للعاملين</a></center>
+              </div>
+              
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+   </div>
+
+</html>
+   {% endblock %}

@@ -1,0 +1,127 @@
+
+{% include 'navbar3.html' %}
+{% load crispy_forms_tags %}
+
+{% load static %}
+{% block content %}
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>jQuery UI Autocomplete - Default functionality</title>
+<!--<link rel="stylesheet" href="{% static 'css/itlst.css' %}"  rel="stylesheet">-->
+<!--<script type="text/javascript" src="{% static 'js/itlst.js' %}"></script>-->
+<link rel="stylesheet" href="{% static 'css/jquery-ui.css' %}"  rel="stylesheet">
+<script type="text/javascript" src="{% static 'js/jquery-1.12.4.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/jquery-ui.js' %}"></script>
+<script src='{% static "js/moment.min.js"  %}'></script>
+<script src='{% static "js/bootstrap-datetimepicker.js"  %}'></script>
+<link href='{% static   "css/bootstrap-datetimepicker.min.css"  %}' rel="stylesheet">
+<link href='{% static   "css/bootstrap-datetimepicker.css"  %}' rel="stylesheet">
+<script type="text/javascript">
+$(function () {
+    $('.datepicker').datetimepicker(
+    {
+        format: 'YYYY-MM-DD HH:mm:ss',
+        sideBySide: true
+    }
+    );
+});
+</script>
+
+<style>
+@font-face {
+    font-family: 'f2';
+    src: url('{% static '/fonts/Almudid.ttf' %}');
+    font-weight: 500;
+    font-style: normal;
+    font-size:9pt;
+}
+body form{
+font-family:'f2';
+    font-size:13pt;
+
+
+}
+    .bb{
+ margin-top:90px;
+
+}
+.cc{
+ margin-top:0px;
+ margin-bottom: 90px;
+}
+@font-face {
+    font-family: 'fall';
+    src: url('{% static '/fonts/ext/LateefRegOT.ttf' %}');
+    font-weight: 10;
+    font-style: normal;
+    font-size:16pt;
+}
+form input[type=text]{
+    font-family:'f2';
+    font-size:12pt;
+    font-style: bold;
+
+}
+form .tarea{
+    font-family:'f2';
+    font-size:15pt;
+    font-style: bold;
+
+}
+form .select{
+    font-family:'f2';
+    font-size:12px;
+    font-style: bold;
+    font-weight: 19;
+    height:3em;
+
+}
+
+</style>
+<html>
+<hr>
+<hr class="my-6">
+<table class="table table-bordered table-striped container ">
+  <thead class="thead-inverse">
+    <tr class="table-success">
+        <th>  تحديث</th>
+        <th> اخر تحديث</th>
+        <th>نپذه عن القضيه </th>
+        <th>اسم المحامى </th>
+        <th>تاريخ الپدا</th>
+        <th>اسم المحگمه </th>
+        <th>نوع القضيه</th>
+        <th>اسم القضيه</th>
+        <th >مسلسل</th>
+    </tr>
+  </thead>
+  <tbody>
+  {% for obj in cases_res %}
+
+   <tr>
+   <td><a href='{% url "law_affairs_update" id=obj.id %}'><button type="button" class="btn btn-info btn-lg">تحـديث</button></td>
+       <td align="right" style="word-wrap:break-word;width:455px">  <div >{{ obj.last_case_update }} </div> </td>
+    <td>  {{ obj.about_case }}  </td>
+    <td>  {{ obj.lawyer_name  }}  </td>
+    <td style="width:180px">  {{ obj.case_start_date }}  </td>
+    <td>  {{ obj.court_name }}  </td>
+    <td>  {{ obj.case_type }}  </td>
+    <td>  {{ obj.case_name }} </td>
+    <th scope="row"> {{ obj.id }}</th>
+    </tr>
+   </tr>
+
+  {% endfor %}
+  </tbody>
+</table>
+<hr class="my-6">
+
+
+</body>
+</html>
+
+
+   {% endblock %}
+
+

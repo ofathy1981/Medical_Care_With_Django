@@ -1,0 +1,138 @@
+
+{% include 'navbar.html' %}
+{% load staticfiles %}
+{% load static %}
+
+{% block content %}
+
+{% load crispy_forms_tags %}
+<link rel="stylesheet" href="{% static 'css/jquery-ui.css' %}"  rel="stylesheet">
+<script type="text/javascript" src="{% static 'js/jquery-1.12.4.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/jquery-ui.js' %}"></script>
+
+
+<script type="text/javascript">
+  var res1=[];
+
+for(i=0;i<={{ qslen }};){
+     {% for obj1 in qs %}
+res1[i]="{{obj1.patient_name}}";
+i=i+1;
+{% endfor %}
+}
+var res = res1.splice(0, Math.ceil(res1.length / 2));
+res1=[]
+
+</script>
+
+
+
+<style>
+
+    .bb{
+ margin-top:auto;
+
+}
+.cc{
+ margin-top:0px;
+ margin-bottom: 90px;
+}
+
+@font-face {
+    font-family: 'f1';
+    src: url('{% static '/fonts/Almudid.ttf' %}');
+    font-weight: 500;
+    font-style: normal;
+    font-size:15pt;
+}
+
+
+.p{
+    font-family:'f2';
+    
+    
+}
+#scripts{
+  background-color:rgb(142, 175, 236);
+  }
+
+</style>
+<html>
+<body>
+    <div class="container">
+      <center><div class="col-md-12 justify-content-center text-white list-group-item vv "> إستعلام عن تحويل طبى لعضو مجلس </div></center>
+ 
+    <form method='POST' autocomplete="off" class="form-control" action= ''>{% csrf_token %}
+      
+          <div class="blue box card card-body"><strong>Enter Name of the Employee  you want to search for {{ f3|crispy }}</strong></div>
+        
+        
+        
+        
+        
+        
+        
+        
+        
+          <input class= 'btn btn-primary btn-lg'  style="font-size: large;color:cornsilk; "  value="بحث جديد " type=reset >
+
+        
+        <input class= 'btn btn-info btn-lg' style="font-size: large;color:cornsilk; " value="SEARCHابحـــــــــــــــث" type=submit ">
+         </form>
+         <table class="table table-hover ta" >
+            <tr class="table-warning">
+              <th>التاريخ</th>
+
+              <th>الرقم الطبى</th>
+              <th>اسم الموظف</th>
+
+              <th >مسلسل</th>
+
+        
+        
+        
+            </tr>
+        {% for obj in q %}
+        <tr>
+          <td>{{ obj.timestamp  }}</td>
+
+            <td>{{ obj.medical_number  }}</td>
+            <td><a href='{% url "trans1_forprint" id=obj.id %}'>{{ obj.patient_name}}</a></td>
+
+            <td>{{ forloop.counter  }}</td>
+
+        </tr>
+        
+        
+        {% endfor %}
+        
+        </table>
+
+
+
+
+
+
+
+<!-- <div id="container2" style="min-width: 310px; height: 400px; margin: 0 auto"></div> -->
+
+</div>
+
+  
+<!--==========================================================================================================-->
+
+
+
+</body>
+<script>
+
+
+  $( function() {
+
+    $( "#id_employee_name" ).autocomplete({
+      source: res
+    });
+  } );
+  </script>
+</html>
+   {% endblock %}

@@ -1,0 +1,109 @@
+ {% extends 'base.html' %}
+ {% include 'navbar.html' %}
+{%  load static %}
+{% load staticfiles %}
+{% load crispy_forms_tags %}
+
+
+{% block content %}
+<!--<script src='{% static "js/jquery-3.1.1.min.js"  %}'></script>-->
+<!--<script src='{% static "js/bootstrap.min.js"  %}'></script>-->
+<script src='{% static "js/moment.min.js"  %}'></script>
+<script src='{% static "js/bootstrap-datetimepicker.js"  %}'></script>
+<link href='{% static   "css/bootstrap-datetimepicker.min.css"  %}' rel="stylesheet">
+
+<script type="text/javascript">
+$(function () {
+    $('.datepicker').datetimepicker(
+    {
+        format: 'YYYY-MM-DD HH:mm:ss',
+        sideBySide: true
+    }
+    );
+});
+
+
+
+ $(window).load(function(){        
+   $('#myModal').modal('show');
+    }); 
+</script>
+<script type="text/javascript">
+    $(window).on('load',function(){
+        $('#myModal').modal('show');
+    });
+</script>
+
+
+<style>
+.conatiner{
+margin-top: 70px;
+margin-bottom: 70px;
+}
+.vv{
+background-color: #004C99
+}
+
+</style>
+
+
+<div class="conatiner" >
+
+<div class="row align-items-center justify-content-center"><div class="col-md-8 list-group-item active justify-content-center">نموذج طلب قطعة غيار</div></div>
+
+<div class="row align-items-center justify-content-center"">
+ <div class="col-md-8 bg-faded">
+
+ <form method='POST' action= '' enctype="multipart/form-data">{% csrf_token %}
+
+ {{form3|crispy}}
+ <input class= 'btn btn-primary' value="الغاء" type=reset >
+ <input class= 'btn btn-primary' value="ارسل المشكله" type=submit onClick="{{  clicker }}">
+ </form>
+ </div>
+</div>
+</div>
+<!--
+ <div class="col-md-4">
+
+ <form method='POST' action= ''>{% csrf_token %}
+
+ {{form|crispy}}
+<a class="btn btn-primary" href= {{  clicker }} >clcik me</a>
+ <input class= 'btn btn-primary' type=submit  onClick="{{  clicker }}">
+ </form>
+ </div>
+
+     <div class="col-md-4">
+
+ <form method='POST' action= ''>{% csrf_token %}
+
+ {{form|crispy}}
+<a class="btn btn-primary" href= {{  clicker }} >clcik me</a>
+ <input class= 'btn btn-primary' type=submit onClick="{{  clicker }}">
+ </form>
+ </div>
+-->
+<div id="myModal" class="modal fade" role="dialog" >
+  <div class="modal-dialog">
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+     <p> <center><img src="{% static 'imge/warn.jpg' %}" width="100px" height="100px" class="modal-title faa-flash animated   "></center></p><p> <center><h4 style="color:red;">تنبيه هام جدا</h4></center></p>
+      </div>
+      <div class="modal-body">
+        <center><p style="color:blue;">عزيزى المستخدم برجاء العلم انه لن يتم الالتفات لاى طلبات لا يتم ارفاق صورة الطلب معتمده من رئيس القطاعات الخاص بكم وذلك  طبقا لما تقتضيه دورة العمل فى الشركه من قواعد    </p></center>
+<center><p>وشكرا جزيلا مع تحيات قطاع المعلومات بالشركه المصريه العامه للسياحه والفنادق</p></center>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+
+
+   {% endblock %}

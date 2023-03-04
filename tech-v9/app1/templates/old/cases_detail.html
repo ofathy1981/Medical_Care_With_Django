@@ -1,0 +1,171 @@
+{% include 'navbar1.html' %}
+{%  load static %}
+{% load staticfiles %}
+
+{% block content %}
+
+<script src="http://code.highcharts.com/highcharts.js"></script>
+<script src="http://code.highcharts.com/modules/exporting.js"></script>
+<style>
+
+    .list-group{
+ margin-top:90px;
+ padding:0px;
+
+    }
+    .panel{
+ margin-top:90px;
+
+    }
+    table {
+  unicode-bidi:bidi-override;
+  direction: RTL;
+}
+
+</style>
+<html dir="rtl" lang="ar">
+<body>
+
+
+
+<table class="table  table-bordered " style="text-align: right;">
+  <thead class="">
+    <tr class="table-active">
+        <th>المحكمه</th>
+        <th>نوع الدائره</th>
+        <th>دائرة الدعوى</th>
+        <th>سنة الدعوى</th>
+        <th>رقم الدعوى</th>
+
+    </tr>
+       <tr>
+       <td>{{ cases_list.case_court  }}</td>
+       <td>{{ cases_list.case_depart_type  }}</td>
+       <td>{{ cases_list.case_depart  }}</td>
+       <td>{{ cases_list.case_year  }}</td>
+       <td>{{ cases_list.case_number }} </td>
+
+     </tr>
+        <tr class="table-active">
+
+        <th>درجة التقاضى</th>
+        <th>الخصم</th>
+        <th>صفة الخصم</th>
+        <th>صفة الشركه</th>
+        <th>موضوع الدعوى</th>
+        </tr>
+    <tr >
+       <td>{{ cases_list.degree_of_litigation  }}</td>
+       <td>{{ cases_list.adversary  }}</td>
+       <td>{{ cases_list.adversay_represent  }}</td>
+       <td>{{ cases_list.comapny_represent  }}</td>
+       <td>{{ cases_list.case_subject  }}</td>
+       </tr>
+    <tr class="table-active">
+        <th>موضوع الدعوى تفصيلا</th>
+        <th>الاعباء الماليه المتوقعه</th>
+        <th>ترجيح نسب الكسب</th>
+        <th>تاريخ الورود</th>
+        <th>تصنيف الدعوى</th>
+    </tr>
+    <tr>
+       <td>{{ cases_list.case_subject_detail  }}</td>
+       <td>{{ cases_list.expected_financial_affairs  }}</td>
+       <td>{{ cases_list.weighted_percent_of_gain  }}</td>
+       <td>{{ cases_list.date_of_establsihment  }}</td>
+       <td>{{ cases_list.case_classification  }}</td>
+       </tr>
+        <tr class="table-active">>
+        <th>حالة الدعوى</th>
+        <th>المحامى الحالى</th>
+        <th>فئة الدعوى</th>
+        <th>ملاحظات</th>
+
+    </tr>
+  </thead>
+  <tbody>
+<tr>
+       <td>{{ cases_list.case_current_status  }}</td>
+       <td>{{ cases_list.current_lawyer  }}</td>
+       <td>{{ cases_list.case_category  }}</td>
+       <td>{{ cases_list.notes  }}</td>
+
+
+</tr>
+
+
+
+  </tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>
+
+
+<!--
+  <div class="list-group">
+  <div class="list-group-item">{{ instance.problem_desc }}</div>
+  <div class="list-group-item"> {{ instance.problem_date }}</div>
+  <div class="list-group-item">{{ instance.user_fullname}}</div>
+  <div class="list-group-item">{{ instance.user_sector}}</div>
+  <div class="list-group-item">{{ instance.pc_type }}</div>
+
+
+-->
+
+
+   {% endblock %}
+
+

@@ -1,0 +1,664 @@
+ {% extends 'base.html' %}
+ {% include 'footer.html' %}
+
+{% include 'navbar.html' %}
+{% load staticfiles %}
+{% load static %}
+{% load crispy_forms_tags %}
+
+
+{% block content %}
+<script src='{% static "js/bootstrap.min.js"  %}'></script>
+<script src='{% static "js/moment.min.js"  %}'></script>
+<script src='{% static "js/bootstrap-datetimepicker.js"  %}'></script>
+<link href='{% static   "css/bootstrap-datetimepicker.min.css"  %}' rel="stylesheet">
+<script >
+$('form').each(function() { this.reset() });
+
+
+</script>
+
+<style type="text/css">
+ #div_id_pc_model{color:red;}
+ #div_id_os_license{color:red;}
+ #div_id_processor_type{color:red;}
+ #div_id_harddisk_size{color:red;}
+ #div_id_joined{color:red;}
+ #div_id_monitor_type{color:red;}
+ #div_id_lab_model{color:red;}
+ #div_id_lab_vendor{color:red;}
+ #div_id_printer_type{color:red;}
+ #div_id_printer_model{color:red;}
+ #div_id_scanner_type{color:red;}
+ #div_id_scanner_model{color:red;}
+ #div_id_conn_type{color:red;}
+ #div_id_copier_model{color:red;}
+.jumbotron thead tr th{
+background-color: #c0c0c0;
+
+}
+
+table {
+    border: 2px solid red;
+    border-radius: 15px;
+}
+
+.jumbotron {
+background-color: #FFFFFF;
+height: 340px; border :2px solid #ccddff;
+     box-shadow: 10px 10px 8px #888888;
+     width:500px;
+}
+
+p{
+    font-family:'f4';
+    font-size:10pt;
+}
+.badge{
+    font-family:'f6';
+    font-size:14pt;
+}
+@font-face {
+    font-family: 'num';
+    src: url('{% static '/fonts/Bahij_TheSansArabic-Bold.ttf' %}');
+    font-weight: 500;
+    font-style: normal;
+    font-size:11pt;
+}
+h3{
+    font-family:'num';
+    font-size:16pt;
+}
+    .box{
+
+        
+        display: none;
+        margin-top: 20px;
+
+    }
+
+
+
+.conatiner{
+margin-top: 180px;
+}
+
+.ta{
+margin-bottom: 70px;
+}
+</style>
+
+<div class="conatiner" >
+
+<script src="{% static 'js/jquery-1.12.4.min.js' %}"></script>
+
+<script type="text/javascript">
+
+$(document).ready(function(){
+    $("#div_id_select_bransh").hide();
+    $("#div_id_select_hsectors").hide();
+    $("#div_id_select_sector").hide();
+    $("#div_id_select_user").hide();
+    $("#div_id_select_object").hide();
+     $("#div_id_pc_model").hide();
+     $("#div_id_os_license").hide();
+     $("#div_id_processor_type").hide();
+     $("#div_id_harddisk_size").hide();
+     $("#div_id_joined").hide();
+     $("#div_id_monitor_type").hide();
+     $("#div_id_lab_model").hide();
+     $("#div_id_lab_vendor").hide();
+     $("#div_id_printer_type").hide();
+     $("#div_id_printer_model").hide();
+     $("#div_id_scanner_type").hide();
+     $("#div_id_scanner_model").hide();
+     $("#div_id_conn_type").hide();
+ $("#div_id_copier_model").hide();
+
+ $("#id_select_object").change(function () {
+      var object = $(this).val();
+
+      if(object=='COMPUTERS'){
+ $("#div_id_pc_model").show("slow");
+ $("#div_id_os_license").show("slow");
+ $("#div_id_processor_type").show("slow");
+ $("#div_id_harddisk_size").show("slow");
+ $("#div_id_joined").show("slow");
+ $("#div_id_monitor_type").show("slow");
+ $("#div_id_lab_model").hide("slow");
+ $("#div_id_lab_vendor").hide("slow");
+ $("#div_id_printer_type").hide("slow");
+ $("#div_id_printer_model").hide("slow");
+ $("#div_id_scanner_type").hide("slow");
+ $("#div_id_scanner_model").hide("slow");
+ $("#div_id_conn_type").hide("slow");
+ $("#div_id_copier_model").hide("slow");
+
+      }else if(object=='LABTOPS'){
+ $("#div_id_pc_model").hide("slow");
+ $("#div_id_os_license").hide("slow");
+ $("#div_id_processor_type").hide("slow");
+ $("#div_id_harddisk_size").hide("slow");
+ $("#div_id_joined").hide("hide");
+ $("#div_id_monitor_type").hide("slow");
+ $("#div_id_lab_model").show("slow");
+ $("#div_id_lab_vendor").show("slow");
+ $("#div_id_printer_type").hide("slow");
+ $("#div_id_printer_model").hide("slow");
+ $("#div_id_scanner_type").hide("slow");
+ $("#div_id_scanner_model").hide("slow");
+ $("#div_id_conn_type").hide("slow");
+ $("#div_id_copier_model").hide("slow");
+      }
+      else if(object=='PRINTERS'){
+ $("#div_id_pc_model").hide("slow");
+ $("#div_id_os_license").hide("slow");
+ $("#div_id_processor_type").hide("slow");
+ $("#div_id_harddisk_size").hide("slow");
+ $("#div_id_joined").hide("hide");
+ $("#div_id_monitor_type").hide("slow");
+ $("#div_id_lab_model").hide("slow");
+ $("#div_id_lab_vendor").hide("slow");
+ $("#div_id_printer_type").show("slow");
+ $("#div_id_printer_model").show("slow");
+ $("#div_id_scanner_type").hide("slow");
+ $("#div_id_scanner_model").hide("slow");
+ $("#div_id_conn_type").hide("slow");
+ $("#div_id_copier_model").hide("slow");
+      }
+      else if(object=='SCANNERS'){
+ $("#div_id_pc_model").hide("slow");
+ $("#div_id_os_license").hide("slow");
+ $("#div_id_processor_type").hide("slow");
+ $("#div_id_harddisk_size").hide("slow");
+ $("#div_id_joined").hide("hide");
+ $("#div_id_monitor_type").hide("slow");
+ $("#div_id_lab_model").hide("slow");
+ $("#div_id_lab_vendor").hide("slow");
+ $("#div_id_printer_type").hide("slow");
+ $("#div_id_printer_model").hide("slow");
+ $("#div_id_scanner_type").show("slow");
+ $("#div_id_scanner_model").show("slow");
+ $("#div_id_conn_type").hide("slow");
+ $("#div_id_copier_model").hide("slow");
+      }
+      else if(object=='COPIERS'){
+ $("#div_id_pc_model").hide("slow");
+ $("#div_id_os_license").hide("slow");
+ $("#div_id_processor_type").hide("slow");
+ $("#div_id_harddisk_size").hide("slow");
+ $("#div_id_joined").hide("hide");
+ $("#div_id_monitor_type").hide("slow");
+ $("#div_id_lab_model").hide("slow");
+ $("#div_id_lab_vendor").hide("slow");
+ $("#div_id_printer_type").hide("slow");
+ $("#div_id_printer_model").hide("slow");
+ $("#div_id_scanner_type").hide("slow");
+ $("#div_id_scanner_model").hide("slow");
+ $("#div_id_conn_type").show("slow");
+ $("#div_id_copier_model").show("slow");
+      }
+});
+
+
+
+
+
+    $(function()
+    {
+      $("#b").change(function()
+      {
+        if ($(this).is(':checked')) {
+    $("#div_id_select_bransh").show("slow");
+    $("#div_id_select_object").show("slow");
+    $("#div_id_select_hsectors").hide();
+    $("#div_id_select_sector").hide();
+    $("#div_id_select_user").hide();
+        }
+
+        ;
+      });
+    });
+
+<!--**********************************************************************************-->
+    $(function()
+    {
+      $("#hs").change(function()
+      {
+        if ($(this).is(':checked')) {
+    $("#div_id_select_bransh").hide("slow");
+    $("#div_id_select_hsectors").show("slow");
+    $("#div_id_select_sector").hide("slow");
+    $("#div_id_select_user").hide("slow");
+    $("#div_id_select_object").show("slow");
+        }
+
+        ;
+      });
+    });
+<!--**********************************************************************************-->
+    $(function()
+    {
+      $("#s").change(function()
+      {
+        if ($(this).is(':checked')) {
+    $("#div_id_select_bransh").hide("slow");
+    $("#div_id_select_hsectors").hide("slow");
+    $("#div_id_select_sector").show("slow");
+    $("#div_id_select_user").hide("slow");
+    $("#div_id_select_object").show("slow");
+        }
+
+        ;
+      });
+    });
+<!--**********************************************************************************-->
+    $(function()
+    {
+      $("#u").change(function()
+      {
+        if ($(this).is(':checked')) {
+    $("#div_id_select_bransh").hide("slow");
+    $("#div_id_select_hsectors").hide("slow");
+    $("#div_id_select_sector").hide("slow");
+    $("#div_id_select_user").show("slow");
+    $("#div_id_select_object").show("slow");
+        }
+
+        ;
+      });
+    });
+
+
+});
+</script>
+
+</head>
+
+<body>
+<center><img src="{% static 'imge/srch.png' %}" width="160" height="100"/></center>
+<div class="row align-items-center justify-content-center border border-primary">
+     <h4>الپحث  پاستخدام  الپيانات  الاساسيه   - قم  پاستخدام  واحد  من  الپنود  الاتيه  ڤى  الپحث  </h4>
+
+<div class="col-md-12 bg-faded">
+
+<input type="radio"  name="s" value="b" id="b" > <a class="btn btn-secondary"> <strong><p>Search By Bransh</p> </strong></a>
+<input type="radio" name="s" value="hs" id="hs" ><a class="btn btn-secondary"><strong><p>Search By Head Sector</p><strong></a>
+<input type="radio" name="s" value="s" id="s"><a class="btn btn-secondary"><strong> <p>Search By Sector Name  </p></strong></a>
+<input type="radio" name="s" value="u" id="u"><a class="btn btn-secondary"><strong><p> Search By User Name  </p></strong></a>
+
+ <form method='POST'  action= '' >{% csrf_token %}
+<h3 class>S E C T O R -  A S S E T S -  S e a r c h </h3>
+     {{f1|crispy}}
+
+     {{f7|crispy}}
+
+     {{f2|crispy}}
+
+     {{f3|crispy}}
+
+     {{f4|crispy}}
+
+     {{f5|crispy}}
+
+     {{f6|crispy}}
+
+
+
+
+
+
+
+
+
+
+
+
+
+<input class= 'btn btn-info btn-lg' value="SEARCH" type=submit>
+<a class='btn btn-success btn-lg'  href="http://192.168.62.123:7000/app1/searchasst2/">NEW SEARCH</a>
+
+ </form></div></div>
+
+{% if f7.select_object.data == 'COMPUTERS' %}
+
+
+<hr><h1> <span class="badge badge-primary">Search  Results</span></h1><hr>
+
+    <hr><h1> <span class="badge badge-primary"> Search   Reults   With   Total  Number Of  {{ res.count }}</span></h1><hr>
+
+{% for obj in res %}
+<div class="container my-0 p-0">
+<div class="row align-items-center justify-content-center">
+<div class="jumbotron col-md-12 justify-content-center container">
+<p >
+معلومات تفاصيليه
+</p>
+<table class="table ">
+    <thead >
+      <tr>
+        <th>الاسم</th>
+        <th>المقر</th>
+        <th>القطاع</th>
+        <th>القطاعات</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>{{obj.user_fullname  }}</td>
+        <td>{{obj.bransh  }}</td>
+        <td>{{obj.user_sector  }}</td>
+        <td>{{obj.hsectors  }}</td>
+
+      </tr>
+    <thead>
+      <tr >
+        <th>نوع الچهاز</th>
+        <th>موديل الچهاز</th>
+        <th>نظام التشغيل الحالى</th>
+        <th>رخصة النظام</th>
+      </tr>
+    </thead>
+      <tr>
+        <td>{{obj.pc_type  }}</td>
+        <td>{{obj.pc_model  }}</td>
+        <td>{{obj.os_version  }}</td>
+        <td>{{obj.os_license  }}</td>
+      </tr>
+    </tbody>
+        <thead>
+      <tr>
+        <th>نوع المعالچ</th>
+        <th>حچم الرام</th>
+        <th>نوع الرام</th>
+        <th>حچم الهارد </th>
+      </tr>
+        </thead>
+       <tr>
+        <td>{{obj.processor_type  }}</td>
+        <td>{{obj.ram_size  }}</td>
+        <td>{{obj.ram_type  }}</td>
+        <td>{{obj.harddisk_size  }}</td>
+        </tr>
+            <thead>
+      <tr>
+        <th>نوع الشپگه</th>
+        <th>الرپط پالدومين</th>
+        <th>OEM OS</th>
+        <th>ADDED BY </th>
+      </tr>
+        </thead>
+       <tr>
+        <td>{{obj.networking  }}</td>
+        <td>{{obj.joined  }}</td>
+        <td>{{obj.os_version_oem  }}</td>
+        <td>{{obj.publisher  }}</td>
+        </tr>
+
+  </table>
+</div></div></div>
+
+{% endfor %}
+        {% elif f7.select_object.data == 'LABTOPS' %}
+<hr><h1> <span class="badge badge-primary">Search  Results</span></h1><hr>
+
+
+
+{% for obj in res %}
+<div class="container my-0 p-0">
+<div class="row align-items-center justify-content-center">
+<div class="jumbotron col-md-12 justify-content-center container">
+<p >
+معلومات تفاصيليه
+</p>
+<table class="table ">
+    <thead >
+      <tr>
+        <th>الاسم</th>
+        <th>المقر</th>
+        <th>القطاع</th>
+        <th>القطاعات</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>{{obj.user_fullname  }}</td>
+        <td>{{obj.bransh  }}</td>
+        <td>{{obj.user_sector }}</td>
+        <td>{{obj.hsectors }}</td>
+
+      </tr>
+    <thead>
+      <tr >
+        <th>موديل اللاپ</th>
+        <th>اسم المصنع</th>
+        <th>نظام التشغيل الحالى</th>
+        <th>OEM OS</th>
+      </tr>
+    </thead>
+      <tr>
+        <td>{{obj.lab_model  }}</td>
+        <td>{{obj.lab_vendor  }}</td>
+        <td>{{obj.os_version  }}</td>
+        <td>{{obj.os_version_oem  }}</td>
+      </tr>
+    </tbody>
+        <thead>
+      <tr>
+        <th>الرقم التسلسلى </th>
+        <th>ADDED BY</th>
+      </tr>
+        </thead>
+       <tr>
+        <td>{{obj.lab_serial  }}</td>
+        <td>{{obj.publisher  }}</td>
+
+        </tr>
+
+  </table>
+</div></div></div>
+
+{% endfor %}
+
+    {% elif f7.select_object.data == 'PRINTERS' %}
+
+{% for obj in res %}
+<div class="container my-0 p-0">
+<div class="row align-items-center justify-content-center">
+<div class="jumbotron col-md-12 justify-content-center container">
+<p >
+معلومات تفاصيليه
+</p>
+<table class="table ">
+    <thead >
+      <tr>
+        <th>الاسم</th>
+        <th>المقر</th>
+        <th>القطاع</th>
+        <th>القطاعات</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>{{obj.user_fullname  }}</td>
+        <td>{{obj.bransh  }}</td>
+        <td>{{obj.user_sector  }}</td>
+        <td>{{obj.hsectors  }}</td>
+
+      </tr>
+    <thead>
+      <tr >
+        <th>نوع الطاپعه</th>
+        <th>موديل الطاپعه</th>
+        <th>نوع التوصيل</th>
+        <th>رقم الحپر الليزر</th>
+      </tr>
+    </thead>
+      <tr>
+        <td>{{obj.printer_type  }}</td>
+        <td>{{obj.printer_model  }}</td>
+        <td>{{obj.conn_type  }}</td>
+        <td>{{obj.cartridge_number  }}</td>
+      </tr>
+    </tbody>
+        <thead>
+      <tr>
+        <th>رقم الحپر الاسود </th>
+        <th>رقم الحپر الالوان </th>
+        <th>ADDED BY</th>
+      </tr>
+        </thead>
+       <tr>
+        <td>{{obj.black_number  }}</td>
+        <td>{{obj.color_number  }}</td>
+        <td>{{obj.publisher  }}</td>
+
+        </tr>
+
+  </table>
+</div></div></div>
+
+{% endfor %}
+
+      {% elif f7.select_object.data == 'SCANNERS' %}
+    <hr><h1> <span class="badge badge-primary"> Search   Reults   With   Total  Number Of  {{ res.count }}</span></h1><hr>
+
+{% for obj in res %}
+<div class="container my-0 p-0">
+<div class="row align-items-center justify-content-center">
+<div class="jumbotron col-md-12 justify-content-center container">
+<p >
+معلومات تفاصيليه
+</p>
+<table class="table ">
+    <thead >
+      <tr>
+        <th>الاسم</th>
+        <th>المقر</th>
+        <th>القطاع</th>
+        <th>القطاعات</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>{{obj.user_fullname  }}</td>
+        <td>{{obj.bransh  }}</td>
+        <td>{{obj.user_sector  }}</td>
+        <td>{{obj.hsectors  }}</td>
+
+      </tr>
+    <thead>
+      <tr >
+        <th>نوع الماسح</th>
+        <th>موديل الماسح</th>
+        <th>ADDED BY</th>
+      </tr>
+    </thead>
+      <tr>
+        <td>{{obj.scanner_type  }}</td>
+        <td>{{obj.scanner_model  }}</td>
+        <td>{{obj.publisher  }}</td>
+      </tr>
+    </tbody>
+
+
+  </table>
+</div></div></div>
+
+{% endfor %}
+
+          {% elif f7.select_object.data == 'COPIERS' %}
+    <hr><h1> <span class="badge badge-primary"> Search   Reults   With   Total  Number Of  {{ res.count }}</span></h1><hr>
+
+{% for obj in res %}
+
+
+
+<div class="container my-0 p-0">
+<div class="row align-items-center justify-content-center">
+<div class="jumbotron col-md-12 justify-content-center container">
+<p >
+معلومات تفاصيليه
+</p>
+<table class="table ">
+    <thead >
+      <tr>
+        <th>المقر</th>
+        <th>القطاع</th>
+        <th>القطاعات</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>{{obj.bransh  }}</td>
+        <td>{{obj.user_sector  }}</td>
+        <td>{{obj.hsectors  }}</td>
+
+      </tr>
+    <thead>
+      <tr >
+        <th>موديل الماگينه</th>
+        <th> نوع التوصيل</th>
+        <th>رقم عپوة الحپر</th>
+        <th>  ADDED BY</th>
+      </tr>
+    </thead>
+      <tr>
+        <td>{{obj.copier_model  }}</td>
+        <td>{{obj.conn_type  }}</td>
+        <td>{{obj.cartridge_number  }}</td>
+        <td>{{obj.publisher  }}</td>
+      </tr>
+    </tbody>
+
+
+  </table>
+</div></div></div>
+{% endfor %}
+    {% endif %}
+
+ </div>
+
+
+
+<!-------------##############################################################################################----->
+
+  <!--<script type="text/javascript">-->
+           <!--var res1=[];-->
+
+<!--for(i=0;i<={{ qslen }};){-->
+              <!--{% for obj in qs %}-->
+    <!--res1[i]="{{obj.user_name}}";-->
+    <!--i=i+1;-->
+        <!--{% endfor %}-->
+<!--}-->
+<!--var res = res1.splice(0, Math.ceil(res1.length / 2));-->
+<!--res1=[]-->
+
+ <!--</script>-->
+
+<script type="text/javascript">
+           var res1=[];
+
+for(i=0;i<={{ qslen }};){
+              {% for obj in qs %}
+    res1[i]="{{obj.user_name}}";
+    i=i+1;
+        {% endfor %}
+}
+var res = res1.splice(0, Math.ceil(res1.length / 2));
+res1=[]
+  </script>
+<!--<script type="text/javascript">-->
+
+
+  <!--$( function() {-->
+
+    <!--$( "#id_user_fullname" ).autocomplete({-->
+      <!--source: res-->
+    <!--});-->
+  <!--} );-->
+  <!--</script>-->
+
+
+   {% endblock %}

@@ -1,0 +1,47 @@
+@font-face {
+    font-family: 'Roboto';
+    src: url('../fonts/Roboto-Bold-webfont.woff');
+    font-weight: 700;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Roboto';
+    src: url('../fonts/Roboto-Regular-webfont.woff');
+    font-weight: 400;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Roboto';
+    src: url('../fonts/Roboto-Light-webfont.woff');
+    font-weight: 300;
+    font-style: normal;
+}
+@font-face {
+  font-family:'f1';
+    src: url('/vv/v/tech-v9/static/fonts/Almudid.ttf');
+    font-weight: 300;
+    font-style: normal;
+}
+
+h3{
+    font-family:f1;
+}
+   
+
+
+@font-face {
+  font-family:'f3';
+    src: url('/vv/v/tech-v9/static/fonts/SuperstarX.ttf');
+    font-weight: 300;
+    font-style: normal;
+}
+
+@font-face {
+  font-family:'f33';
+    src: url('/vv/v/tech-v9/static/fonts/SST-Arabic-Bold.ttf');
+    font-weight: 300;
+    font-style: normal;
+}
+

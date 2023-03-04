@@ -1,0 +1,96 @@
+ {% extends 'base.html' %}
+{% include 'navbar.html' %}
+{%  load static %}
+{% load staticfiles %}
+
+{% block content %}
+<script src="http://code.highcharts.com/highcharts.js"></script>
+<script src="http://code.highcharts.com/modules/exporting.js"></script>
+<style>
+
+    .list-group{
+ margin-top:90px;
+ padding:0px;
+
+    }
+    .panel{
+ margin-top:90px;
+
+    }
+
+</style>
+<html>
+<body>
+
+  <div class="list-group">
+  <a href="#" class="list-group-item active">معلومات تفصيليه عن المشكله</a>
+
+
+    <table class="table">
+  <tbody>
+    <tr>
+      <td>اسم المستخدم</td>
+      <td>{{ instance.user_fullname}}</td>
+    </tr>
+        <tr>
+      <td>القطاع التابع له</td>
+      <td>{{ instance.user_sector}}</td>
+    </tr>
+      <tr>
+      <td>وصف المشكله</td>
+      <td>{{ instance.problem_desc}}</td>
+    </tr>
+      <tr>
+      <td>نوع الشبكه</td>
+      <td>{{ instance.netwk_type}}</td>
+    </tr>
+      <tr>
+      <td>تاريخ المشكله</td>
+      <td>{{ instance.problem_date}}</td>
+    </tr>
+
+
+
+
+
+  </tbody>
+</table>
+
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<a href="{{request.META.HTTP_REFERER}}"><button type="button" class="btn btn-primary" >
+  عـــوده للخــلـف</button></a>
+
+
+
+</body>
+</html>
+
+
+<!--
+  <div class="list-group">
+  <div class="list-group-item">{{ instance.problem_desc }}</div>
+  <div class="list-group-item"> {{ instance.problem_date }}</div>
+  <div class="list-group-item">{{ instance.user_fullname}}</div>
+  <div class="list-group-item">{{ instance.user_sector}}</div>
+  <div class="list-group-item">{{ instance.pc_type }}</div>
+
+
+-->
+
+
+   {% endblock %}
+
+

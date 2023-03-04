@@ -1,0 +1,139 @@
+ {% extends 'base.html' %}
+{% include 'navbar.html' %}
+{%  load static %}
+{% load staticfiles %}
+
+{% block content %}
+<script src="http://code.highcharts.com/highcharts.js"></script>
+<script src="http://code.highcharts.com/modules/exporting.js"></script>
+<style>
+
+    .list-group{
+ margin-top:90px;
+ padding:0px;
+
+    }
+    .panel{
+ margin-top:90px;
+
+    }
+
+</style>
+<html>
+<body>
+
+  <div class="list-group">
+  <a href="#" class="list-group-item active">معلومات تفصيليه عن طلب قطعة الغيار</a>
+<table class="table table-striped">
+  <tbody>
+    <tr>
+      <td>اسم المستخدم</td>
+      <td>القطاع التابع له</td>
+      <td>نوع قطعة الغيار</td>
+      <td>تاريخ الطلب</td>
+      <td>صورة الطلب المقدم</td>
+
+    </tr>
+    <tr>
+      <td> {{ instance.user_fullname}}</td>
+      <td>{{ instance.user_sector}} </td>
+      <td>{{ instance.part_type }}</td>
+      <td>{{ instance.demand_date }}</td>
+      <td><button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bd-example-modal-lg">"صورة الطلب</button></td>
+
+    </tr>
+  </tbody>
+</table>
+
+
+
+
+  </div>
+
+
+
+
+
+
+
+
+
+
+<a href="{{request.META.HTTP_REFERER}}"><button type="button" class="btn btn-primary" >
+  عـــوده للخــلـف</button></a>
+<!-- Button trigger modal -->
+
+
+<!-- Modal -->
+
+
+
+
+
+
+
+
+
+<div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+
+
+   <center>    {% if instance.thefile %} <img src={{ instance.thefile.url }} width="400px" height="400px" class="bbb "/>{% else %}<img src="{% static 'imge/nofile.jpg' %}" width="100px" height="100px" class=" "/> {% endif %} THERE IS NO FILE ASSOCIATED WITH THIS REQUEST</center>
+
+       <button type="button" class="btn btn-secondary btn-lg" data-dismiss="modal">اغلاق</button>
+  </div>
+  </div></div>
+<!-- Modal -->
+
+
+
+
+
+
+
+
+
+<div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+
+
+
+   <center>    {% if instance.thefile %} <img src={{ instance.thefile.url }} width="400px" height="400px" class="bbb "/>{% else %}<img src="{% static 'imge/nofile.jpg' %}" width="100px" height="100px" class=" "/> THERE IS NO FILE ASSOCIATED WITH THIS REQUEST{% endif %} </center>
+       <button type="button" class="btn btn-secondary btn-lg" data-dismiss="modal">اغلاق</button>
+  </div>
+  </div></div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>
+
+
+<!--
+  <div class="list-group">
+  <div class="list-group-item">{{ instance.problem_desc }}</div>
+  <div class="list-group-item"> {{ instance.problem_date }}</div>
+  <div class="list-group-item">{{ instance.user_fullname}}</div>
+  <div class="list-group-item">{{ instance.user_sector}}</div>
+  <div class="list-group-item">{{ instance.pc_type }}</div>
+
+
+-->
+
+
+   {% endblock %}
+
+

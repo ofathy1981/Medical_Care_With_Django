@@ -1,0 +1,206 @@
+{% load staticfiles %}
+{% block content %}
+   <html lang="en">
+  <head>
+
+<style>
+{
+position:absolute;
+top:0;
+}
+@font-face {
+    font-family: 'fall';
+    src: url('{% static '/fonts/ext/Hacen Maghreb Bd.ttf' %}');
+    font-weight: 10;
+    font-style: normal;
+    font-size:11pt;
+}
+form input[type=text]{
+    font-family:'fall';
+    font-size:12pt;
+    font-style: bold;
+
+}
+form .tarea{
+    font-family:'fall';
+    font-size:15pt;
+    font-style: bold;
+
+}
+form .select{
+    font-family:'fall';
+    font-size:11px;
+    font-style: bold;
+    font-weight: 10;
+
+}
+
+.ccc {
+    background-color: #000000;
+  
+}
+@font-face {
+    font-family: 'f1';
+    src: url('{% static '/fonts/Almudid.ttf' %}');
+    font-weight: 500;
+    font-style: normal;
+    font-size:9pt;
+}
+
+a.logo{
+    font-family:'f5';
+    font-size:9pt;
+}
+p{
+    font-family:'f1';
+}
+@font-face {
+    font-family: 'f4';
+    src: url('{% static '/fonts/batmfa__.ttf' %}');
+    font-weight: 500;
+    font-style: normal;
+    font-size:5pt;
+}
+@font-face {
+    font-family: 'f5';
+    src: url('{% static '/fonts/Cyberspace Raceway Back.otf' %}');
+    font-weight: 500;
+    font-style: normal;
+    font-size:5pt;
+}
+p.wel{
+    font-family:'f4';
+    font-size:9pt;
+}
+
+.custom {
+    width: 190px !important;
+}
+@font-face {
+    font-family: 'f2';
+    src: url('{% static '/fonts/Almudid.ttf' %}');
+    font-weight: 500;
+    font-style: normal;
+    font-size:12pt;
+}
+
+
+@font-face {
+    font-family: 'f6';
+    src: url('{% static '/fonts/vip-samir.otf' %}');
+    font-weight: 500;
+    font-style: normal;
+    font-size:19pt;
+}
+
+.container{
+font-family:'f2';
+margin-top: 80px;
+margin-bottom: 70px;
+
+}
+.list-group{
+font-family:'f2';
+
+}
+
+table tr td {
+font-family:'f2';
+    font-size:10pt;
+}
+
+table thead{
+font-family:'f2';
+    font-size:10pt;
+}
+p{
+font-family:'f2';
+    font-size:10pt;
+}
+
+.vv{
+background-color: #004C99
+}
+
+
+</style>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="../../favicon.ico">
+    <link href="{% static 'css/bootstrap-glyphicons.css'  %}"  rel="stylesheet">
+
+    <title>Welcome In Technical Support App</title>
+    
+
+    <link href="{% static 'css/bootstrap.min.css'  %}" rel="stylesheet">
+          <link rel="shortcut icon "href="{% static 'imge/ico.ico'  %}" rel="stylesheet">
+
+       <!-- Bootstrap core CSS <link href="{% static 'css/bootstrap.css'  %}" rel="stylesheet">
+ -->
+
+
+
+
+          <link href="{% static 'css/font-awesome-animation.min.css'  %}" rel="stylesheet">
+
+     <link href="{% static 'css/fonts.css'  %}" rel="stylesheet">
+     <!-- <link href="{% static 'fonts/GE-Flow-Regular-1.otf'  %}" rel="stylesheet"> -->
+
+
+    <!-- Custom styles for this template -->
+    <!-- <link href="{% static 'css/jumbotron.css' %} rel="stylesheet"> -->
+  </head>
+
+    <nav class="navbar  fixed-top  navbar-toggleable-md navbar-inverse ml-auto bg-inverse mb-4 ">
+      <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+<img class="" src='{% static "imge/logo.png"  %}' alt="Generic placeholder image"  width="60" height="40">
+      <a class="navbar-brand logo" href="#">E.G.O.T.H  - Information Sector</a>
+      <div class="collapse navbar-collapse  justify-content-end" id="navbarCollapse">
+        <ul class="navbar-nav mr-auto">
+
+            <li  class="nav-item">
+<a class="nav-link" href="{% url 'mission_main'%}" ><button class="btn btn-outline-success my-2 my-sm-0 btn-lg" type="submit">ACCOMPLISHED-MISSIONS</button>
+ </a>
+          </li>
+        </ul>
+
+{% if  user.is_authenticated == True %}
+                      <li class="nav-item ">
+</li>
+<li  class="nav-item">
+
+
+
+
+
+
+
+          </li> </ul>
+<p class="font-weight-normal  text-white"  >Welcome : you are logged in as {{ request.user }}</p>
+
+<p class="font-weight-normal  text-white"  ><a class="font-weight-normal  text-white" href="{% url 'auth_logout' %}" >
+         <button class="btn btn-outline-success my-2 my-sm-0  mt-2 mt-md-0"  type="submit">LOGOUT</button></a></p>
+
+{% endif %}
+
+    </nav>
+<nav class="navbar fixed-bottom  ccc style="background-color: #4C4;">
+  CopyRight @ E.G.O.T.H- Osama Mohamed Fathy
+</nav>
+
+    
+       <script src="{% static 'js/jquery-3.1.1.slim.min.js' %}"  crossorigin="anonymous"></script>
+    <script>window.jQuery || document.write('<script src="{% static ' js/vendor/jquery.min.js' %}><\/script>')</script>
+    <script src=""{% static 'js/tether.min.js' %}"  crossorigin="anonymous"></script>
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>
+
+
+
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <!-- <script src="{% static 'js/ie10-viewport-bug-workaround.js' %}" > </script> -->
+       <script src="{% static 'js/actions.min.js' %}"></script>
+{% endblock %}

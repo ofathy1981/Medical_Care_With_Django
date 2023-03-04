@@ -1,0 +1,130 @@
+ {% extends 'base.html' %}
+{% include 'navbar.html' %}
+{%  load static %}
+{% load staticfiles %}
+
+{% block content %}
+<script src="http://code.highcharts.com/highcharts.js"></script>
+<script src="http://code.highcharts.com/modules/exporting.js"></script>
+<style>
+
+    .list-group{
+ margin-top:90px;
+ padding:0px;
+
+    }
+    .panel{
+ margin-top:90px;
+
+    }
+
+</style>
+<html>
+<body>
+
+<ul class="nav nav-tabs nav-pills bb " id="myTab" role="tablist">
+
+  <li class="nav-item">
+    <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Servers Details</a>
+  </li>
+
+</ul>
+
+<table class="table">
+  <thead class="thead-inverse">
+    <tr>
+      <th>مسلسل</th>
+      <th>اسم الفرع</th>
+      <th>بواسطة</th>
+      <th>Actions</th>
+
+    </tr>
+  </thead>
+  <tbody>
+  {% for obj in servers_list %}
+
+   <tr>
+   <th scope="row"> {{ obj.id }}</th>
+   <td>  {{ obj.bransh }} </td>
+   <td>  {{ obj.publisher }}  </td>
+ <td> <a href='{% url "server_detail" id=obj.id %}'><button type="button" class="btn btn-danger btn-lg">حذف</button></a>||<a href='{% url "server_update" id=obj.id %}'> <button type="button"  class="btn btn-info btn-lg">تعديل</button></a></td>
+
+</td>
+
+
+
+  {% endfor %}
+  </tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>
+
+
+<!--
+  <div class="list-group">
+  <div class="list-group-item">{{ instance.problem_desc }}</div>
+  <div class="list-group-item"> {{ instance.problem_date }}</div>
+  <div class="list-group-item">{{ instance.user_fullname}}</div>
+  <div class="list-group-item">{{ instance.user_sector}}</div>
+  <div class="list-group-item">{{ instance.pc_type }}</div>
+
+
+-->
+
+
+   {% endblock %}
+
+

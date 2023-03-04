@@ -1,0 +1,302 @@
+{% extends 'base.html' %}
+{% include 'navbar.html' %}
+{%  load static %}
+{% load staticfiles %}
+
+{% block content %}
+<script src="http://code.highcharts.com/highcharts.js"></script>
+<script src="http://code.highcharts.com/modules/exporting.js"></script>
+<style>
+
+    .list-group{
+ margin-top:90px;
+ padding:0px;
+
+    }
+    .panel{
+ margin-top:90px;
+
+    }
+.list-group{
+ margin-bottom:90px;
+}
+@font-face {
+    font-family: 'f2';
+    src: url('{% static '/fonts/Almudid.ttf' %}');
+    font-weight: 500;
+    font-style: normal;
+    font-size:9pt;
+}
+table tr td {
+font-family:'f2';
+
+}
+</style>
+<html>
+<body>
+  <a href="#" class="list-group-item active">بيانات تفصيلية</a>
+  <div class="list-group">
+  
+
+
+    <table class="table">
+  <tbody>
+    <tr>
+      <td >  {{ monthly_medical_script1_res.patient_name }}</td>
+      <td>اسم المريض</td>
+    </tr>
+    <tr>
+        <td>{{ monthly_medical_script1_res.medical_number  }}</td>
+        <td>الرقم الطبى</td>
+    </tr>
+    <tr>
+      <td>{{ monthly_medical_script1_res.auth_doc  }}</td>
+      <td>بند علاج </td>
+    </tr>
+      {% if monthly_medical_script1_res.medic1_name %}
+      <tr>
+        <td>{{ monthly_medical_script1_res.medic1_name  }}</td>
+        <td>بند علاج 1</td>
+      </tr>
+{% endif %}
+      
+      {% if monthly_medical_script1_res.medic2_name %}
+      <tr>
+        <td>{{ monthly_medical_script1_res.medic2_name  }}</td>
+        <td>بند علاج 2</td>
+      </tr>
+{% endif %}
+
+      {% if monthly_medical_script1_res.medic3_name %}
+      <tr>
+        <td>{{ monthly_medical_script1_res.medic3_name  }}</td>
+        <td>بند علاج 3</td>
+      </tr>      
+      {% endif %}
+
+      {% if monthly_medical_script1_res.medic4_name %}
+      <tr>
+        <td>{{ monthly_medical_script1_res.medic4_name  }}</td>
+        <td>بند علاج 4 </td>
+      </tr>
+      {% endif %}
+
+      {% if monthly_medical_script1_res.medic5_name %}
+      <tr>
+        <td>{{ monthly_medical_script1_res.medic5_name  }}</td>
+        <td>بند علاج 5 </td>
+      </tr>
+      {% endif %}
+
+      {% if monthly_medical_script1_res.medic6_name %}
+      <tr>
+        <td>{{ monthly_medical_script1_res.medic6_name  }}</td>
+        <td>بند علاج 6 </td>
+      </tr>
+      {% endif %}
+
+      {% if monthly_medical_script1_res.medic7_name %}
+      <tr>
+        <td>{{ monthly_medical_script1_res.medic7_name  }}</td>
+        <td>بند علاج 7</td>
+      </tr>
+      {% endif %}
+
+      {% if monthly_medical_script1_res.medic8_name %}
+      <tr>
+        <td>{{ monthly_medical_script1_res.medic8_name  }}</td>
+        <td>بند علاج 8</td>
+      </tr>
+      {% endif %}
+
+      {% if monthly_medical_script1_res.medic9_name %}
+      <tr>
+        <td>{{ monthly_medical_script1_res.medic9_name  }}</td>
+        <td>بند علاج 9</td>
+      </tr>
+      {% endif %}
+
+      {% if monthly_medical_script1_res.medic10_name %}
+      <tr>
+        <td>{{ monthly_medical_script1_res.medic10_name  }}</td>
+        <td>بند علاج 10</td>
+      </tr>
+      {% endif %}
+
+      {% if monthly_medical_script1_res.medic11_name %}
+      <tr>
+        <td>{{ monthly_medical_script1_res.medic11_name  }}</td>
+        <td>بند علاج 11</td>
+      </tr>
+      {% endif %}
+
+
+
+      {% if monthly_medical_script1_res.medic12_name %}
+      <tr>
+        <td>{{ monthly_medical_script1_res.medic12_name  }}</td>
+        <td>بند علاج  12</td>
+      </tr>
+      {% endif %}
+
+      {% if monthly_medical_script1_res.medic13_name %}
+      <tr>
+        <td>{{ monthly_medical_script1_res.medic13_name  }}</td>
+        <td>بند علاج  13</td>
+      </tr>
+      {% endif %}
+
+      {% if monthly_medical_script1_res.medic14_name %}
+      <tr>
+        <td>{{ monthly_medical_script1_res.medic14_name  }}</td>
+        <td>بند علاج  14</td>
+      </tr>
+      {% endif %}
+
+      {% if monthly_medical_script1_res.medic15_name %}
+      <tr>
+        <td>{{ monthly_medical_script1_res.medic15_name  }}</td>
+        <td>بند علاج  15</td>
+      </tr>
+      {% endif %}
+
+      {% if monthly_medical_script1_res.medic16_name %}
+      <tr>
+        <td>{{ monthly_medical_script1_res.medic16_name  }}</td>
+        <td>بند علاج 16 </td>
+      </tr>
+      {% endif %}
+
+      {% if monthly_medical_script1_res.medic17_name %}
+      <tr>
+        <td>{{ monthly_medical_script1_res.medic17_name  }}</td>
+        <td>بند علاج  17</td>
+      </tr>
+      {% endif %}
+
+      {% if monthly_medical_script1_res.medic18_name %}
+      <tr>
+        <td>{{ monthly_medical_script1_res.medic18_name  }}</td>
+        <td>بند علاج 18</td>
+      </tr>
+      {% endif %}
+
+      {% if monthly_medical_script1_res.medic19_name %}
+      <tr>
+        <td>{{ monthly_medical_script1_res.medic19_name  }}</td>
+        <td>بند علاج 19</td>
+      </tr>
+      {% endif %}
+
+      {% if monthly_medical_script1_res.medic20_name %}
+      <tr>
+        <td>{{ monthly_medical_script1_res.medic20_name  }}</td>
+        <td>بند علاج 20</td>
+      </tr>
+   {% endif %}
+
+   <tr>
+    <td>{{ monthly_medical_script1_res.timestamp  }}</td>
+    <td>وقت الاضافة</td>
+  </tr>
+  <tr>
+    <td>{{ monthly_medical_script1_res.publisher  }}</td>
+    <td>اسم المستخدم</td>
+  </tr>
+  <tr>
+    <td>{{ monthly_medical_script1_res.ip  }}</td>
+    <td>عنوان الجهاز</td>
+  </tr>
+
+
+
+<tr><td><a href="{{request.META.HTTP_REFERER}}"><button type="button" class="btn btn-info "><p> الغــــــاء</p></button></a>||<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalLong"> <p> حـــــذف</p>  </button></td></tr>
+
+  </tbody>
+</table>
+
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- Button trigger modal -->
+
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">تاكيد حذف البيانات</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+
+سيتم حذف بيانات  العلاج الشهرى  من قاعدة البيانات؟
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">الغاء</button>
+        <a href="/app1/{{monthly_medical_script1_res.id}}/remove_monthly_medical_script1/"> <button type="button" class="btn btn-danger">احــــذف</button></a>
+
+      </div>
+    </div>
+  </div>
+
+<!-- Button trigger modal -->
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>ghj
+      <div class="modal-body">
+        the modeal bodyhjhhjfgjhfghj
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+</body>
+</html>
+
+
+<!--
+  <div class="list-group">
+  <div class="list-group-item">{{ pc_res.problem_desc }}</div>
+  <div class="list-group-item"> {{ pc_res.problem_date }}</div>
+  <div class="list-group-item">{{ pc_res.user_fullname}}</div>
+  <div class="list-group-item">{{ pc_res.user_sector}}</div>
+  <div class="list-group-item">{{ pc_res.pc_type }}</div>
+
+
+-->
+
+
+   {% endblock %}
+
+

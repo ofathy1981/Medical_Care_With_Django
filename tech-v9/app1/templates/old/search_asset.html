@@ -1,0 +1,308 @@
+ {% extends 'base.html' %}
+ {% include 'footer.html' %}
+
+{% include 'navbar.html' %}
+{% load staticfiles %}
+{% load static %}
+{% load crispy_forms_tags %}
+
+
+{% block content %}
+<<script src='{% static "js/jquery-3.1.1.min.js"  %}'></script>
+<script src='{% static "js/bootstrap.min.js"  %}'></script>
+<script src='{% static "js/moment.min.js"  %}'></script>
+<script src='{% static "js/bootstrap-datetimepicker.js"  %}'></script>
+<link href='{% static   "css/bootstrap-datetimepicker.min.css"  %}' rel="stylesheet">
+
+
+
+
+
+
+
+<style type="text/css">
+p{
+    font-family:'f4';
+    font-size:10pt;
+}
+@font-face {
+    font-family: 'num';
+    src: url('{% static '/fonts/Bahij_TheSansArabic-Bold.ttf' %}');
+    font-weight: 500;
+    font-style: normal;
+    font-size:11pt;
+}
+h3{
+    font-family:'num';
+    font-size:16pt;
+}
+    .box{
+
+        
+        display: none;
+        margin-top: 20px;
+
+    }
+
+
+
+.conatiner{
+margin-top: 70px;
+}
+
+.ta{
+margin-bottom: 70px;
+}
+</style>
+
+<div class="conatiner" >
+
+
+<script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+
+<script type="text/javascript">
+
+$(document).ready(function(){
+    $("#div_id_select_bransh").hide();
+    $("#div_id_select_hsectors").hide();
+    $("#div_id_select_sector").hide();
+    $("#div_id_select_user").hide();
+    $("#div_id_select_object").hide();
+
+    $(function()
+    {
+      $("#b").change(function()
+      {
+        if ($(this).is(':checked')) {
+    $("#div_id_select_bransh").show("slow");
+    $("#div_id_select_object").show("slow");
+    $("#div_id_select_hsectors").hide();
+    $("#div_id_select_sector").hide();
+    $("#div_id_select_user").hide();
+        }.0
+
+        ;
+      });
+    });
+
+<!--**********************************************************************************-->
+    $(function()
+    {
+      $("#hs").change(function()
+      {
+        if ($(this).is(':checked')) {
+    $("#div_id_select_bransh").hide("slow");
+    $("#div_id_select_hsectors").show("slow");
+    $("#div_id_select_sector").hide("slow");
+    $("#div_id_select_user").hide("slow");
+    $("#div_id_select_object").show("slow");
+        }
+
+        ;
+      });
+    });
+<!--**********************************************************************************-->
+    $(function()
+    {
+      $("#s").change(function()
+      {
+        if ($(this).is(':checked')) {
+    $("#div_id_select_bransh").hide("slow");
+    $("#div_id_select_hsectors").hide("slow");
+    $("#div_id_select_sector").show("slow");
+    $("#div_id_select_user").hide("slow");
+    $("#div_id_select_object").show("slow");
+        }
+
+        ;
+      });
+    });
+<!--**********************************************************************************-->
+    $(function()
+    {
+      $("#u").change(function()
+      {
+        if ($(this).is(':checked')) {
+    $("#div_id_select_bransh").hide("slow");
+    $("#div_id_select_hsectors").hide("slow");
+    $("#div_id_select_sector").hide("slow");
+    $("#div_id_select_user").show("slow");
+    $("#div_id_select_object").show("slow");
+        }
+
+        ;
+      });
+    });
+
+
+});
+</script>
+
+</head>
+
+<body>
+<center><img src="{% static 'imge/search1.jpg' %}" width="460" height="180"/></center>
+<div class="row align-items-center justify-content-center border border-primary">
+     <h4>الپحث  پاستخدام  الپيانات  الاساسيه   - قم  پاستخدام  واحد  من  الپنود  الاتيه  ڤى  الپحث  </h4>
+
+<div class="col-md-12 bg-faded">
+
+<input type="radio"  name="s" value="b" id="b" > <a class="btn btn-secondary"> <strong><p>Search By Bransh</p> </strong></a>
+<input type="radio" name="s" value="hs" id="hs" ><a class="btn btn-secondary"><strong><p>Search By Head Sector</p><strong></a>
+<input type="radio" name="s" value="s" id="s"><a class="btn btn-secondary"><strong> <p>Search By Sector Name  </p></strong></a>
+<input type="radio" name="s" value="u" id="u"><a class="btn btn-secondary"><strong><p> Search By User Name  </p></strong></a>
+
+ <form method='POST'  action= '' >{% csrf_token %}
+<h3 class>S E C T O R -  A S S E T S -  S e a r c h </h3>
+     {{f1|crispy}}
+
+ {{ f7|crispy }}
+
+
+
+
+
+
+
+
+
+
+
+
+<input class= 'btn btn-info btn-lg' value="SEARCH" type=submit>
+     <a class='btn btn-info btn-lg' href="{% url 'searchasst' %}"> New Search</a>
+
+ </form></div></div>
+<script>
+    	var brnsh = $("#id_select_bransh option:selected").text();
+       	var hsects = $("#id_select_hsectors option:selected").text();
+    	var sect = $("#id_select_sector option:selected").text();
+    	var usr = $("#id_select_user option:selected").text();
+
+</script>
+<div id="content">
+
+    {% if f7.select_object.data == 'COMPUTERS' %}
+
+<table class="table table-hover ta" >
+    <tr class="table-warning">
+
+    <th>تاريخ الاضافه</th>
+    <th>الذاكره</th>
+      <th>المعالج</th>
+      <th>الڤطاعات</th>
+      <th>القطاع</th>
+      <th >اسم المستخدم</th>
+
+
+
+
+    </tr>
+    <hr><h1> <div style=" text-align:center ;color:#000000" > {% if f1.select_hsectors.data %} <script> document.write(hsects)</script> {% elif f1.select_bransh.data %}<script> document.write(brnsh)</script> {% elif f1.select_sector.data %}<script> document.write(sect)</script>{% elif f1.select_user.data %}  <script> document.write(usr)</script>{% endif %}</div></h1><hr>
+<hr style="color:#000000">
+    <hr><h1> <div style="text-align:center ;color:#000000" >اجمالى عدد اجهزة الحاسب   {{ res.count }}</div></h1><hr>
+<hr style="color:#000000">
+
+{% for obj in res %}
+<tr><td>{{ obj.timestamp }}</td><td>{{ obj.ram_size }}</td><td>{{ obj.processor_type }}</td><td>{{ obj.hsectors}}</td><td>{{ obj.user_sector }}</td><td>{{ obj.user_fullname}}</td></tr>
+
+
+{% endfor %}
+    </table>
+        {% elif f7.select_object.data == 'LABTOPS' %}
+<table class="table table-hover ta" >
+    <tr class="table-warning">
+      <th >اسم المستخدم</th>
+      <th>القطاع</th>
+      <th>الڤطاعات</th>
+      <th>الموديل</th>
+
+    <th>تاريخ الاضافه</th>
+
+    </tr>
+    <hr><h1> <div style=" text-align:center ;color:#000000" > {% if f1.select_hsectors.data %} <script> document.write(hsects)</script>{% elif f1.select_bransh.data %}<script> document.write(brnsh)</script> {% elif f1.select_sector.data %}<script> document.write(sect)</script>{% elif f1.select_user.data %}  <script> document.write(usr)</script>    {% endif %}</div></h1><hr>
+    <hr><h1> <div style="text-align:center ;color:#000000">اجمالى عدد الاجهزه المحموله    {{ res.count }}</div></h1><hr>
+
+{% for obj in res %}
+<tr><td>{{ obj.timestamp }}</td><td>{{ obj.lab_model }}</td><td>{{ obj.hsectors}}</td><td>{{ obj.user_sector }}</td><td>{{ obj.user_fullname}}</td></tr>
+
+
+{% endfor %}
+</table>
+    {% elif f7.select_object.data == 'PRINTERS' %}
+    <table class="table table-hover ta" >
+    <tr class="table-warning">
+      <th >اسم المستخدم</th>
+      <th>الڤطاعات</th>
+      <th>القطاع</th>
+      <th>نوع الطابعه</th>
+
+    <th>تاريخ الاضافه</th>
+
+    </tr>
+    <hr><h1> <div style=" text-align:center ;color:#000000" > {% if f1.select_hsectors.data %} <script> document.write(hsects)</script> {% elif f1.select_bransh.data %}<script> document.write(brnsh)</script> {% elif f1.select_sector.data %}<script> document.write(sect)</script>{% elif f1.select_user.data %}  <script> document.write(usr)</script>   {% endif %}</div></h1><hr>
+        <hr><h1> <div style="text-align:center ;color:#000000">اجمالى عدد الطابعات  {{ res.count }}</div></h1><hr>
+
+{% for obj in res %}
+<tr><td>{{ obj.user_fullname}}</td><td>{{ obj.hsectors}}</td><td>{{ obj.user_sector }}</td><td>{{ obj.printer_type }}</td><td>{{ obj.timestamp }}</td></tr>
+
+
+{% endfor %}
+    </table>
+      {% elif f7.select_object.data == 'SCANNERS' %}
+    <table class="table table-hover ta" >
+    <tr class="table-warning">
+      <th >اسم المستخدم</th>
+      <th>الڤطاعات</th>
+      <th>القطاع</th>
+      <th>نوع الماسح والموديل</th>
+
+    <th>تاريخ الاضافه</th>
+
+    </tr>
+    <hr><h1> <div style=" text-align:center ;color:#000000" > {% if f1.select_hsectors.data %} <script> document.write(hsects)</script>{% elif f1.select_bransh.data %}<script> document.write(brnsh)</script> {% elif f1.select_sector.data %}<script> document.write(sect)</script>{% elif f1.select_user.data %}  <script> document.write(usr)</script>    {% endif %}</div></h1><hr>
+    <hr><h1> <div style="text-align:center ;color:#000000">اجمالى عدد اجهزة الماسح الضوئى   {{ res.count }}</div></h1><hr>
+
+{% for obj in res %}
+<tr><td>{{ obj.user_fullname}}</td><td>{{ obj.hsectors}}</td><td>{{ obj.user_sector }}</td><td>{{ obj.scanner_type }} {{ obj.scanner_model}}</td><td>{{ obj.timestamp }}</td></tr>
+
+
+{% endfor %}
+    </table>
+          {% elif f7.select_object.data == 'COPIERS' %}
+    <table class="table table-hover ta" >
+    <tr class="table-warning">
+      <th >اسم المستخدم</th>
+      <th>الڤطاعات</th>
+      <th>القطاع</th>
+      <th>نوع التوصيل والموديل</th>
+
+    <th>تاريخ الاضافه</th>
+
+    </tr>
+    <hr><h1> <div style=" text-align:center ;color:#000000" > {% if f1.select_hsectors.data %} <script> document.write(hsects)</script> {% elif f1.select_bransh.data %}<script> document.write(brnsh)</script> {% elif f1.select_sector.data %}<script> document.write(sect)</script>{% elif f1.select_user.data %}  <script> document.write(usr)</script>   {% endif %}</div></h1><hr>
+    <hr><h1> <div style="text-align:center ;color:#000000">اجمالى عدد ماكينات التصوير  {{ res.count }}</div></h1><hr>
+
+{% for obj in res %}
+<tr><td>{{ obj.user_fullname}}</td><td>{{ obj.hsectors}}</td><td>{{ obj.user_sector }}</td><td>{{ obj.conn_type }} ++++ {{ obj.copier_model }}</td><td>{{ obj.timestamp }}</td></tr>
+
+
+{% endfor %}
+    </table>
+    {% endif %}
+
+    </div>
+ </div>
+</div>
+</div>
+
+<!-------------##############################################################################################----->
+
+<script src="https://code.jquery.com/jquery-1.12.3.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/0.9.0rc1/jspdf.min.js"></script>
+
+<script>
+
+
+</script>
+   {% endblock %}

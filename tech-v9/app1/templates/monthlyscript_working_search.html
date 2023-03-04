@@ -1,0 +1,120 @@
+ {% extends 'base.html' %}
+ {% include 'navbar.html' %}
+ {% include 'footer.html' %}
+{%  load static %}
+{% load staticfiles %}
+{% load crispy_forms_tags %}
+
+
+{% block content %}
+<!--<script src='{% static "js/jquery-3.1.1.min.js"  %}'></script>-->
+<!--<script src='{% static "js/bootstrap.min.js"  %}'></script>-->
+<script src='{% static "js/moment.min.js"  %}'></script>
+<script src='{% static "js/bootstrap-datetimepicker.js"  %}'></script>
+<link href='{% static   "css/bootstrap-datetimepicker.min.css"  %}' rel="stylesheet">
+<link href='{% static   "css/bootstrap-datetimepicker.css"  %}' rel="stylesheet">
+<script type="text/javascript">
+$(function () {
+    $('.datepicker').datetimepicker(
+    {
+        format: 'YYYY-MM-DD HH:mm:ss',
+        sideBySide: true
+    }
+    );
+});
+</script>
+
+
+<style>
+.cc{
+margin-top: 100px;
+margin-bottom: 70px;
+}
+.vv{
+background-color: #004C99
+
+}
+.v{
+background-color: #004C99
+
+}
+
+.pa{
+padding:5px}
+
+.c{
+font-family:'f2';
+    font-size:10pt;
+    color: black;
+}
+
+
+
+
+
+
+
+
+
+
+</style>
+<div class="list-group-item justify-content-center">  إستعلامات السجلات الطبية علاج شهرى عاملين</div>
+
+<br/>
+<div class="container-fluid cc justify-content-center" >
+
+
+<div class="row ">
+
+    <form method='POST' class="form-control" action= ''>{% csrf_token %}
+      
+        <div class="blue box card card-body"><strong>Enter Name of the User you want to search for {{ f3|crispy }}</strong></div>
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      <input class= 'btn btn-info btn-lg' value="SEARCH" type=submit ">
+       </form>
+       <table class="table table-hover ta" >
+          <tr class="table-warning">
+            <th>الرقم الطبى</th>
+            <th>اسم الموظف</th>
+
+            <th >مسلسل</th>
+
+      
+      
+      
+          </tr>
+      {% for obj in q %}
+      <tr>
+          <td>{{ obj.medical_number  }}</td>
+          <td><a href='{% url "add_new_monthly_script1_v" id=obj.id %}'>{{ obj.patient_name}}</a></td>
+
+          <td>{{ obj.id}}</td>
+
+      </tr>
+      
+      
+      {% endfor %}
+      
+      </table>
+
+
+
+
+
+
+</div>
+
+</div>
+
+
+   {% endblock %}

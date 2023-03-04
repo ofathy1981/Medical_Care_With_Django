@@ -1,0 +1,87 @@
+ {% extends 'base.html' %}
+ {% include 'navbar.html' %}
+ {% include 'footer.html' %}
+{%  load static %}
+{% load staticfiles %}
+{% load crispy_forms_tags %}
+
+
+{% block content %}
+<!--<script src='{% static "js/jquery-3.1.1.min.js"  %}'></script>-->
+<!--<script src='{% static "js/bootstrap.min.js"  %}'></script>-->
+<script src='{% static "js/moment.min.js"  %}'></script>
+<script src='{% static "js/bootstrap-datetimepicker.js"  %}'></script>
+<link href='{% static   "css/bootstrap-datetimepicker.min.css"  %}' rel="stylesheet">
+<link href='{% static   "css/bootstrap-datetimepicker.css"  %}' rel="stylesheet">
+<script type="text/javascript">
+$(function () {
+    $('.datepicker').datetimepicker(
+    {
+        format: 'YYYY-MM-DD HH:mm:ss',
+        sideBySide: true
+    }
+    );
+});
+</script>
+
+
+<style>
+.container{
+margin-top: 100px;
+margin-bottom: 70px;
+}
+.vv{
+background-color: #004C99
+
+}
+.v{
+background-color: #004C99
+
+}
+</style>
+
+
+<div class="container" >
+
+<center><div class="col-md-12 justify-content-center text-white list-group-item vv">  إضافة درجة تقاضى </div></center>
+
+<div class="row  align-items-center float fluid justify-content-center ">
+    <div class="row align-items-center  float fluid justify-content-center">
+<div class="col-md-12 justify-content-center float fluid  ">
+ <form method='POST' action= " ">{% csrf_token %}
+    {{form|crispy}}
+
+ <input class= 'btn btn-primary btn-lg'  style="font-size: large;color:cornsilk; "  value="إعادة ضبط " type=reset >
+ <input class= 'btn  btn-lg' value=" إضافه" type=submit >
+
+</form>
+</div>
+    </div>
+</div>
+</div>
+<!--
+ <div class="col-md-4">
+
+ <form method='POST' action= ''>{% csrf_token %}
+
+ {{form|crispy}}
+<a class="btn btn-primary" href= {{  clicker }} >clcik me</a>
+ <input class= 'btn btn-primary' type=submit  onClick="{{  clicker }}">
+ </form>
+ </div>
+
+     <div class="col-md-4">
+
+ <form method='POST' action= ''>{% csrf_token %}
+
+ {{form|crispy}}
+<a class="btn btn-primary" href= {{  clicker }} >clcik me</a>
+ <input class= 'btn btn-primary' type=submit onClick="{{  clicker }}">
+ </form>
+ </div>
+-->
+
+
+
+
+   {% endblock %}

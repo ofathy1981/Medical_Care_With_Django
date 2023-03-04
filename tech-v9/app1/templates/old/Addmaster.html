@@ -1,0 +1,134 @@
+ {% extends 'base.html' %}
+ {% include 'navbar.html' %}
+ {% include 'footer.html' %}
+{%  load static %}
+{% load staticfiles %}
+{% load crispy_forms_tags %}
+
+
+{% block content %}
+<!--<script src='{% static "js/jquery-3.1.1.min.js"  %}'></script>-->
+<!--<script src='{% static "js/bootstrap.min.js"  %}'></script>-->
+<script src='{% static "js/moment.min.js"  %}'></script>
+<script src='{% static "js/bootstrap-datetimepicker.js"  %}'></script>
+<link href='{% static   "css/bootstrap-datetimepicker.min.css"  %}' rel="stylesheet">
+<link href='{% static   "css/bootstrap-datetimepicker.css"  %}' rel="stylesheet">
+<script type="text/javascript">
+$(function () {
+    $('.datepicker').datetimepicker(
+    {
+        format: 'YYYY-MM-DD HH:mm:ss',
+        sideBySide: true
+    }
+    );
+});
+
+var left = (screen.width/2)-(w/2);
+var top = (screen.height/2)-(h/2);
+</script>
+
+
+<style>
+
+
+.fnt{
+
+    font-family: 'f2';
+
+}
+.conatiner{
+margin-top: 80px;
+margin-bottom: 70px;
+}
+.vv{
+background-color: #004C99
+
+}
+.v{
+background-color: #004C99
+
+}
+.c{ font-size:12pt;
+width:210;
+}
+.pa{
+padding:5px}
+</style>
+
+
+<div class="container-fluid" >
+<br/>
+
+<center><div class="col-md-12 justify-content-center text-white list-group-item vv">البيانات الاساسيه الخاصه بالدعاوى القضائيه </div>
+    <br/>
+    <img class=" " src='{% static "imge/cases.jpg"  %}' alt="Generic placeholder image" width="290" height="140">
+</center>
+    <br/>
+
+<div class="row  align-items-center float fluid justify-content-center ">
+
+    <table>
+        <tr><td><div class="pa"><a   href="{% url 'addthe_casedep' %}" target="popup"
+onclick="window.open('{% url 'addthe_casedep' %}','popup','width=600,height=600','location=no','resizable=no'); return false;"> <button class= 'btn-lg btn-outline-primary fnt c' value="" >اضافة  دائره</button></a></div></td>
+
+
+            <td><div class="pa"><a href="{% url 'addthe_case_court_name' %}" target="popup"
+onclick="window.open('{% url 'addthe_case_court_name' %}','popup','width=600,height=600','location=no','resizable=no'); return false;"> <button class= 'btn-lg btn-outline-primary fnt  c' value="" >اضافة  محكمه</button></a></div></td></tr>
+
+
+        <tr><td><div class="pa"><a href="{% url 'addthe_case_depart_type' %}" target="popup" onclick="window.open('{% url 'addthe_case_depart_type' %}','popup','width=600,height=600','location=no','resizable=no'); return false;"> <button class= 'btn-lg btn-outline-primary  fnt c' value="" >اضافة  نوع دائره</button></a></div></td><td><div class="pa"><a href="{% url 'addthe_litigationdeg' %}" target="popup" onclick="window.open('{% url 'addthe_litigationdeg' %}','popup','width=600,height=600','location=no','resizable=no'); return false;"> <button class= 'btn-lg btn-outline-primary fnt c' value="" >اضافةدرجة تقاضى</button></a></div></td></tr>
+
+
+
+
+
+
+        <tr><td><div class="pa"><a href="{% url 'addthe_case_classification' %}" target="popup" onclick="window.open('{% url 'addthe_case_classification' %}','popup','width=600,height=600','location=no','resizable=no'); return false;"> <button class= 'btn-lg btn-outline-primary fnt  c' value="" >اضافة  نوع دعوى</button></a></div></td>
+        <td><div class="pa"><a href="{% url 'addthecase_current_status' %}" target="popup" onclick="window.open('{% url 'addthecase_current_status' %}','popup','width=600,height=600','location=no','resizable=no'); return false;"> <button class= 'btn-lg btn-outline-primary fnt c' value="" >اضافة حالة الدعوى</button></a></div></td></tr>
+
+
+
+
+
+        <center><tr><td><div class="pa"><a href="{% url 'add_the_opponent_rep' %}" target="popup" onclick="window.open('{% url 'add_the_opponent_rep' %}','popup','width=600,height=600','location=no','resizable=no'); return false;"> <button class= 'btn-lg btn-outline-primary fnt  c' value="" >اضافة محامى </button></a></div></td><td><div class="pa"><a href="{% url 'addthe_case_category' %}" target="popup" onclick="window.open('{% url 'addthe_case_category' %}','popup','width=600,height=600','location=no','resizable=no'); return false;"> <button class= 'btn-lg btn-outline-primary fnt  c' value="" >اضافة تصنيف دعوى </button></a></div></td></tr></center>
+        <center><tr><td><div class="pa"><a href="{% url 'add_the_opponent_rep' %}" target="popup" onclick="window.open('{% url 'add_the_opponent_rep' %}','popup','width=600,height=600','location=no','resizable=no'); return false;"> <button class= 'btn-lg btn-outline-primary fnt  c' value="" >اضافة صفة الخصم </button></a></div></td><td><div class="pa"><a href="{% url 'add_the_opponent' %}" target="popup" onclick="window.open('{% url 'add_the_opponent' %}','popup','width=600,height=600','location=no','resizable=no'); return false;"> <button class= 'btn-lg btn-outline-primary fnt  c' value="" >اضافة خصم </button></a></div></td></tr></center>
+        <center><tr><td><div class="pa"><a href="{% url 'add_the_comprep' %}" target="popup" onclick="window.open('{% url 'add_the_comprep' %}','popup','width=600,height=600','location=no','resizable=no'); return false;"> <button class= 'btn-lg btn-outline-primary fnt  c' value="" >اضافة صفة الشركه </button></a></div></td><td><div class="pa"><a href="{% url 'add_the_gainwtpercent' %}" target="popup" onclick="window.open('{% url 'add_the_gainwtpercent' %}','popup','width=600,height=600','location=no','resizable=no'); return false;"> <button class= 'btn-lg btn-outline-primary fnt  c' value="" >اضافة نسبة ترجيح الكسب </button></a></div></td></tr></center>
+
+    </table>
+
+    </div>
+
+
+
+
+
+
+   </div>
+
+</div>
+<!--
+ <div class="col-md-4">
+
+ <form method='POST' action= ''>{% csrf_token %}
+
+ {{form|crispy}}
+<a class="btn btn-primary" href= {{  clicker }} >clcik me</a>
+ <input class= 'btn btn-primary' type=submit  onClick="{{  clicker }}">
+ </form>
+ </div>
+
+     <div class="col-md-4">
+
+ <form method='POST' action= ''>{% csrf_token %}
+
+ {{form|crispy}}
+<a class="btn btn-primary" href= {{  clicker }} >clcik me</a>
+ <input class= 'btn btn-primary' type=submit onClick="{{  clicker }}">
+ </form>
+ </div>
+-->
+
+
+
+
+   {% endblock %}

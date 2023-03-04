@@ -1,0 +1,669 @@
+
+{% include 'navbar2.html' %}
+{% load crispy_forms_tags %}
+
+{% load static %}
+{% block content %}
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>jQuery UI Autocomplete - Default functionality</title>
+<!--<link rel="stylesheet" href="{% static 'css/itlst.css' %}"  rel="stylesheet">-->
+<!--<script type="text/javascript" src="{% static 'js/itlst.js' %}"></script>-->
+<script type="text/javascript">
+ $(document).ready(function() {
+$("#btn1").click(function() {
+    $('html,body').animate({
+        scrollTop:$('#div_id_m1_bransh').offset().top},'slow');
+        event.preventDefault();
+});
+$("#btn2").click(function() {
+    $('html,body').animate({
+        scrollTop:$('#div_id_m2_bransh').offset().top},'slow');
+        event.preventDefault();
+});
+
+$("#btn3").click(function() {
+    $('html,body').animate({
+        scrollTop:$('#div_id_m3_bransh').offset().top},'slow');
+        event.preventDefault();
+});
+$("#btn4").click(function() {
+    $('html,body').animate({
+        scrollTop:$('#div_id_m4_bransh').offset().top},'slow');
+        event.preventDefault();
+});
+$("#btn5").click(function() {
+    $('html,body').animate({
+        scrollTop:$('#div_id_mission6').offset().top},'slow');
+        event.preventDefault();
+});
+$("#btn6").click(function() {
+    $('html,body').animate({
+        scrollTop:$('#div_id_mission7').offset().top},'slow');
+        event.preventDefault();
+});
+$("#btn7").click(function() {
+    $('html,body').animate({
+        scrollTop:$('#div_id_mission8').offset().top},'slow');
+        event.preventDefault();
+});
+$("#btn8").click(function() {
+    $('html,body').animate({
+        scrollTop:$('#div_id_mission9').offset().top},'slow');
+        event.preventDefault();
+});
+$("#btn9").click(function() {
+    $('html,body').animate({
+        scrollTop:$('#div_id_mission10').offset().top},'slow');
+        event.preventDefault();
+});
+
+});
+
+</script>
+<link rel="stylesheet" href="{% static 'css/jquery-ui.css' %}"  rel="stylesheet">
+<script type="text/javascript" src="{% static 'js/jquery-1.12.4.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/jquery-ui.js' %}"></script>
+<script type="text/javascript" >
+
+
+</script>
+
+<script language="javascript" type="text/javascript">
+function addtext1() {
+	var newtext = '\nIn Co-Operation With'+document.getElementById('it_partners1').value;
+	document.myform.mission1.value += newtext;
+}
+
+function addtext2() {
+	var newtext = '\nIn Co-Operation With'+document.getElementById('it_partners2').value;
+	document.myform.mission2.value += newtext;
+}
+
+
+
+function addtext3() {
+	var newtext = '\nIn Co-Operation With'+document.getElementById('it_partners3').value;
+	document.myform.mission3.value += newtext;
+}
+
+
+function addtext4() {
+	var newtext = '\nIn Co-Operation With'+document.getElementById('it_partners4').value;
+	document.myform.mission4.value += newtext;
+}
+
+
+function addtext5() {
+	var newtext = '\nIn Co-Operation With'+document.getElementById('it_partners5').value;
+	document.myform.mission5.value += newtext;
+}
+
+
+function addtext6() {
+	var newtext = '\nIn Co-Operation With'+document.getElementById('it_partners6').value;
+	document.myform.mission6.value += newtext;
+}
+
+
+function addtext7() {
+	var newtext = '\nIn Co-Operation With'+document.getElementById('it_partners7').value;
+	document.myform.mission7.value += newtext;
+}
+
+
+function addtext8() {
+	var newtext = '\nIn Co-Operation With'+document.getElementById('it_partners8').value;
+	document.myform.mission8.value += newtext;
+}
+
+
+function addtext9() {
+	var newtext = '\nIn Co-Operation With'+document.getElementById('it_partners9').value;
+	document.myform.mission9.value += newtext;
+}
+
+
+function addtext10() {
+	var newtext = '\nIn Co-Operation With'+document.getElementById('it_partners10').value;
+	document.myform.mission10.value += newtext;
+}
+
+
+function showm2() {
+        $("#div_id_mission2").show("slow");
+        $("#div_id_m2_place").show("slow");
+        $("#div_id_m2_bransh").show("slow");
+        $("#nv2").show("slow");
+
+        $("#btn2").show("slow");
+
+}
+function showm3() {
+        $("#div_id_mission3").show("slow");
+        $("#div_id_m3_place").show("slow");
+        $("#div_id_m3_bransh").show("slow");
+         $("#nv3").show("slow");
+
+        $("#btn3").show("slow");
+
+}
+function showm4() {
+        $("#div_id_mission4").show("slow");
+        $("#div_id_mission4").show("slow");
+        $("#div_id_m4_place").show("slow");
+                $("#div_id_m4_bransh").show("slow");
+
+        $("#nv4").show("slow");
+              $("#btn4").show("slow");
+
+}
+function showm5() {
+        $("#div_id_mission5").show("slow");
+        $("#div_id_mission5").show("slow");
+        $("#div_id_m5_place").show("slow");
+        $("#div_id_m5_bransh").show("slow");
+        $("#btn5").show("slow");
+
+}
+
+function showm7() {
+        $("#div_id_mission7").show("slow");
+        $("#btn7").show("slow");
+
+}function showm8() {
+        $("#div_id_mission8").show("slow");
+        $("#btn8").show("slow");
+
+}
+function showm9() {
+        $("#div_id_mission9").show("slow");
+        $("#btn9").show("slow");
+
+}
+function showm10() {
+        $("#div_id_mission10").show("slow");
+        $("#btn10").show("slow");
+
+}
+
+</script>
+
+
+
+<script type="text/javascript">
+
+
+        $(document).ready(function() {
+        $('#div_id_m1_out_premisis').after('<nav class="navbar navbar-light col-md-12" id="nv1" style="background-color: #003366;"></nav>');
+        $('#div_id_m2_out_premisis').after('<nav class="navbar navbar-light col-md-12" id="nv2" style="background-color: #003366;"></nav>');
+        $('#div_id_m3_out_premisis').after('<nav class="navbar navbar-light col-md-12" id="nv3" style="background-color: #003366;"></nav>');
+        $('#div_id_m4_out_premisis').after('<nav class="navbar navbar-light col-md-12" id="nv4" style="background-color: #003366;"></nav>');
+
+       $('#div_id_mission1').before('<input type="button" href="#div_id_m1_out_premisis" id="btn1" class="btn btn-danger btn-lg" value=" + ADD MISSION"  onClick="showm2();"/>');
+       $('#div_id_mission2').before('<input type="button"  href="#div_id_m2_bransh" id="btn2" class="btn btn-danger btn-lg" value=" + ADD MISSION"  onClick="showm3();"/>');
+       $("#btn2").hide();
+       $('#div_id_mission3').before('<input type="button"  href="#div_id_m3_bransh" id="btn3" class="btn btn-danger btn-lg" value=" + ADD MISSION"  onClick="showm4();"/>');
+       $("#btn3").hide();
+       $('#div_id_mission4').before('<input type="button"  href="#div_id_m4_bransh" id="btn4" class="btn btn-danger btn-lg" value=" + ADD MISSION"  onClick="showm5();"/>');
+       $("#btn4").hide();
+
+ 
+
+       $('#id_mission1').after('<select class="form-control" id="it_partners1"><option>احمد رفقى</option><option>احمد عصام</option><option>اسلام عبد الوهاب</option><option>اميرة عبد العال</option><option>أحمد إبراهيم</option><option>أحمد حجازى</option><option>أحمد سعيد</option><option>أحمد صلاح</option><option>أحمد عبيد </option><option>أسامة فتحى</option><option>أمجد أبو السعود</option><option>دينا سراج</option><option>رامز سمير</option><option>عبد المنعم رفعت</option><option>محمد احمد</option><option>محمد جاد</option><option>محمد شعبان</option><option>محمد مصطفى</option><option>مصطفى نادى</option><option>مها محمد</option><option>هانى مصطفى</option><option>وائل الطويل</option><option>وائل علاء الدين</option><option>ياسمين الجوهرى</option>');
+       $('#id_mission1').after('<input type="button"  id="btn1" class="btn btn-success" value="ADD CO-WORKER"  onClick="addtext1();"/>');
+       $('#id_mission1').after('<hr id="hr1" allign="left" size="90" width="100%" height="66" color="blue"></hr>');
+
+
+
+       $('#id_mission2').after('<select class="form-control" id="it_partners2"><option>احمد رفقى</option><option>احمد عصام</option><option>اسلام عبد الوهاب</option><option>اميرة عبد العال</option><option>أحمد إبراهيم</option><option>أحمد حجازى</option><option>أحمد سعيد</option><option>أحمد صلاح</option><option>أحمد عبيد </option><option>أسامة فتحى</option><option>أمجد أبو السعود</option><option>دينا سراج</option><option>رامز سمير</option><option>عبد المنعم رفعت</option><option>محمد احمد</option><option>محمد جاد</option><option>محمد شعبان</option><option>محمد مصطفى</option><option>مصطفى نادى</option><option>مها محمد</option><option>هانى مصطفى</option><option>وائل الطويل</option><option>وائل علاء الدين</option><option>ياسمين الجوهرى</option>');
+       $('#id_mission2').after('<input type="button"  id="btn2" class="btn btn-success" value="ADD CO-WORKER"  onClick="addtext2();"/>');
+       $('#id_mission1').after('<hr id="hr2" allign="left" size="90" width="100%" height="66" color="blue"></hr>');
+
+       $('#id_mission3').after('<select class="form-control" id="it_partners3"><option>احمد رفقى</option><option>احمد عصام</option><option>اسلام عبد الوهاب</option><option>اميرة عبد العال</option><option>أحمد إبراهيم</option><option>أحمد حجازى</option><option>أحمد سعيد</option><option>أحمد صلاح</option><option>أحمد عبيد </option><option>أسامة فتحى</option><option>أمجد أبو السعود</option><option>دينا سراج</option><option>رامز سمير</option><option>عبد المنعم رفعت</option><option>محمد احمد</option><option>محمد جاد</option><option>محمد شعبان</option><option>محمد مصطفى</option><option>مصطفى نادى</option><option>مها محمد</option><option>هانى مصطفى</option><option>وائل الطويل</option><option>وائل علاء الدين</option><option>ياسمين الجوهرى</option>');
+       $('#id_mission3').after('<input type="button"  id="btn3" class="btn btn-success" value="ADD CO-WORKER"  onClick="addtext3();"/>');
+       $('#id_mission2').after('<hr id="hr3" allign="left" size="90" width="100%" height="66" color="blue"></hr>');
+
+       $('#id_mission4').after('<select class="form-control" id="it_partners4"><option>احمد رفقى</option><option>احمد عصام</option><option>اسلام عبد الوهاب</option><option>اميرة عبد العال</option><option>أحمد إبراهيم</option><option>أحمد حجازى</option><option>أحمد سعيد</option><option>أحمد صلاح</option><option>أحمد عبيد </option><option>أسامة فتحى</option><option>أمجد أبو السعود</option><option>دينا سراج</option><option>رامز سمير</option><option>عبد المنعم رفعت</option><option>محمد احمد</option><option>محمد جاد</option><option>محمد شعبان</option><option>محمد مصطفى</option><option>مصطفى نادى</option><option>مها محمد</option><option>هانى مصطفى</option><option>وائل الطويل</option><option>وائل علاء الدين</option><option>ياسمين الجوهرى</option>');
+       $('#id_mission4').after('<input type="button"  id="btn4" class="btn btn-success" value="ADD CO-WORKER"  onClick="addtext4();"/>');
+       $('#id_mission3').after('<hr id="hr4" allign="left" size="90" width="100%" height="66" color="blue"></hr>');
+
+       $('#id_mission5').after('<select class="form-control" id="it_partners5"><option>احمد رفقى</option><option>احمد عصام</option><option>اسلام عبد الوهاب</option><option>اميرة عبد العال</option><option>أحمد إبراهيم</option><option>أحمد حجازى</option><option>أحمد سعيد</option><option>أحمد صلاح</option><option>أحمد عبيد </option><option>أسامة فتحى</option><option>أمجد أبو السعود</option><option>دينا سراج</option><option>رامز سمير</option><option>عبد المنعم رفعت</option><option>محمد احمد</option><option>محمد جاد</option><option>محمد شعبان</option><option>محمد مصطفى</option><option>مصطفى نادى</option><option>مها محمد</option><option>هانى مصطفى</option><option>وائل الطويل</option><option>وائل علاء الدين</option><option>ياسمين الجوهرى</option>');
+       $('#id_mission4').after('<hr id="hr5" allign="left" size="90" width="100%" height="66" color="blue"></hr>');
+
+
+
+
+        });
+</script>
+  <script type="text/javascript">
+        $("#div_id_black_number").hide();
+      $("#div_id_color_number").hide();
+      $("#div_id_cartridge_number").hide();
+    $("#id_printer_type").change(function () {
+      var netstatus = $(this).val();
+
+      if(netstatus=='LaserJet'){
+      $("#div_id_black_number").hide("slow");
+      $("#div_id_color_number").hide("slow");
+      $("#div_id_cartridge_number").show("slow");
+
+      }else{
+            $("#div_id_black_number").show("slow");
+            $("#div_id_color_number").show("slow");
+            $("#div_id_cartridge_number").hide("slow");
+
+
+      }
+      }
+);
+  </script>
+
+<style>
+@font-face {
+    font-family: 'f2';
+    src: url('{% static '/fonts/Almudid.ttf' %}');
+    font-weight: 500;
+    font-style: normal;
+    font-size:9pt;
+}
+body form{
+font-family:'f2';
+    font-size:13pt;
+
+
+}
+    .bb{
+ margin-top:15px;
+
+}
+    .dd{
+ margin-top:90px;
+
+}
+.cc{
+ margin-top:0px;
+ margin-bottom: 90px;
+}
+@font-face {
+    font-family: 'fall';
+    src: url('{% static '/fonts/ext/LateefRegOT.ttf' %}');
+    font-weight: 10;
+    font-style: normal;
+    font-size:16pt;
+}
+form input[type=text]{
+    font-family:'f2';
+    font-size:12pt;
+    font-style: bold;
+
+}
+form .tarea{
+    font-family:'f2';
+    font-size:15pt;
+    font-style: bold;
+
+}
+form .select{
+    font-family:'f2';
+    font-size:12px;
+    font-style: bold;
+    font-weight: 19;
+    height:3em;
+
+}
+#id_mission1,#id_mission2,#id_mission3,#id_mission4,#id_mission5,#id_mission6,#id_mission7,#id_mission8,#id_mission9,#id_mission10{
+    font-family:'f2';
+    font-size:13px;
+    font-style: bold;
+    font-weight: 11;
+    }
+#it_partners1,#it_partners2,#it_partners3,#it_partners4,#it_partners5,#it_partners6,#it_partners7,#it_partners8,#it_partners9,#it_partners10{
+    font-family:'f2';
+    font-size:11px;
+    font-style: bold;
+    font-weight: 11;
+    height:3em;
+}
+
+#id_it_name,#id_m2_bransh,#id_m5_bransh,#id_m1_bransh,#id_m3_bransh,#id_m4_bransh,#id_m1_place,#id_m2_place,#id_m3_place,#id_m4_place,#id_m5_place{height:3em;}
+#home-tab{    font-family:'fall';
+    font-size:16px;
+    font-style: bold;
+    font-weight: 11;
+    }
+</style>
+<html>
+<body>
+
+  <center><img class="dd" src='{% static "imge/888.jpg"  %}' alt="Generic placeholder image" width="390" height="140">
+         </center>
+
+<ul class="nav nav-tabs nav-pills bb " id="myTab" role="tablist">
+
+  <li class="nav-item">
+    <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">نموذج تسچيل  اعمال</a>
+  </li>
+
+</ul>
+<div class="media text-muted pt-3">
+          <div class="media-body pb-3 mb-0 small lh-125 border-bottom border-gray">
+            <div class="d-flex justify-content-between align-items-center w-100">
+            </div>
+          </div>
+        </div>
+<div class="tab-content" id="myTabContent">
+  <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab"><div class="list-group">
+
+      <div class="cc" >
+<center>
+
+<div class="row align-items-center justify-content-center"><div class="col-md-8 list-group-item active justify-content-center" id="home-tab" >نموذج تسچيل  اعمال </div></div></center>
+
+<div class="row align-items-center justify-content-center"">
+ <div class="col-md-8 bg-faded">
+ <form autocomplete="off" method='POST' action= ''  name="myform" > {% csrf_token %}
+
+ {{form1|crispy}}
+
+ <input class= 'btn btn-primary btn-lg'  value="الغاء" type=reset >
+
+ <input class= 'btn btn-primary btn-lg' value="حفظ" type=submit >
+ </form>
+ </div>
+</div>
+</div>
+
+
+
+
+
+
+
+
+
+
+</div></div>
+
+  <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">...</div>
+</div>
+
+
+  <script type="text/javascript">
+    $("#id_user_fullname").change(function () {
+      var username = $(this).val();
+
+      $.ajax({
+        url: '{% url 'getusercode' %}',
+        data: {
+          'username': username
+        },
+        dataType: 'json',
+        success: function (data) {
+
+           $("#id_code").val(data);
+
+
+        }
+      });
+
+    });
+  </script>
+  <script type="text/javascript">
+    $("#id_networking").change(function () {
+      var netstatus = $(this).val();
+      if(netstatus=='NO-CONNECTION'){
+      $("#div_id_joined").hide("slow");
+      }else{
+            $("#div_id_joined").show("slow");
+
+      }
+      }
+);
+  </script>
+
+
+
+
+<script>
+
+
+  $( function() {
+
+    $( "#id_user_fullname" ).autocomplete({
+      source: res
+    });
+  } );
+  </script>
+<script type="text/javascript">
+        $("#btn2").hide();
+        $("#btn3").hide();
+        $("#btn4").hide();
+        $("#btn5").hide();
+        $("#btn6").hide();
+        $("#btn7").hide();
+        $("#btn8").hide();
+        $("#btn9").hide();
+        $("#btn10").hide();
+
+        $("#div_id_m2_place").hide();
+        $("#div_id_m3_place").hide();
+        $("#div_id_m4_place").hide();
+        $("#div_id_m5_place").hide();
+
+        $("#div_id_m2_bransh").hide();
+        $("#div_id_m3_bransh").hide();
+        $("#div_id_m4_bransh").hide();
+        $("#div_id_m5_bransh").hide();
+
+        $("#div_id_m2_out_premisis").hide();
+        $("#div_id_m3_out_premisis").hide();
+        $("#div_id_m4_out_premisis").hide();
+        $("#div_id_m5_out_premisis").hide();
+
+
+         $("#div_id_mission2").hide();
+         $("#div_id_mission3").hide();
+         $("#div_id_mission4").hide();
+         $("#div_id_mission5").hide();
+
+         $("#nv1").hide();
+         $("#nv2").hide();
+         $("#nv3").hide();
+         $("#nv4").hide();
+
+  $("#div_id_m1_out_premisis").hide();
+       $("#div_id_m2_out_premisis").hide();
+          $("#div_id_m3_out_premisis").hide();
+                $("#div_id_m4_out_premisis").hide();
+          $("#div_id_m5_out_premisis").hide();
+
+
+
+
+</script>
+<script type="text/javascript">
+
+
+
+
+
+    $("#id_m1_place").change(function () {
+      var netstatus = $(this).val();
+
+      if(netstatus=='چهه اخرى'){
+      $("#div_id_m1_bransh").hide("slow");
+      $("#div_id_m1_out_premisis").show("slow");
+
+      }else{
+      $("#div_id_m1_bransh").show("slow");
+      $("#div_id_m1_out_premisis").hide("slow");
+
+
+      }
+      }
+);
+
+    $("#id_m2_place").change(function () {
+      var netstatus = $(this).val();
+
+      if(netstatus=='چهه اخرى'){
+      $("#div_id_m2_bransh").hide("slow");
+      $("#div_id_m2_out_premisis").show("slow");
+
+      }else{
+      $("#div_id_m2_bransh").show("slow");
+      $("#div_id_m2_out_premisis").hide("slow");
+
+
+      }
+      }
+);
+
+    $("#id_m3_place").change(function () {
+      var netstatus = $(this).val();
+
+      if(netstatus=='چهه اخرى'){
+      $("#div_id_m3_bransh").hide("slow");
+      $("#div_id_m3_out_premisis").show("slow");
+
+      }else{
+      $("#div_id_m3_bransh").show("slow");
+      $("#div_id_m3_out_premisis").hide("slow");
+
+
+      }
+      }
+);
+
+    $("#id_m4_place").change(function () {
+      var netstatus = $(this).val();
+
+      if(netstatus=='چهه اخرى'){
+      $("#div_id_m4_bransh").hide("slow");
+      $("#div_id_m4_out_premisis").show("slow");
+
+      }else{
+      $("#div_id_m4_bransh").show("slow");
+      $("#div_id_m4_out_premisis").hide("slow");
+
+
+      }
+      }
+);
+    $("#id_m5_place").change(function () {
+      var netstatus = $(this).val();
+
+      if(netstatus=='چهه اخرى'){
+      $("#div_id_m5_bransh").hide("slow");
+      $("#div_id_m5_out_premisis").show("slow");
+
+      }else{
+      $("#div_id_m5_bransh").show("slow");
+      $("#div_id_m5_out_premisis").hide("slow");
+
+
+      }
+      }
+);
+
+
+</script>
+{% if request.user.id == 28 %}
+<script type="text/javascript" >
+$("#id_it_name").val("10").change();
+</script>
+{% elif request.user.id == 27 %}
+<script type="text/javascript" >
+$("#id_it_name").val("11").change();
+</script>
+{% elif request.user.id == 26 %}
+<script type="text/javascript" >
+$("#id_it_name").val("23").change();
+</script>
+{% elif request.user.id == 25 %}
+<script type="text/javascript" >
+$("#id_it_name").val("4").change();
+</script>
+{% elif request.user.id == 24 %}
+<script type="text/javascript" >
+$("#id_it_name").val("27").change();
+</script>
+{% elif request.user.id == 23 %}
+<script type="text/javascript" >
+$("#id_it_name").val("19").change();
+</script>
+{% elif request.user.id == 22 %}
+<script type="text/javascript" >
+$("#id_it_name").val("5").change();
+</script>
+{% elif request.user.id == 21 %}
+<script type="text/javascript" >
+$("#id_it_name").val("9").change();
+</script>
+{% elif request.user.id == 20 %}
+<script type="text/javascript" >
+$("#id_it_name").val("13").change();
+</script>
+{% elif request.user.id == 19 %}
+<script type="text/javascript" >
+$("#id_it_name").val("8").change();
+</script>
+{% elif request.user.id == 18 %}
+<script type="text/javascript" >
+$("#id_it_name").val("6").change();
+</script>
+{% elif request.user.id == 17 %}
+<script type="text/javascript" >
+$("#id_it_name").val("3").change();
+</script>
+{% elif request.user.id == 16 %}
+<script type="text/javascript" >
+$("#id_it_name").val("25").change();
+</script>
+{% elif request.user.id == 15 %}
+<script type="text/javascript" >
+$("#id_it_name").val("1").change();
+</script>
+{% elif request.user.id == 14 %}
+<script type="text/javascript" >
+$("#id_it_name").val("22").change();
+</script>
+{% elif request.user.id == 13 %}
+<script type="text/javascript" >
+$("#id_it_name").val("26").change();
+</script>
+{% elif request.user.id == 11 %}
+<script type="text/javascript" >
+$("#id_it_name").val("15").change();
+</script>
+{% elif request.user.id == 29 %}
+<script type="text/javascript" >
+$("#id_it_name").val("21").change();
+</script>
+{% elif request.user.id == 30 %}
+<script type="text/javascript" >
+$("#id_it_name").val("12").change();
+</script>
+{% elif request.user.id == 31 %}
+<script type="text/javascript" >
+$("#id_it_name").val("20").change();
+</script>
+{% elif request.user.id == 32 %}
+<script type="text/javascript" >
+$("#id_it_name").val("24").change();
+</script>
+{% elif request.user.id == 33 %}
+<script type="text/javascript" >
+$("#id_it_name").val("2").change();
+</script>
+{% endif %}
+
+</body>
+</html>
+
+
+   {% endblock %}
+
+

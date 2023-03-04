@@ -1,0 +1,145 @@
+ {% extends 'base.html' %}
+{% include 'navbar.html' %}
+{%  load static %}
+{% load staticfiles %}
+
+{% block content %}
+<script src="http://code.highcharts.com/highcharts.js"></script>
+<script src="http://code.highcharts.com/modules/exporting.js"></script>
+<style>
+
+    .list-group{
+ margin-top:90px;
+ padding:0px;
+
+    }
+    .panel{
+ margin-top:90px;
+
+    }
+    .container{
+    margin-top:130px;
+    }
+
+
+</style>
+<html>
+<body>
+
+
+<div class="container">
+<table class="table">
+  <thead class="thead-inverse">
+    <tr>
+        <th>ACTION</th>
+        <th>ملاحظات</th>
+        <th>فئة الدعوى</th>
+        <th>المحامى الحالى</th>
+        <th>حالة الدعوى</th>
+        <th>تاريخ الورود</th>
+        <th>موضوع الدعوى</th>
+        <th>الخصم</th>
+        <th>المحكمه</th>
+        <th>دائرة الدعوى</th>
+        <th>سنة الدعوى</th>
+        <th>رقم الدعوى</th>
+
+    </tr>
+  </thead>
+  <tbody>
+  {% for obj in cases_list %}
+   <tr>
+ <td><a href='{% url "case_update" id=obj.id %}'> <button type="button"  class="btn btn-info btn-lg">تعديل</button></a></td>
+       <td>{{ obj.notes }}</td>
+
+       <td>{{ obj.case_category }}</td>
+       <td>{{ obj.current_lawyer }}</td>
+       <td>{{ obj.case_current_status  }}</td>
+       <td>{{ obj.date_of_establsihment }}</td>
+       <td>{{ obj.case_subject  }}</td>
+       <td>{{ obj.adversery }}</td>
+       <td>{{ obj.case_court }}</td>
+       <td>{{ obj.case_depart }}</td>
+      <td>{{ obj.case_year }}</td>
+      <td><a href="#" target="popup" onclick="window.open('{% url 'cases_detail' id=obj.id%}','popup','width=900,height=600','location=no','resizable=no'); return false;"> {{ obj.case_number }}</a> </td>
+
+
+</tr>
+
+
+
+  {% endfor %}
+  </tbody>
+</table>
+
+
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>
+
+
+<!--
+  <div class="list-group">
+  <div class="list-group-item">{{ instance.problem_desc }}</div>
+  <div class="list-group-item"> {{ instance.problem_date }}</div>
+  <div class="list-group-item">{{ instance.user_fullname}}</div>
+  <div class="list-group-item">{{ instance.user_sector}}</div>
+  <div class="list-group-item">{{ instance.pc_type }}</div>
+
+
+-->
+
+
+   {% endblock %}
+
+

@@ -1,0 +1,321 @@
+{% load staticfiles %}
+{% block content %}
+   <html lang="en">
+  <head>
+
+<style>
+{
+position:absolute;
+top:0;
+}
+@font-face {
+    font-family: 'fall';
+    src: url('{% static '/fonts/ext/Hacen Maghreb Bd.ttf' %}');
+    font-weight: 10;
+    font-style: normal;
+    font-size:11pt;
+}
+form input[type=text]{
+    font-family:'fall';
+    font-size:12pt;
+    font-style: bold;
+
+}
+form .tarea{
+    font-family:'fall';
+    font-size:15pt;
+    font-style: bold;
+
+}
+form .select{
+    font-family:'fall';
+    font-size:11px;
+    font-style: bold;
+    font-weight: 10;
+
+}
+
+.ccc {
+    background-color: #000000;
+  
+}
+@font-face {
+    font-family: 'f1';
+    src: url('{% static '/fonts/Almudid.ttf' %}');
+    font-weight: 500;
+    font-style: normal;
+    font-size:9pt;
+}
+
+a.logo{
+    font-family:'f5';
+    font-size:9pt;
+}
+p{
+    font-family:'f1';
+}
+@font-face {
+    font-family: 'f4';
+    src: url('{% static '/fonts/batmfa__.ttf' %}');
+    font-weight: 500;
+    font-style: normal;
+    font-size:5pt;
+}
+@font-face {
+    font-family: 'f5';
+    src: url('{% static '/fonts/Cyberspace Raceway Back.otf' %}');
+    font-weight: 500;
+    font-style: normal;
+    font-size:5pt;
+}
+p.wel{
+    font-family:'f4';
+    font-size:9pt;
+}
+
+.custom {
+    width: 190px !important;
+}
+@font-face {
+    font-family: 'f2';
+    src: url('{% static '/fonts/Almudid.ttf' %}');
+    font-weight: 500;
+    font-style: normal;
+    font-size:14pt;
+}
+
+
+@font-face {
+    font-family: 'f6';
+    src: url('{% static '/fonts/vip-samir.otf' %}');
+    font-weight: 500;
+    font-style: normal;
+    font-size:19pt;
+}
+
+.container{
+font-family:'f2';
+margin-top: 95px;
+margin-bottom: 70px;
+
+}
+.n2{
+margin-top: 100px;
+
+}
+.list-group{
+font-family:'f2';
+
+}
+
+table tr td {
+font-family:'f2';
+    font-size:10pt;
+}
+
+table thead{
+font-family:'f2';
+    font-size:10pt;s
+}
+p{
+font-family:'f2';
+    font-size:10pt;
+}
+
+.vv{
+background-color: #004C99;
+}
+.btm{
+    background-color:rgb(65, 91, 241);
+    height: 50pt;
+}
+
+</style>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="../../favicon.ico">
+    <link href="{% static 'css/bootstrap-glyphicons.css'  %}"  rel="stylesheet">
+
+    <title>Welcome In MEDICAL CARE </title>
+    
+
+    <link href="{% static 'css/bootstrap.min.css'  %}" rel="stylesheet">
+          <link rel="shortcut icon "href="{% static 'imge/ico.ico'  %}" rel="stylesheet">
+
+       <!-- Bootstrap core CSS <link href="{% static 'css/bootstrap.css'  %}" rel="stylesheet">
+ -->
+
+
+
+
+          <link href="{% static 'css/font-awesome-animation.min.css'  %}" rel="stylesheet">
+
+     <link href="{% static 'css/fonts.css'  %}" rel="stylesheet">
+     <!-- <link href="{% static 'fonts/GE-Flow-Regular-1.otf'  %}" rel="stylesheet"> -->
+
+
+    <!-- Custom styles for this template -->
+    <!-- <link href="{% static 'css/jumbotron.css' %} rel="stylesheet"> -->
+  </head>
+<div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white border-bottom shadow-sm">
+    <nav class="navbar navbar-light bg-light fixed-top  navbar-toggleable-md  ml-auto  bg-primary mb-4 " style="background-color: #e3f2fd;">
+
+      <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+<img class="" src='{% static "imge/logo.png"  %}' alt="Generic placeholder image"  width="80" height="100">
+      <h1><p class="font-weight-normal wel   text-white " href="#">E.G.O.T.H  - MEDICAL  CARE  DEPARTMENT </p></h1>
+      <div class="collapse navbar-collapse  justify-content-end" id="navbarCollapse">
+    
+    
+    
+
+<div class=" row justify-content-center"><img class="" src='{% static "imge/med1.png"  %}' alt="Generic placeholder image"  width="80" height="100"></div>
+{% if request.user.is_staff %}
+<ul  class="font-weight-normal wel text-white" align="center">
+
+
+    Welcome : you are logged in as {{ request.user }}
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            <p class="font-weight-normal  text-white"  ><a class="font-weight-normal  text-white" href="{% url 'auth_logout' %}" ><button class="btn  btn-lg btn-outline-success my-2 my-sm-0 " type="submit">LOGOUT</button></a></p>
+{% else %}
+{% if not request.user.is_staff and request.user.is_anonymous  %}
+
+
+<p class="font-weight-normal  text-white"  >you are not logged in any more </p>
+{% else %}
+{% if  user.is_authenticated == True %}
+                      <li class="nav-item ">
+<a class="nav-link" href="{% url 'main'%}" ><button class="btn btn-outline-success btn-lg my-2 my-sm-0" type="submit">HOME</button></a>
+</li>
+<li  class="nav-item">
+
+
+          </li>
+    <li class="font-weight-normal  text-white"  >Welcome : you are logged in as {{ request.user }} <a class="font-weight-normal  text-white" href="{% url 'auth_logout' %}" >
+         <button class="btn btn-outline-primary  btn-lg"  type="submit">LOGOUT</button></a></li>
+          </ul>
+
+
+
+
+{% endif %}
+{% endif %}
+{% endif %}
+
+
+<nav class="navbar navbar-expand-sm bg-dark  navbar-dark">
+    <div>
+{% if "/app1/main/" == request.path   %}
+   <a class="badge badge-dark font-weight-light text-white" href="{% url 'main'%}" style="font-size:11pt;font-style: normal;">الصفحه الرئيسيه  </a>
+{% elif "/app1/cases/" == request.path %}
+
+   <a class="badge badge-dark  font-weight-light text-white" href="#" style="font-size:11pt;font-style: normal;">تسجيل العلاج</a> |
+   <a class="badge badge-dark font-weight-light text-white" href="{% url 'main'%}" style="font-size:11pt;font-style: normal;">الصفحه الرئيسيه  </a>
+
+{% elif "/app1/add_law_case/" == request.path %}
+
+   <a class="badge badge-dark font-weight-light text-white" href="#" style="font-size:11pt;font-style: normal;">تسجيل دعوى قضائيه  </a><a class="text-white">|</a>
+   <a class="badge badge-dark  font-weight-light text-white" href="{% url 'cases' %}" style="font-size:11pt;font-style: normal;">القضايا</a> <a class="text-white">|</a>
+   <a class="badge badge-dark font-weight-light text-white" href="{% url 'main'%}" style="font-size:11pt;font-style: normal;">الصفحه الرئيسيه  </a><a class="text-white">|</a>
+
+{% elif "/app1/caseslisttoaddsitting/" == request.path %}
+   <a class="badge badge-dark font-weight-light text-white" href="#" style="font-size:11pt;font-style: normal;">تسجيل جلسات دعوى قضائيه  </a><a class="text-white">|</a>
+   <a class="badge badge-dark  font-weight-light text-white" href="{% url 'cases' %}" style="font-size:11pt;font-style: normal;">القضايا</a> <a class="text-white">|</a>
+   <a class="badge badge-dark font-weight-light text-white" href="{% url 'main'%}" style="font-size:11pt;font-style: normal;">الصفحه الرئيسيه  </a><a class="text-white">|</a>
+
+{% elif "/app1/searchcases/" == request.path %}
+   <a class="badge badge-dark font-weight-light text-white" href="#" style="font-size:11pt;font-style: normal;">البحث فى  الدعاوى القضائيه  </a><a class="text-white">|</a>
+   <a class="badge badge-dark  font-weight-light text-white" href="{% url 'cases' %}" style="font-size:11pt;font-style: normal;">القضايا</a> <a class="text-white">|</a>
+   <a class="badge badge-dark font-weight-light text-white" href="{% url 'main'%}" style="font-size:11pt;font-style: normal;">الصفحه الرئيسيه  </a><a class="text-white">|</a>
+
+{% elif "/app1/add_master/" == request.path %}
+        <a class="badge badge-dark font-weight-light text-white" href="#" style="font-size:11pt;font-style: normal;">إضافة بيانات رئيسيه  </a> <a class="text-white">|</a>
+   <a class="badge badge-dark  font-weight-light text-white" href="{% url 'cases' %}" style="font-size:11pt;font-style: normal;">القضايا</a> <a class="text-white">|</a>
+   <a class="badge badge-dark font-weight-light text-white" href="{% url 'main'%}" style="font-size:11pt;font-style: normal;">الصفحه الرئيسيه  </a><a class="text-white">|</a>
+
+{% elif "/app1/cases_list/" == request.path %}
+   <a class="badge badge-dark font-weight-light text-white" href="#" style="font-size:11pt;font-style: normal;">تصفح الدعاوى القضائيه  </a> <a class="text-white">|</a>
+   <a class="badge badge-dark  font-weight-light text-white" href="{% url 'cases' %}" style="font-size:11pt;font-style: normal;">القضايا</a> <a class="text-white">|</a>
+   <a class="badge badge-dark font-weight-light text-white" href="{% url 'main'%}" style="font-size:11pt;font-style: normal;">الصفحه الرئيسيه  </a><a class="text-white">|</a>
+
+
+        {% elif  resl  %}
+   <a class="badge badge-dark font-weight-light text-white" href="#" style="font-size:11pt;font-style: normal;">إضافة  جلسات محكمه  </a><a class="text-white">|</a>
+   <a class="badge badge-dark font-weight-light text-white" href="{% url 'caseslisttoaddsitting' %}" style="font-size:11pt;font-style: normal;">تسجيل جلسات دعوى قضائيه  </a><a class="text-white">|</a>
+   <a class="badge badge-dark  font-weight-light text-white" href="{% url 'cases' %}" style="font-size:11pt;font-style: normal;">القضايا</a> <a class="text-white">|</a>
+   <a class="badge badge-dark font-weight-light text-white" href="{% url 'main'%}" style="font-size:11pt;font-style: normal;">الصفحه الرئيسيه  </a><a class="text-white">|</a>
+
+       {% elif  title1   %}
+   <a class="badge badge-dark font-weight-light text-white" href="#" style="font-size:11pt;font-style: normal;">تعديل الدعوى القضائيه </a><a class="text-white">|</a>
+   <a class="badge badge-dark font-weight-light text-white" href="{% url 'cases_list' %}" style="font-size:11pt;font-style: normal;">تصفح الدعوى القضائيه  </a><a class="text-white">|</a>
+   <a class="badge badge-dark  font-weight-light text-white" href="{% url 'cases' %}" style="font-size:11pt;font-style: normal;">القضايا</a> <a class="text-white">|</a>
+   <a class="badge badge-dark font-weight-light text-white" href="{% url 'main'%}" style="font-size:11pt;font-style: normal;">الصفحه الرئيسيه  </a><a class="text-white">|</a>
+{% else %}
+
+<a class="badge badge-dark font-weight-light text-white" href="{% url 'main'%}" style="font-size:8pt;font-style: normal;">الصفحه الرئيسيه  </a><a class="text-white">|</a>
+
+
+
+
+{% endif %}
+        </div>
+</nav>
+    </nav>
+    </div>
+  <!--<div class="nav-scroller bg-white shadow-sm n2">-->
+      <!--<nav class="nav nav-underline">-->
+        <!--<a class="nav-link active" href="#">Dashboard</a>-->
+        <!--<a class="nav-link" href="#">-->
+          <!--Friends-->
+          <!--<span class="badge badge-pill bg-light align-text-bottom">27</span>-->
+        <!--</a>-->
+        <!--<a class="nav-link" href="#">Explore</a>-->
+        <!--<a class="nav-link" href="#">Suggestions</a>-->
+        <!--<a class="nav-link" href="#">Link</a>-->
+        <!--<a class="nav-link" href="#">Link</a>-->
+        <!--<a class="nav-link" href="#">Link</a>-->
+        <!--<a class="nav-link" href="#">Link</a>-->
+        <!--<a class="nav-link" href="#">Link</a>-->
+      <!--</nav>-->
+    <!--</div>-->
+<nav class="navbar fixed-bottom  btm style="background-color: #4C4;">
+  CopyRight @ E.G.O.T.H - Osama Mouhamed Fathy -Information  Sector
+</nav>
+
+    
+       <script src="{% static 'js/jquery-3.1.1.slim.min.js' %}"  crossorigin="anonymous"></script>
+    <script>window.jQuery || document.write('<script src="{% static ' js/vendor/jquery.min.js' %}><\/script>')</script>
+    <script src=""{% static 'js/tether.min.js' %}"  crossorigin="anonymous"></script>
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>
+
+
+
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <!-- <script src="{% static 'js/ie10-viewport-bug-workaround.js' %}" > </script> -->
+       <script src="{% static 'js/actions.min.js' %}"></script>
+{% endblock %}

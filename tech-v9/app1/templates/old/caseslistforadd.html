@@ -1,0 +1,163 @@
+ {% extends 'base.html' %}
+{% include 'navbar.html' %}
+{%  load static %}
+{% load staticfiles %}
+
+{% block content %}
+<script src="http://code.highcharts.com/highcharts.js"></script>
+<script src="http://code.highcharts.com/modules/exporting.js"></script>
+
+<style>
+@font-face {
+    font-family: 'f2';
+    src: url('{% static '/fonts/Almudid.ttf' %}');
+    font-weight: 500;
+    font-style: normal;
+    font-size:9pt;
+}
+    .table{
+ margin-top:0px;
+ padding:0px;
+
+    }
+    .panel{
+ margin-top:90px;
+
+    }
+    .container{
+
+     margin-top:130px;
+
+    }
+
+ form input[type=text]{
+    font-family:'f2';
+    font-size:12pt;
+    font-style: bold;
+
+}
+form .tarea{
+    font-family:'f2';
+    font-size:15pt;
+    font-style: bold;
+
+}
+form .select{
+    font-family:'f2';
+    font-size:12px;
+    font-style: bold;
+    font-weight: 19;
+    height:3em;
+
+}
+#id_case_number,#id_sitting_decision,#id_attend_lawyer{    font-family:'fall';
+    font-size:16px;
+    font-style: bold;
+    font-weight: 14;
+    }
+
+</style>
+<html>
+<body>
+<div class="container">
+<center>قم باختيار الدعوى المراد اضافة جلسات لها</center>
+
+<table class="table">
+  <thead class="thead-inverse">
+
+   <th>المحامى المباشر</th>
+
+     <th>رقم الدعوى</th>
+     <th>موضوع الدعوى</th>
+
+  </thead>
+  <tbody>
+  {% for obj in cases_list %}
+
+<tr>
+      <td>  {{ obj.current_lawyer }}  </td>
+
+
+  <td>  {{ obj.case_number }} </td>
+      <td> <a href='{% url "casedetforadd" id=obj.id %}'>{{ obj.case_subject }} </a></td>
+
+</tr>
+
+
+
+
+  {% endfor %}
+  </tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>
+
+
+<!--
+  <div class="list-group">
+  <div class="list-group-item">{{ instance.problem_desc }}</div>
+  <div class="list-group-item"> {{ instance.problem_date }}</div>
+  <div class="list-group-item">{{ instance.user_fullname}}</div>
+  <div class="list-group-item">{{ instance.user_sector}}</div>
+  <div class="list-group-item">{{ instance.pc_type }}</div>
+
+
+-->
+
+
+   {% endblock %}
+
+

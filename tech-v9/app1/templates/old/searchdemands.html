@@ -1,0 +1,119 @@
+{% include 'navbar.html' %}
+{% load staticfiles %}
+{% load static %}
+{% load crispy_forms_tags %}
+
+
+{% block content %}
+<<script src='{% static "js/jquery-3.1.1.min.js"  %}'></script>
+
+<script src='{% static "js/bootstrap-datetimepicker.js"  %}'></script>
+<script src='{% static "js/moment.min.js"  %}'></script>
+<link href='{% static   "css/bootstrap-datetimepicker.min.css"  %}' rel="stylesheet">
+<link href='{% static   "css/bootstrap-datetimepicker.css"  %}' rel="stylesheet">
+<script type="text/javascript">
+$(function () {
+    $('.datepicker').datetimepicker(
+    {
+        format: 'YYYY-MM-DD HH:mm:ss',
+        sideBySide: true
+    }
+    );
+});
+</script>
+
+
+
+
+
+
+
+
+<style type="text/css">
+@font-face {
+    font-family: 'num';
+    src: url('{% static '/fonts/Bahij_TheSansArabic-Bold.ttf' %}');
+    font-weight: 500;
+    font-style: normal;
+    font-size:11pt;
+}
+h3{
+    font-family:'num';
+    font-size:16pt;
+}
+    .box{
+
+        
+        display: none;
+        margin-top: 20px;
+
+    }
+
+
+
+.conatiner{
+margin-top: 70px;
+}
+
+.ta{
+margin-bottom: 70px;
+}
+</style>
+
+<div class="conatiner" >
+<center><img src="{% static 'imge/search.jpg' %}" width="90px" height="100px"/></center>
+ <hr class="my-4">
+
+    <div class="col-md-4">
+
+
+ <form method='POST'  action= ''>{% csrf_token %}
+<h3 class>Demand  -  S e a r c h </h3>
+ 
+Select the Sector Name you want Search {{ f4|crispy }} 
+
+Choose The Date Of your Demand {{ f8|crispy }}
+
+ Enter Name of the User you want to search for {{ f6|crispy }}
+
+
+
+
+
+
+
+
+
+
+
+<input class= 'btn btn-info btn-lg' value="SEARCH" type=submit ">
+ </form>
+</div>
+<table class="table table-hover ta" >
+    <tr class="table-warning">
+      <th >مسلسل</th>
+     <th>اسم الموظف</th>
+      <th>الرقم الطبى</th>
+
+
+
+
+
+    </tr>
+{% for obj in q %}
+<tr><td>{{ obj.id}}</td><td>{{ obj.patient_name}}</td><td>{{ obj.medical_number  }}</td></tr>
+
+
+{% endfor %}
+
+</table>
+
+</div>
+
+<!-------------##############################################################################################----->
+
+
+
+<script src='{% static "js/moment.min.js"  %}'></script>
+<script src='{% static "js/bootstrap-datetimepicker.js"  %}'></script>
+   {% endblock %}

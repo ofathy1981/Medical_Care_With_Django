@@ -1,0 +1,167 @@
+ {% extends 'base.html' %}
+{% include 'navbar.html' %}
+{%  load static %}
+{% load staticfiles %}
+
+{% block content %}
+<script src="http://code.highcharts.com/highcharts.js"></script>
+<script src="http://code.highcharts.com/modules/exporting.js"></script>
+<style>
+
+    .list-group{
+ margin-top:90px;
+ padding:0px;
+
+    }
+    .panel{
+ margin-top:90px;
+
+    }
+.list-group{
+ margin-bottom:90px;
+}
+@font-face {
+    font-family: 'f2';
+    src: url('{% static '/fonts/Almudid.ttf' %}');
+    font-weight: 500;
+    font-style: normal;
+    font-size:9pt;
+}
+table tr td {
+font-family:'f2';
+
+}
+</style>
+<html>
+<body>
+  <div class="list-group">
+  <a href="#" class="list-group-item active">معلومات تفصيليه عن جهاز الريبيتر</a>
+
+
+    <table class="table">
+  <tbody>
+
+      <tr>
+      <td>{{ repeater_res.bransh }}</td>
+      <td>الفرع</td>
+    </tr>
+
+      <tr>
+      <td>{{ repeater_res.repeater_vendor}}</td>
+
+      <td>اسم المصنع</td>
+    </tr>
+
+      <tr>
+      <td>{{ repeater_res.repeater_model}}</td>
+
+      <td>رقم الموديل </td>
+    </tr>
+
+       <tr>
+       <td>{{ repeater_res.created}}</td>
+      <td>تاريخ الاضافه</td>
+    </tr>
+
+   <tr>
+
+      <td>{{ repeater_res.publisher}}</td>
+      <td>تمت الاضافه بواسطة</td>
+    </tr>
+       <tr>
+
+ <td>{{ repeater_res.ip}}</td>
+      <td>Address</td>
+    </tr>
+
+<tr><td><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalLong">حذف الريبتر</button></td></tr>
+
+  </tbody>
+</table>
+
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- Button trigger modal -->
+
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">تاكيد حذف البيانات</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+
+سيتم حذف بيانات الريبيتر من قاعدة البيانات؟
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">الغاء</button>
+        <a href="/app1/{{ repeater_res.id }}/remove1repeater/"> <button type="button" class="btn btn-danger">احــــذف</button></a>
+
+      </div>
+    </div>
+  </div>
+
+<!-- Button trigger modal -->
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>ghj
+      <div class="modal-body">
+        the modeal bodyhjhhjfgjhfghj
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+</body>
+</html>
+
+
+<!--
+  <div class="list-group">
+  <div class="list-group-item">{{ repeater_res.problem_desc }}</div>
+  <div class="list-group-item"> {{ repeater_res.problem_date }}</div>
+  <div class="list-group-item">{{ repeater_res.user_fullname}}</div>
+  <div class="list-group-item">{{ repeater_res.user_sector}}</div>
+  <div class="list-group-item">{{ repeater_res.repeater_type }}</div>
+
+
+-->
+
+
+   {% endblock %}
+
+

@@ -1,0 +1,440 @@
+ {% extends 'base.html' %}
+ {% include 'navbar.html' %}
+ {% include 'footer.html' %}
+{%  load static %}
+{% load staticfiles %}
+{% load crispy_forms_tags %}
+
+
+{% block content %}
+<!--<script src='{% static "js/jquery-3.1.1.min.js"  %}'></script>-->
+<!--<script src='{% static "js/bootstrap.min.js"  %}'></script>-->
+<script src='{% static "js/moment.min.js"  %}'></script>
+<script src='{% static "js/bootstrap-datetimepicker.js"  %}'></script>
+<link href='{% static   "css/bootstrap-datetimepicker.min.css"  %}' rel="stylesheet">
+<link href='{% static   "css/bootstrap-datetimepicker.css"  %}' rel="stylesheet">
+<script type="text/javascript">
+$(function () {
+    $('.datepicker').datetimepicker(
+    {
+        format: 'YYYY-MM-DD HH:mm:ss',
+        sideBySide: true
+    }
+    );
+});
+</script>
+
+
+<style>
+.conatiner{
+margin-top: 80px;
+margin-bottom: 70px;
+}
+.vv{
+background-color: #004C99
+
+}
+.ZZ{
+background-color:floralwhite;
+padding:5px;
+}
+.v{
+background-color: #004C99
+
+}
+.c{ font-size:12pt;
+width:110;
+}
+.d{ font-size:9pt;
+width:90;
+}
+.pa{
+padding:5px}
+img{
+    padding:15px
+}
+.c{
+font-family:'f2';
+    font-size:10pt;
+    color: black;
+}
+.fadein img{
+
+    opacity:0.5;
+
+    transition: 1s ease;
+
+    }
+
+
+
+    .fadein img:hover{
+
+    opacity:1;
+
+    transition: 1s ease;
+
+    }
+
+    .color img{
+
+        filter: grayscale(100%);
+
+        -webkit-filter: grayscale(100%);
+
+        -webkit-transition: all 1s ease;
+
+        }
+
+
+
+        .color img:hover{
+
+        filter: grayscale(0%);
+
+        filter: gray;
+
+        -webkit-filter: grayscale(0%);
+
+        filter: none;
+
+        transition: 1s ease;
+
+        }
+ .brighten  {
+
+     -webkit-filter: brightness(100%);
+
+     -webkit-transition: all 1s ease;
+
+     -moz-transition: all 1s ease;
+
+     -o-transition: all 1s ease;
+
+     -ms-transition: all 1s ease;
+
+     transition: all 1s ease;
+
+     }
+
+
+
+     .brighten:hover {
+
+     -webkit-filter: brightness(90%);
+
+     }
+   
+</style>
+
+
+<div class="container-fluid" >
+
+
+<center><div class="col-md-12 justify-content-center text-white list-group-item vv">Master Data   البيانات الرئيسية    </div>
+    <br/>
+</center>
+    <br/>
+
+<div class="row  align-items-center float fluid justify-content-center  ">
+    <div class="col-md- justify-content-center text-white list-group-item list-group-item  brighten "><img class="shrink" src='{% static "imge/clinic.png"  %}' alt="Generic placeholder image" width="110" height="80">  <div class="pa"> <button class= 'btn-lg btn-outline-primary fnt c'  data-toggle="modal"  data-target="#clinic"value="" >  العيادات </button></a></div> </div>
+    <div class="col-md-4 justify-content-center text-white list-group-item list-group-item brighten "><img class=" " src='{% static "imge/labortatory.jpeg"  %}' alt="Generic placeholder image" width="110" height="80">  <div class="pa"> <button class= 'btn-lg btn-outline-primary fnt c' data-toggle="modal"  data-target="#laboratory" value="" >  المعامل</button></a></div>  </div>
+    <div class="col-md-4 justify-content-center text-white list-group-item list-group-item brighten "><img class=" " src='{% static "imge/hospital.png"  %}' alt="Generic placeholder image" width="110" height="80">  sa<div class="pa"><button class= 'btn-lg btn-outline-primary fnt c' data-toggle="modal"  data-target="#HOSPITALS" value="" >  المستشفيات</button></div> </div>
+
+   </div>
+
+
+<div class="row  align-items-center float fluid justify-content-center ">
+    <div class="col-md- justify-content-center text-white list-group-item list-group-item  brighten"><img class=" " src='{% static "imge/retired_emp.png"  %}' alt="Generic placeholder image" width="110" height="80">  <div class="pa"> <button class= 'btn-lg btn-outline-primary fnt c' data-toggle="modal"  data-target="#retiredpationt" value="" > موظف معاش </button></a></div> </div>
+    <div class="col-md-4 justify-content-center text-white list-group-item list-group-item brighten "><img class=" " src='{% static "imge/emp_duty.png"  %}' alt="Generic placeholder image" width="110" height="80"><div class="pa"> <button class= 'btn-lg btn-outline-primary fnt c' data-toggle="modal"  data-target="#workingpationt" value="" >موظف عامل </button></a></div></div>
+    <div class="col-md-4 justify-content-center text-white list-group-item list-group-item brighten "><img class=" " src='{% static "imge/medicen.png"  %}' alt="Generic placeholder image" width="110" height="80"><div class="pa"> <button class= 'btn-lg btn-outline-primary fnt c' data-toggle="modal"  data-target="#medicine"value="" >  الادوية</button></a></div>    </div>
+
+   </div>
+
+<div class="row  align-items-center float fluid justify-content-center ">
+    <div class="col-md- justify-content-center text-white list-group-item list-group-item brighten "><img class=" " src='{% static "imge/mmedicine.jpg"  %}' alt="Generic placeholder image" width="110" height="80"><div class="pa"> <button class= 'btn-lg btn-outline-primary fnt c' data-toggle="modal"  data-target="#monthcuremember" value="" > علاج شهرى لعضو مجلس   </button></a></div>   </div>
+    <div class="col-md-4 justify-content-center text-white list-group-item list-group-item brighten "><img class=" " src='{% static "imge/mmedicine.jpg"  %}' alt="Generic placeholder image" width="110" height="80"><div class="pa"> <button class= 'btn-lg btn-outline-primary fnt c' data-toggle="modal"  data-target="#monthcureretired" value="" >علاج شهرى لموظف سابق   </button></a></div>    </div>
+    <div class="col-md-4 justify-content-center text-white list-group-item list-group-item brighten"><img class=" " src='{% static "imge/mmedicine.jpg"  %}' alt="Generic placeholder image" width="110" height="80"><div class="pa"> <button class= 'btn-lg btn-outline-primary fnt c' data-toggle="modal"  data-target="#monthcureworking" value="" >علاج شهرى لموظف  </button></a></div>    </div>
+
+</div>
+
+
+
+
+
+   </div>
+</div>
+<!--
+ <div class="col-md-4">
+
+ <form method='POST' action= ''>{% csrf_token %}
+
+ {{form|crispy}}
+<a class="btn btn-primary" href= {{  clicker }} >clcik me</a>
+ <input class= 'btn btn-primary' type=submit  onClick="{{  clicker }}">
+ </form>
+ </div>
+
+     <div class="col-md-4">
+
+ <form method='POST' action= ''>{% csrf_token %}
+
+ {{form|crispy}}
+<a class="btn btn-primary" href= {{  clicker }} >clcik me</a>
+ <input class= 'btn btn-primary' type=submit onClick="{{  clicker }}">
+ </form>
+ </div>
+-->
+<!-- #------------------------------------------------------------HOSPITAL------------------------------------------------------ -->
+<div class="modal fade" id="HOSPITALS" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+<div class="modal-dialog modal-dialog-centered" role="document">
+<div class="modal-content">
+<div class="modal-header">
+<h5 class="modal-title" id="exampleModalLongTitle">المستشفيات</h5>
+<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+<span aria-hidden="true">&times;</span>
+</button>
+</div>
+<div class="modal-body">
+
+<div class="row  align-items-center float fluid justify-content-center ">
+    <div class="col-md- justify-content-center text-white   zz "><img class=" " src='{% static "imge/update.png"  %}' alt="Generic placeholder image" width="80" height="80"><div><a class="btn btn-primary btn-lg btn-outline-primary d pa" href="{% url 'hospitals_detail_V'%}"  role="button"><b>تحديث</b></a></div></div>
+    <div class="col-md- justify-content-center text-white   zz"><img class=" " src='{% static "imge/delete.png"  %}' alt="Generic placeholder image" width="80" height="80"><div><a class="btn btn-danger btn-lg btn-outline-danger d pa" href="{% url 'hospitals_detail'%}"  role="button"><b>حذف</b></a></div></div>
+    <div class="col-md- justify-content-center text-white   zz"><img class=" " src='{% static "imge/add.jpeg"  %}' alt="Generic placeholder image" width="80" height="80"><div><a class="btn btn-success btn-lg btn-outline-success d pa x" href="{% url 'add_hospital_v'%}"  role="button"><b>إضافة</b></a></div></div>     
+</div>
+
+</div>
+<div class="modal-footer">
+<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+
+</div>
+</div>
+</div>
+</div>
+<!-- #----------------------------------------------------------------------------------------------------------------------- -->
+
+<!-- #------------------------------------------------------------LABORATORY------------------------------------------------------ -->
+<div class="modal fade" id="laboratory" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+<div class="modal-dialog modal-dialog-centered" role="document">
+<div class="modal-content">
+<div class="modal-header">
+<h5 class="modal-title" id="exampleModalLongTitle">المعامل</h5>
+<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+<span aria-hidden="true">&times;</span>
+</button>
+</div>
+<div class="modal-body">
+
+<div class="row  align-items-center float fluid justify-content-center ">
+    <div class="col-md- justify-content-center text-white   zz "><img class=" " src='{% static "imge/update.png"  %}' alt="Generic placeholder image" width="80" height="80"><div><a class="btn btn-primary btn-lg btn-outline-primary d pa" href="{% url 'laboratorys_detail_V'%}"  role="button"><b>تحديث</b></a></div></div>
+    <div class="col-md- justify-content-center text-white   zz"><img class=" " src='{% static "imge/delete.png"  %}' alt="Generic placeholder image" width="80" height="80"><div><a class="btn btn-danger btn-lg btn-outline-danger d pa" href="{% url 'laboratorys_detail'%}"  role="button"><b>حذف</b></a></div></div>
+    <div class="col-md- justify-content-center text-white   zz"><img class=" " src='{% static "imge/add.jpeg"  %}' alt="Generic placeholder image" width="80" height="80"><div><a class="btn btn-success btn-lg btn-outline-success d pa x" href="{% url 'add_laboratory_v'%}"  role="button"><b>إضافة</b></a></div></div>     
+</div>
+
+</div>
+<div class="modal-footer">
+<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+
+</div>
+</div>
+</div>
+</div>
+<!-- #----------------------------------------------------------------------------------------------------------------------- -->
+
+<!-- #------------------------------------------------------------CLINIC------------------------------------------------------ -->
+<div class="modal fade" id="clinic" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+<div class="modal-dialog modal-dialog-centered" role="document">
+<div class="modal-content">
+<div class="modal-header">
+<h5 class="modal-title" id="exampleModalLongTitle"> العيادات الخارجية </h5>
+<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+<span aria-hidden="true">&times;</span>
+</button>
+</div>
+<div class="modal-body">
+
+<div class="row  align-items-center float fluid justify-content-center ">
+    <div class="col-md- justify-content-center text-white   zz "><img class=" " src='{% static "imge/update.png"  %}' alt="Generic placeholder image" width="80" height="80"><div><a class="btn btn-primary btn-lg btn-outline-primary d pa" href="{% url 'doctor_clinics_detail_V'%}"  role="button"><b>تحديث</b></a></div></div>
+    <div class="col-md- justify-content-center text-white   zz"><img class=" " src='{% static "imge/delete.png"  %}' alt="Generic placeholder image" width="80" height="80"><div><a class="btn btn-danger btn-lg btn-outline-danger d pa" href="{% url 'doctor_clinics_detail'%}"  role="button"><b>حذف</b></a></div></div>
+    <div class="col-md- justify-content-center text-white   zz"><img class=" " src='{% static "imge/add.jpeg"  %}' alt="Generic placeholder image" width="80" height="80"><div><a class="btn btn-success btn-lg btn-outline-success d pa x" href="{% url 'add_doctor_clinic_v'%}"  role="button"><b>إضافة</b></a></div></div>     
+</div>
+
+</div>
+<div class="modal-footer">
+<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+
+</div>
+</div>
+</div>
+</div>
+<!-- #----------------------------------------------------------------------------------------------------------------------- -->
+
+<!-- #------------------------------------------------------------MEDICINE------------------------------------------------------ -->
+<div class="modal fade" id="medicine" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+<div class="modal-dialog modal-dialog-centered" role="document">
+<div class="modal-content">
+<div class="modal-header">
+<h5 class="modal-title" id="exampleModalLongTitle">          تعريف الادوية والمستحضرات الطبية  </h5>
+<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+<span aria-hidden="true">&times;</span>
+</button>
+</div>
+<div class="modal-body">   
+
+<div class="row  align-items-center float fluid justify-content-center ">
+    <div class="col-md- justify-content-center text-white   zz "><img class=" " src='{% static "imge/update.png"  %}' alt="Generic placeholder image" width="80" height="80"><div><a class="btn btn-primary btn-lg btn-outline-primary d pa" href="{% url 'midicines_detail_V'%}"  role="button"><b>تحديث</b></a></div></div>
+    <div class="col-md- justify-content-center text-white   zz"><img class=" " src='{% static "imge/delete.png"  %}' alt="Generic placeholder image" width="80" height="80"><div><a class="btn btn-danger btn-lg btn-outline-danger d pa" href="{% url 'midicines_detail'%}"  role="button"><b>حذف</b></a></div></div>
+    <div class="col-md- justify-content-center text-white   zz"><img class=" " src='{% static "imge/add.jpeg"  %}' alt="Generic placeholder image" width="80" height="80"><div><a class="btn btn-success btn-lg btn-outline-success d pa x" href="{% url 'add_midicine_v'%}"  role="button"><b>إضافة</b></a></div></div>     
+</div>
+
+</div>
+<div class="modal-footer">
+<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+
+</div>
+</div>
+</div>
+</div>
+<!-- #----------------------------------------------------------------------------------------------------------------------- -->
+
+<!-- #------------------------------------------------------------WORKING PATIONT------------------------------------------------------ -->
+<div class="modal fade" id="workingpationt" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+<div class="modal-dialog modal-dialog-centered" role="document">
+<div class="modal-content">
+<div class="modal-header">
+<h5 class="modal-title" id="exampleModalLongTitle">         موظف حالى </h5>
+<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+<span aria-hidden="true">&times;</span>
+</button>
+</div>
+<div class="modal-body">
+
+<div class="row  align-items-center float fluid justify-content-center ">
+    <div class="col-md- justify-content-center text-white   zz "><img class=" " src='{% static "imge/update.png"  %}' alt="Generic placeholder image" width="80" height="80"><div><a class="btn btn-primary btn-lg btn-outline-primary d pa" href="{% url 'working_pationts_detail_V'%}"  role="button"><b>تحديث</b></a></div></div>
+    <div class="col-md- justify-content-center text-white   zz"><img class=" " src='{% static "imge/delete.png"  %}' alt="Generic placeholder image" width="80" height="80"><div><a class="btn btn-danger btn-lg btn-outline-danger d pa" href="{% url 'working_pationts_detail'%}"  role="button"><b>حذف</b></a></div></div>
+    <div class="col-md- justify-content-center text-white   zz"><img class=" " src='{% static "imge/add.jpeg"  %}' alt="Generic placeholder image" width="80" height="80"><div><a class="btn btn-success btn-lg btn-outline-success d pa x" href="{% url 'add_working_pationt_v'%}"  role="button"><b>إضافة</b></a></div></div>     
+</div>
+
+</div>
+<div class="modal-footer">
+<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+
+</div>
+</div>
+</div>
+</div>
+<!-- #----------------------------------------------------------------------------------------------------------------------- -->
+
+<!-- #------------------------------------------------------------RETIRED PATIONT------------------------------------------------------ -->
+<div class="modal fade" id="retiredpationt" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+<div class="modal-dialog modal-dialog-centered" role="document">
+<div class="modal-content">
+<div class="modal-header">
+<h5 class="modal-title" id="exampleModalLongTitle"> موظف سابق -معاش</h5>
+<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+<span aria-hidden="true">&times;</span>
+</button>
+</div>
+<div class="modal-body">
+
+<div class="row  align-items-center float fluid justify-content-center ">
+    <div class="col-md- justify-content-center text-white   zz "><img class=" " src='{% static "imge/update.png"  %}' alt="Generic placeholder image" width="80" height="80"><div><a class="btn btn-primary btn-lg btn-outline-primary d pa" href="{% url 'retired_pationts_detail_V'%}"  role="button"><b>تحديث</b></a></div></div>
+    <div class="col-md- justify-content-center text-white   zz"><img class=" " src='{% static "imge/delete.png"  %}' alt="Generic placeholder image" width="80" height="80"><div><a class="btn btn-danger btn-lg btn-outline-danger d pa" href="{% url 'retired_pationts_detail'%}"  role="button"><b>حذف</b></a></div></div>
+    <div class="col-md- justify-content-center text-white   zz"><img class=" " src='{% static "imge/add.jpeg"  %}' alt="Generic placeholder image" width="80" height="80"><div><a class="btn btn-success btn-lg btn-outline-success d pa x" href="{% url 'add_retired_pationt_v'%}"  role="button"><b>إضافة</b></a></div></div>     
+</div>
+
+</div>
+<div class="modal-footer">
+<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+
+</div>
+</div>
+</div>
+</div>
+<!-- #----------------------------------------------------------------------------------------------------------------------- -->
+
+<!-- #------------------------------------------------------------MONTHLY CURE WORKING------------------------------------------------------ -->
+<div class="modal fade" id="monthcureworking" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+<div class="modal-dialog modal-dialog-centered" role="document">
+<div class="modal-content">
+<div class="modal-header">
+<h5 class="modal-title" id="exampleModalLongTitle">علاج شهرى لموظف حالى </h5>
+<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+<span aria-hidden="true">&times;</span>
+</button>
+</div>
+<div class="modal-body">
+
+<div class="row  align-items-center float fluid justify-content-center ">
+    <div class="col-md- justify-content-center text-white   zz "><img class=" " src='{% static "imge/update.png"  %}' alt="Generic placeholder image" width="80" height="80"><div><a class="btn btn-primary btn-lg btn-outline-primary d pa" href="{% url 'monthly_medical_script1s_detail_V'%}"  role="button"><b>تحديث</b></a></div></div>
+    <div class="col-md- justify-content-center text-white   zz"><img class=" " src='{% static "imge/delete.png"  %}' alt="Generic placeholder image" width="80" height="80"><div><a class="btn btn-danger btn-lg btn-outline-danger d pa" href="{% url 'monthly_medical_script1s_detail'%}"  role="button"><b>حذف</b></a></div></div>
+    <div class="col-md- justify-content-center text-white   zz"><img class=" " src='{% static "imge/add.jpeg"  %}' alt="Generic placeholder image" width="80" height="80"><div><a class="btn btn-success btn-lg btn-outline-success d pa x" href="{% url 'add_monthly_medical_script1_v'%}"  role="button"><b>إضافة</b></a></div></div>     
+</div>
+
+</div>
+<div class="modal-footer">
+<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+
+</div>
+</div>
+</div>
+</div>
+<!-- #----------------------------------------------------------------------------------------------------------------------- -->
+
+<!-- #------------------------------------------------------------MONTHLY CURE MEMBER------------------------------------------------------ -->
+<div class="modal fade" id="monthcuremember" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+<div class="modal-dialog modal-dialog-centered" role="document">
+<div class="modal-content">
+<div class="modal-header">
+<h5 class="modal-title" id="exampleModalLongTitle">  علاج شهرى لعضو مجلس  </h5>
+<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+<span aria-hidden="true">&times;</span>
+</button>
+</div>
+<div class="modal-body">
+
+<div class="row  align-items-center float fluid justify-content-center ">
+    <div class="col-md- justify-content-center text-white   zz "><img class=" " src='{% static "imge/update.png"  %}' alt="Generic placeholder image" width="80" height="80"><div><a class="btn btn-primary btn-lg btn-outline-primary d pa" href="{% url 'monthly_medical_script3s_detail_V'%}"  role="button"><b>تحديث</b></a></div></div>
+    <div class="col-md- justify-content-center text-white   zz"><img class=" " src='{% static "imge/delete.png"  %}' alt="Generic placeholder image" width="80" height="80"><div><a class="btn btn-danger btn-lg btn-outline-danger d pa" href="{% url 'monthly_medical_script3s_detail'%}"  role="button"><b>حذف</b></a></div></div>
+    <div class="col-md- justify-content-center text-white   zz"><img class=" " src='{% static "imge/add.jpeg"  %}' alt="Generic placeholder image" width="80" height="80"><div><a class="btn btn-success btn-lg btn-outline-success d pa x" href="{% url 'add_monthly_medical_script3_v'%}"  role="button"><b>إضافة</b></a></div></div>     
+</div>
+
+</div>
+<div class="modal-footer">
+<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+
+</div>
+</div>
+</div>
+</div>
+<!-- #----------------------------------------------------------------------------------------------------------------------- -->
+
+<!-- #------------------------------------------------------------MONTHLY CURE RETIRED------------------------------------------------------ -->
+<div class="modal fade" id="monthcureretired" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+<div class="modal-dialog modal-dialog-centered" role="document">
+<div class="modal-content">
+<div class="modal-header">
+<h5 class="modal-title" id="exampleModalLongTitle">علاج شهرى لموظف بالمعاش</h5>
+<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+<span aria-hidden="true">&times;</span>
+</button>
+</div>
+<div class="modal-body">
+
+<div class="row  align-items-center float fluid justify-content-center ">
+    <div class="col-md- justify-content-center text-white   zz "><img class=" " src='{% static "imge/update.png"  %}' alt="Generic placeholder image" width="80" height="80"><div><a class="btn btn-primary btn-lg btn-outline-primary d pa" href="{% url 'monthly_medical_script2s_detail_V'%}"  role="button"><b>تحديث</b></a></div></div>
+    <div class="col-md- justify-content-center text-white   zz"><img class=" " src='{% static "imge/delete.png"  %}' alt="Generic placeholder image" width="80" height="80"><div><a class="btn btn-danger btn-lg btn-outline-danger d pa" href="{% url 'monthly_medical_script2s_detail'%}"  role="button"><b>حذف</b></a></div></div>
+    <div class="col-md- justify-content-center text-white   zz"><img class=" " src='{% static "imge/add.jpeg"  %}' alt="Generic placeholder image" width="80" height="80"><div><a class="btn btn-success btn-lg btn-outline-success d pa x" href="{% url 'add_monthly_medical_script2_v'%}"  role="button"><b>إضافة</b></a></div></div>     
+</div>
+
+</div>
+<div class="modal-footer">
+<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+
+</div>
+</div>
+</div>
+</div>
+<!-- #----------------------------------------------------------------------------------------------------------------------- -->
+
+   {% endblock %}

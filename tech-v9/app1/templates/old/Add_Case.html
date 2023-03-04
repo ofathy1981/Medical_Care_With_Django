@@ -1,0 +1,186 @@
+ {% extends 'base.html' %}
+ {% include 'navbar.html' %}
+ {% include 'footer.html' %}
+{%  load static %}
+{% load staticfiles %}
+{% load crispy_forms_tags %}
+
+
+{% block content %}
+<!--<script src='{% static "js/jquery-3.1.1.min.js"  %}'></script>-->
+<!--<script src='{% static "js/bootstrap.min.js"  %}'></script>-->
+<script src='{% static "js/moment.min.js"  %}'></script>
+<script src='{% static "js/bootstrap-datetimepicker.js"  %}'></script>
+<link href='{% static   "css/bootstrap-datetimepicker.min.css"  %}' rel="stylesheet">
+<link href='{% static   "css/bootstrap-datetimepicker.css"  %}' rel="stylesheet">
+<script type="text/javascript">
+$(function () {
+    $('.datepicker').datetimepicker(
+    {
+        format: 'YYYY-MM-DD ',
+        sideBySide: true
+    }
+    );
+});
+</script>
+
+
+<style>
+.field-label {
+    font-weight: normal;
+}
+.field-helptext {
+    font-size: 12px;
+}
+.field-error {
+    font-size: 14px;
+    color: red;
+}
+.field-required {
+    font-weight: bold;
+}
+.field-required:after {
+    content: " *";
+}
+
+input {
+  direction: RTL;
+  lang:ar;
+}
+.container{
+margin-top: 120px;
+margin-bottom: 70px;
+}
+.vv{
+background-color: #004C99
+
+}
+.v{
+background-color: #004C99
+
+}
+.textarea{
+text-align: right;
+
+}
+form .select{
+    font-family:'f2';
+    font-size:15px;
+    font-style: bold;
+    font-weight: 19;
+    height:5em;
+
+}
+#id_case_year,#id_degree_of_litigation,#id_case_classification,#id_case_court,#id_case_depart_type,#id_case_depart,#id_current_lawyer,#id_current_lawyer ,#id_case_current_status{
+    height:2em;
+        font-family:'f2';
+
+}
+#id_case_subject_detail,#id_notes{
+    font-family:'f2';
+    font-size:15pt;
+    font-style: bold;
+}
+.btn {
+    font-family: 'f2';
+
+}
+</style>
+
+<div class="container" >
+{% if title1 %}
+
+<center><div class="col-md-12 justify-content-center text-white list-group-item vv">{{ head }} </div></center>
+{% else %}
+<center><div class="col-md-12 justify-content-center text-white list-group-item vv">تسجيل بيانات دعوى قضائيه جديده</div></center>
+{% endif %}
+
+ <form method='POST' action= " ">{% csrf_token %}
+
+
+     <div class="row">
+
+
+      <div class="col-md-3 "> {{ form.case_depart_type|as_crispy_field }} </div>
+      <div class="col-md-3 "> {{ form.case_depart|as_crispy_field }} </div>
+      <div class="col-md-3 "> {{ form.case_year|as_crispy_field }} </div>
+      <div class="col-md-3"> {{ form.case_number|as_crispy_field }} </div>
+
+
+
+    </div>
+
+    <div class="row">
+
+    <div class="col-md-3 "> {{ form.adversay_represent|as_crispy_field }} </div>
+    <div class="col-md-3 "> {{ form.adversary|as_crispy_field }} </div>
+    <div class="col-md-3 "> {{ form.degree_of_litigation|as_crispy_field }} </div>
+    <div class="col-md-3 "> {{ form.case_court|as_crispy_field }} </div>
+    </div>
+
+    <div class="row">
+
+          <div class="col-md-3 "> {{ form.expected_financial_affairs|as_crispy_field }} </div>
+
+          <div class="col-md-3 "> {{ form.case_classification|as_crispy_field }}</div>
+          <div class="col-md-3 "> {{ form.case_subject|as_crispy_field }} </div>
+          <div class="col-md-3 "> {{ form.comapny_represent|as_crispy_field }} </div>
+</div>
+
+     <div class="row">
+      <div class="col-md-3 "> {{ form.weighted_percent_of_gain|as_crispy_field }} </div>
+
+      <div class="col-md-3 "> {{ form.current_lawyer|as_crispy_field }} </div>
+      <div class="col-md-3 "> {{ form.case_current_status|as_crispy_field }} </div>
+      <div class="col-md-3"> {{ form.date_of_establsihment|as_crispy_field }}</div>
+</div>
+
+<div class="row">
+
+
+      <div class="col-md-6 "> {{ form.notes|as_crispy_field }} </div>
+              <div class="col-md-6 "> {{ form.case_subject_detail|as_crispy_field }} </div>
+
+</div>
+
+
+
+
+
+
+ <input class= 'btn btn-primary btn-lg'  style="font-size: large;color:cornsilk; "  value="إعادة ضبط " type=reset >
+    {% if title1 %}
+ <input class= 'btn  btn-lg' style="font-family:'f2';" value= " تعديل بيانات الدعوى القضائيه"  type=submit >
+     {% else %}
+  <input class= 'btn  btn-lg' value= "تسجيل بيانات الدعوى القضائيه" type=submit >
+  {% endif %}
+</form>
+    </div>
+
+<!--
+ <div class="col-md-4">
+
+ <form method='POST' action= ''>{% csrf_token %}
+
+ {{form|crispy}}
+<a class="btn btn-primary" href= {{  clicker }} >clcik me</a>
+ <input class= 'btn btn-primary' type=submit  onClick="{{  clicker }}">
+ </form>
+ </div>
+
+     <div class="col-md-4">
+
+ <form method='POST' action= ''>{% csrf_token %}
+
+ {{form|crispy}}
+<a class="btn btn-primary" href= {{  clicker }} >clcik me</a>
+ <input class= 'btn btn-primary' type=submit onClick="{{  clicker }}">
+ </form>
+ </div>
+-->
+
+</div>
+
+
+
+   {% endblock %}

@@ -1,0 +1,117 @@
+ {% extends 'base.html' %}
+ {% include 'navbar.html' %}
+ {% include 'footer.html' %}
+{%  load static %}
+{% load staticfiles %}
+{% load crispy_forms_tags %}
+
+
+{% block content %}
+<!--<script src='{% static "js/jquery-3.1.1.min.js"  %}'></script>-->
+<!--<script src='{% static "js/bootstrap.min.js"  %}'></script>-->
+
+<script type="text/javascript">
+$(function () {
+    $('.datepicker').datetimepicker(
+    {
+        format: 'YYYY-MM-DD HH:mm:ss',
+        sideBySide: true
+    }
+    );
+});
+</script>
+
+
+<style>
+.container{
+margin-top: 100px;
+margin-bottom: 70px;
+}
+.vv{
+background-color: #004C99
+
+}
+.v{
+background-color: #004C99
+
+}
+</style>
+
+
+<div class="container" >
+
+<center><div class="col-md-12 justify-content-center text-white list-group-item vv ">  تسجيل تحويل طبى لمريض عامل  </div></center>
+
+<div class="row  align-items-center float fluid justify-content-center ">
+    <div class="row align-items-center  float fluid justify-content-center">
+<div class="col-md-12 justify-content-center float fluid  ">
+ <form method='POST' action= " ">{% csrf_token %}
+
+
+  <div class="row">
+    <div class="col-md-4 "> {{ form1.position|as_crispy_field }} </div>
+    <div class="col-md-4 "> {{ form1.medical_number|as_crispy_field }} </div>
+    <div class="col-md-4 "> {{ form1.patient_name|as_crispy_field }} </div>
+
+</div> 
+<div class="row">
+  <div class="col-md-3 "> {{ form1.to_clinic|as_crispy_field }} </div>
+  <div class="col-md-3 "> {{ form1.to_hospital|as_crispy_field }} </div>
+  <div class="col-md-3 "> {{ form1.to_lab|as_crispy_field }} </div>
+
+  <div class="col-md-3 "> {{ form1.trans_to|as_crispy_field }} </div>
+</div> 
+
+
+<div class="row">
+
+  <div class="col-md-4 "> {{ form1.auth_doc|as_crispy_field }} </div>
+  <div class="col-md-4 "> {{ form1.followed_clinic|as_crispy_field }} </div>
+  <div class="col-md-4 "> {{ form1.rcvd_service|as_crispy_field }} </div>
+
+</div> 
+
+ <input class= 'btn btn-primary btn-lg'  style="font-size: large;color:cornsilk; "  value="إعادة ضبط " type=reset >
+<b> <input class= 'btn  btn-primary  btn-lg'  style="font-size: large; "  value="إضافه  " type=submit ></b>
+
+
+</form>
+</div>
+    </div>
+</div>
+</div>
+
+
+<script type="text/javascript">
+    $("#div_id_to_lab").hide();
+  $("#div_id_to_clinic").hide();
+  $("#div_id_to_hospital").hide();
+$("#id_trans_to").change(function () {
+  var facility = $(this).val();
+
+  if(facility=='عيادة'){
+  $("#div_id_to_lab").hide("slow");
+  $("#div_id_to_hospital").hide("slow");
+  $("#div_id_to_clinic").show("slow");
+
+  }else if(facility=='معمل') {
+    $("#div_id_to_clinic").hide("slow");
+  $("#div_id_to_hospital").hide("slow");
+  $("#div_id_to_lab").show("slow");
+
+  }
+  else if(facility=='مستشفى') {
+    $("#div_id_to_clinic").hide("slow");
+  $("#div_id_to_lab").hide("slow");
+  $("#div_id_to_hospital").show("slow"); 
+
+  }
+
+  }
+);
+</script>
+
+
+
+
+   {% endblock %}

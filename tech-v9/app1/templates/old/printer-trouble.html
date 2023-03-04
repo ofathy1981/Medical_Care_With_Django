@@ -1,0 +1,80 @@
+ {% extends 'base.html' %}
+ {% include 'navbar.html' %}
+{%  load static %}
+{% load staticfiles %}
+{% load crispy_forms_tags %}
+
+
+{% block content %}
+<script src='{% static "js/jquery-3.1.1.min.js"  %}'></script>
+<script src='{% static "js/bootstrap.min.js"  %}'></script>
+<script src='{% static "js/moment.min.js"  %}'></script>
+<script src='{% static "js/bootstrap-datetimepicker.js"  %}'></script>
+<link href='{% static   "css/bootstrap-datetimepicker.min.css"  %}' rel="stylesheet">
+
+<script type="text/javascript">
+$(function () {
+    $('.datepicker').datetimepicker(
+    {
+        format: 'YYYY-MM-DD HH:mm:ss',
+        sideBySide: true
+    }
+    );
+});
+</script>
+
+
+<style>
+.conatiner{
+margin-top: 70px;
+margin-bottom: 70px;
+}
+.vv{
+background-color: #004C99
+}
+
+</style>
+
+
+<div class="conatiner" >
+
+<div class="row align-items-center justify-content-center"><div class="col-md-8 justify-content-center text-white list-group-item vv">الابلاغ عن مشكله خاصه بالطابعات</div></div>
+
+<div class="row align-items-center justify-content-center"">
+ <div class="col-md-8 bg-faded">
+
+ <form method='POST' action= ''>{% csrf_token %}
+
+ {{form3|crispy}}
+ <input class= 'btn btn-primary' value="الغاء" type=reset >
+ <input class= 'btn  ' value="ارسل المشكله" type=submit onClick="{{  clicker }}">
+ </form>
+ </div>
+</div>
+</div>
+<!--
+ <div class="col-md-4">
+
+ <form method='POST' action= ''>{% csrf_token %}
+
+ {{form|crispy}}
+<a class="btn btn-primary" href= {{  clicker }} >clcik me</a>
+ <input class= 'btn btn-primary' type=submit  onClick="{{  clicker }}">
+ </form>
+ </div>
+
+     <div class="col-md-4">
+
+ <form method='POST' action= ''>{% csrf_token %}
+
+ {{form|crispy}}
+<a class="btn btn-primary" href= {{  clicker }} >clcik me</a>
+ <input class= 'btn btn-primary' type=submit onClick="{{  clicker }}">
+ </form>
+ </div>
+-->
+
+
+
+
+   {% endblock %}

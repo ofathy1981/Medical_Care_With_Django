@@ -1,0 +1,31 @@
+{% extends "registration/registration_base.html" %}
+{% load i18n %}
+
+{% block title %}{% trans "Logged out" %}{% endblock %}
+
+{% block content %}
+<p>{% trans " " %}.</p>
+
+<style>
+.jumbotron{
+ margin-top:60px;
+ }
+</style>
+
+     <section class="jumbotron bg-dark text-center">
+        <div class="container ">
+          <h1 class="jumbotron-heading "><a class="page-link" >تم تسچيل الخروچ</a></h1>
+
+<hr class="my-4 text-white">
+          <p>
+            <a href="{% url 'auth_login'%}" class="btn btn-secondary ">تسجيل الدخول</a>
+
+          </p>
+        </div>
+      </section>
+
+
+
+
+
+{% endblock %}

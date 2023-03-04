@@ -1,0 +1,33 @@
+
+{% include 'navbar.html' %}
+
+{%  load static %}
+{% block content %}
+
+
+<style>
+
+    .alert{
+ margin-top: 200px;
+
+    }
+    .rounded{
+ margin-top: 80px;
+
+    }
+
+</style>
+<html>
+<body>
+<center>
+    <img class="rounded" src='{% static "imge/rest.png"  %}' alt="Generic placeholder image"  width="140" height="140">
+          </center>
+<div class="alert alert-danger" role="alert">
+
+<CENTER><H1><P>YOU ARE NOT AUTHORIZED TO ACCESS THIS PAGE ...... THIS IS RESTRICTED FORRBIDEN AREA</P></H1></CENTER>
+
+</div>
+   {% endblock %}
+</body>
+</html>
+

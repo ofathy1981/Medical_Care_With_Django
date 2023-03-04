@@ -1,0 +1,1225 @@
+
+{% include 'navbar2.html' %}
+{% load crispy_forms_tags %}
+
+{% load static %}
+{% block content %}
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>jQuery UI Autocomplete - Default functionality</title>
+<!--<link rel="stylesheet" href="{% static 'css/itlst.css' %}"  rel="stylesheet">-->
+<!--<script type="text/javascript" src="{% static 'js/itlst.js' %}"></script>-->
+<link rel="stylesheet" href="{% static 'css/jquery-ui.css' %}"  rel="stylesheet">
+<script type="text/javascript" src="{% static 'js/jquery-1.12.4.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/jquery-ui.js' %}"></script>
+
+
+
+<style>
+@font-face {
+    font-family: 'f2';
+    src: url('{% static '/fonts/Almudid.ttf' %}');
+    font-weight: 500;
+    font-style: normal;
+    font-size:9pt;
+}
+body form{
+font-family:'f2';
+    font-size:13pt;
+
+
+}
+    .bb{
+ margin-top:90px;
+
+}
+.cc{
+ margin-top:0px;
+ margin-bottom: 90px;
+}
+@font-face {
+    font-family: 'fall';
+    src: url('{% static '/fonts/ext/LateefRegOT.ttf' %}');
+    font-weight: 10;
+    font-style: normal;
+    font-size:16pt;
+}
+form input[type=text]{
+    font-family:'f2';
+    font-size:12pt;
+    font-style: bold;
+
+}
+form .tarea{
+    font-family:'f2';
+    font-size:15pt;
+    font-style: bold;
+
+}
+form .select{
+    font-family:'f2';
+    font-size:12px;
+    font-style: bold;
+    font-weight: 19;
+    height:3em;
+
+}
+#id_mission1,#id_mission2,#id_mission3,#id_mission4,#id_mission5,#id_mission6,#id_mission7,#id_mission8,#id_mission9,#id_mission10{
+    font-family:'f2';
+    font-size:13px;
+    font-style: bold;
+    font-weight: 11;
+    }
+#it_partners1,#it_partners2,#it_partners3,#it_partners4,#it_partners5,#it_partners6,#it_partners7,#it_partners8,#it_partners9,#it_partners10{
+    font-family:'f2';
+    font-size:11px;
+    font-style: bold;
+    font-weight: 11;
+    height:3em;
+}
+
+#id_it_name,#id_bransh,#id_place{height:3em;}
+#home-tab{    font-family:'fall';
+    font-size:16px;
+    font-style: bold;
+    font-weight: 11;
+    }
+        table{
+ margin-top:90px;
+}
+</style>
+<html>
+<body>
+<div class="row">
+
+    <div class="col-md-6" ></div>
+    <div class="col-md-6" > </div>
+
+
+</div>
+
+
+
+
+
+
+<div class="container">
+  <h2>M-I-S-S-I-O-N-S</h2>
+  <p>All Colleagues Done Jobs</p>
+
+      <table class="table">
+    <thead>
+      <tr class="bg-danger">
+        <th >الاســـم</th>
+        <th> {{ ofat }} </th>
+        <th> التـاريـــخ </th>
+
+
+      </tr>
+    </thead>
+
+     {% for obj in ofathy %}
+
+
+    <tbody>
+
+
+      <tr class="bg-light">
+          {% if obj.mission1 %}
+              <td>M I S S I O N</td> <td>{{  obj.mission1  }}</td><td>{{  obj.timestamp  }}</td>
+             {% endif %}
+
+      </tr>
+            <tr class="bg-light">
+          {% if obj.mission2 %}
+              <td>M I S S I O N</td> <td>{{  obj.mission2  }}</td><td>{{  obj.timestamp  }}</td>
+             {% endif %}
+
+      </tr>
+            <tr class="bg-light">
+          {% if obj.mission3 %}
+              <td>M I S S I O N</td> <td>{{  obj.mission3  }}</td><td>{{  obj.timestamp  }}</td>
+             {% endif %}
+
+      </tr>
+            <tr class="bg-light">
+          {% if obj.mission4 %}
+              <td>M I S S I O N</td> <td>{{  obj.mission4  }}</td><td>{{  obj.timestamp  }}</td>
+             {% endif %}
+
+      </tr>
+            <tr class="bg-light">
+          {% if obj.mission5 %}
+              <td>M I S S I O N</td> <td>{{  obj.mission5 }}</td><td>{{  obj.timestamp  }}</td>
+             {% endif %}
+
+      </tr>
+        {% endfor %}
+
+    </tbody>
+
+
+
+      </table>
+
+    <!--****************************************************************************************************--->
+    <!--++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++-->
+    <!--######################################################################################################-->
+      <table class="table">
+       <thead>
+      <tr class="bg-danger">
+        <th >الاســـم</th>
+        <th> {{ aaal }} </th>
+        <th> التـاريـــخ </th>
+
+      </tr>
+    </thead>
+
+     {% for obj in aabdelall %}
+
+    <tbody>
+      <tr class="bg-light">
+          {% if obj.mission1 %}
+              <td>M I S S I O N</td> <td>{{  obj.mission1  }}</td><td>{{  obj.timestamp  }}</td>
+            {% endif %}
+      </tr>
+            <tr class="bg-light">
+          {% if obj.mission2 %}
+              <td>M I S S I O N</td> <td>{{  obj.mission2  }}</td><td>{{  obj.timestamp  }}</td>
+             {% endif %}
+      </tr>
+            <tr class="bg-light">
+          {% if obj.mission3 %}
+              <td>M I S S I O N</td> <td>{{  obj.mission3  }}</td><td>{{  obj.timestamp  }}</td>
+             {% endif %}
+      </tr>
+            <tr class="bg-light">
+          {% if obj.mission4 %}
+              <td>M I S S I O N</td> <td>{{  obj.mission4  }}</td><td>{{  obj.timestamp  }}</td>
+             {% endif %}
+      </tr>
+            <tr class="bg-light">
+          {% if obj.mission5 %}
+              <td>M I S S I O N</td> <td>{{  obj.mission5 }}</td><td>{{  obj.timestamp  }}</td>
+             {% endif %}
+      </tr>
+        {% endfor %}
+    </tbody>
+      </table>
+    <!--******************************************************************************************************-->
+    <!--++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++-->
+    <!--######################################################################################################-->
+      <!--****************************************************************************************************--->
+    <!--++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++-->
+    <!--######################################################################################################-->
+      <table class="table">
+       <thead>
+      <tr class="bg-danger">
+        <th >الاســـم</th>
+        <th> {{ abaid }} </th>
+        <th> التـاريـــخ </th>
+
+      </tr>
+    </thead>
+
+     {% for obj in aebaid %}
+
+    <tbody>
+      <tr class="bg-light">
+          {% if obj.mission1 %}
+              <td>M I S S I O N</td> <td>{{  obj.mission1  }}</td><td>{{  obj.timestamp  }}</td>
+            {% endif %}
+      </tr>
+            <tr class="bg-light">
+          {% if obj.mission2 %}
+              <td>M I S S I O N</td> <td>{{  obj.mission2  }}</td><td>{{  obj.timestamp  }}</td>
+             {% endif %}
+      </tr>
+            <tr class="bg-light">
+          {% if obj.mission3 %}
+              <td>M I S S I O N</td> <td>{{  obj.mission3  }}</td><td>{{  obj.timestamp  }}</td>
+             {% endif %}
+      </tr>
+            <tr class="bg-light">
+          {% if obj.mission4 %}
+              <td>M I S S I O N</td> <td>{{  obj.mission4  }}</td><td>{{  obj.timestamp  }}</td>
+             {% endif %}
+      </tr>
+            <tr class="bg-light">
+          {% if obj.mission5 %}
+              <td>M I S S I O N</td> <td>{{  obj.mission5 }}</td><td>{{  obj.timestamp  }}</td>
+             {% endif %}
+      </tr>
+        {% endfor %}
+    </tbody>
+      </table>
+    <!--******************************************************************************************************-->
+    <!--++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++-->
+    <!--######################################################################################################-->
+      <!--****************************************************************************************************--->
+    <!--++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++-->
+    <!--######################################################################################################-->
+      <table class="table">
+       <thead>
+      <tr class="bg-danger">
+        <th >الاســـم</th>
+        <th> {{ aesam }} </th>
+        <th> التـاريـــخ </th>
+
+      </tr>
+    </thead>
+
+     {% for obj in aesam %}
+
+    <tbody>
+      <tr class="bg-light">
+          {% if obj.mission1 %}
+              <td>M I S S I O N</td> <td>{{  obj.mission1  }}</td><td>{{  obj.timestamp  }}</td>
+            {% endif %}
+      </tr>
+            <tr class="bg-light">
+          {% if obj.mission2 %}
+              <td>M I S S I O N</td> <td>{{  obj.mission2  }}</td><td>{{  obj.timestamp  }}</td>
+             {% endif %}
+      </tr>
+            <tr class="bg-light">
+          {% if obj.mission3 %}
+              <td>M I S S I O N</td> <td>{{  obj.mission3  }}</td><td>{{  obj.timestamp  }}</td>
+             {% endif %}
+      </tr>
+            <tr class="bg-light">
+          {% if obj.mission4 %}
+              <td>M I S S I O N</td> <td>{{  obj.mission4  }}</td><td>{{  obj.timestamp  }}</td>
+             {% endif %}
+      </tr>
+            <tr class="bg-light">
+          {% if obj.mission5 %}
+              <td>M I S S I O N</td> <td>{{  obj.mission5 }}</td><td>{{  obj.timestamp  }}</td>
+             {% endif %}
+      </tr>
+        {% endfor %}
+    </tbody>
+      </table>
+    <!--******************************************************************************************************-->
+    <!--++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++-->
+    <!--######################################################################################################-->
+      <!--****************************************************************************************************--->
+    <!--++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++-->
+    <!--######################################################################################################-->
+      <table class="table">
+       <thead>
+      <tr class="bg-danger">
+        <th >الاســـم</th>
+        <th> {{ ahegaz }} </th>
+        <th> التـاريـــخ </th>
+
+      </tr>
+    </thead>
+
+     {% for obj in ahegazy %}
+
+    <tbody>
+      <tr class="bg-light">
+          {% if obj.mission1 %}
+              <td>M I S S I O N</td> <td>{{  obj.mission1  }}</td><td>{{  obj.timestamp  }}</td>
+            {% endif %}
+      </tr>
+            <tr class="bg-light">
+          {% if obj.mission2 %}
+              <td>M I S S I O N</td> <td>{{  obj.mission2  }}</td><td>{{  obj.timestamp  }}</td>
+             {% endif %}
+      </tr>
+            <tr class="bg-light">
+          {% if obj.mission3 %}
+              <td>M I S S I O N</td> <td>{{  obj.mission3  }}</td><td>{{  obj.timestamp  }}</td>
+             {% endif %}
+      </tr>
+            <tr class="bg-light">
+          {% if obj.mission4 %}
+              <td>M I S S I O N</td> <td>{{  obj.mission4  }}</td><td>{{  obj.timestamp  }}</td>
+             {% endif %}
+      </tr>
+            <tr class="bg-light">
+          {% if obj.mission5 %}
+              <td>M I S S I O N</td> <td>{{  obj.mission5 }}</td><td>{{  obj.timestamp  }}</td>
+             {% endif %}
+      </tr>
+        {% endfor %}
+    </tbody>
+      </table>
+    <!--******************************************************************************************************-->
+    <!--++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++-->
+    <!--######################################################################################################-->
+      <!--****************************************************************************************************--->
+    <!--++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++-->
+    <!--######################################################################################################-->
+      <table class="table">
+       <thead>
+      <tr class="bg-danger">
+        <th >الاســـم</th>
+        <th> {{ aibr }} </th>
+        <th> التـاريـــخ </th>
+
+      </tr>
+    </thead>
+
+     {% for obj in aibrahim %}
+
+    <tbody>
+      <tr class="bg-light">
+          {% if obj.mission1 %}
+              <td>M I S S I O N</td> <td>{{  obj.mission1  }}</td><td>{{  obj.timestamp  }}</td>
+            {% endif %}
+      </tr>
+            <tr class="bg-light">
+          {% if obj.mission2 %}
+              <td>M I S S I O N</td> <td>{{  obj.mission2  }}</td><td>{{  obj.timestamp  }}</td>
+             {% endif %}
+      </tr>
+            <tr class="bg-light">
+          {% if obj.mission3 %}
+              <td>M I S S I O N</td> <td>{{  obj.mission3  }}</td><td>{{  obj.timestamp  }}</td>
+             {% endif %}
+      </tr>
+            <tr class="bg-light">
+          {% if obj.mission4 %}
+              <td>M I S S I O N</td> <td>{{  obj.mission4  }}</td><td>{{  obj.timestamp  }}</td>
+             {% endif %}
+      </tr>
+            <tr class="bg-light">
+          {% if obj.mission5 %}
+              <td>M I S S I O N</td> <td>{{  obj.mission5 }}</td><td>{{  obj.timestamp  }}</td>
+             {% endif %}
+      </tr>
+        {% endfor %}
+    </tbody>
+      </table>
+    <!--******************************************************************************************************-->
+    <!--++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++-->
+    <!--######################################################################################################-->
+      <!--****************************************************************************************************--->
+    <!--++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++-->
+    <!--######################################################################################################-->
+      <table class="table">
+       <thead>
+      <tr class="bg-danger">
+        <th >الاســـم</th>
+        <th> {{ aref }} </th>
+        <th> التـاريـــخ </th>
+
+      </tr>
+    </thead>
+
+     {% for obj in arefaat %}
+
+    <tbody>
+      <tr class="bg-light">
+          {% if obj.mission1 %}
+              <td>M I S S I O N</td> <td>{{  obj.mission1  }}</td><td>{{  obj.timestamp  }}</td>
+            {% endif %}
+      </tr>
+            <tr class="bg-light">
+          {% if obj.mission2 %}
+              <td>M I S S I O N</td> <td>{{  obj.mission2  }}</td><td>{{  obj.timestamp  }}</td>
+             {% endif %}
+      </tr>
+            <tr class="bg-light">
+          {% if obj.mission3 %}
+              <td>M I S S I O N</td> <td>{{  obj.mission3  }}</td><td>{{  obj.timestamp  }}</td>
+             {% endif %}
+      </tr>
+            <tr class="bg-light">
+          {% if obj.mission4 %}
+              <td>M I S S I O N</td> <td>{{  obj.mission4  }}</td><td>{{  obj.timestamp  }}</td>
+             {% endif %}
+      </tr>
+            <tr class="bg-light">
+          {% if obj.mission5 %}
+              <td>M I S S I O N</td> <td>{{  obj.mission5 }}</td><td>{{  obj.timestamp  }}</td>
+             {% endif %}
+      </tr>
+        {% endfor %}
+    </tbody>
+      </table>
+    <!--******************************************************************************************************-->
+    <!--++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++-->
+    <!--######################################################################################################-->
+      <!--****************************************************************************************************--->
+    <!--++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++-->
+    <!--######################################################################################################-->
+      <table class="table">
+       <thead>
+      <tr class="bg-danger">
+        <th >الاســـم</th>
+        <th> {{ aref }} </th>
+        <th> التـاريـــخ </th>
+
+      </tr>
+    </thead>
+
+     {% for obj in arefky %}
+
+    <tbody>
+      <tr class="bg-light">
+          {% if obj.mission1 %}
+              <td>M I S S I O N</td> <td>{{  obj.mission1  }}</td><td>{{  obj.timestamp  }}</td>
+            {% endif %}
+      </tr>
+            <tr class="bg-light">
+          {% if obj.mission2 %}
+              <td>M I S S I O N</td> <td>{{  obj.mission2  }}</td><td>{{  obj.timestamp  }}</td>
+             {% endif %}
+      </tr>
+            <tr class="bg-light">
+          {% if obj.mission3 %}
+              <td>M I S S I O N</td> <td>{{  obj.mission3  }}</td><td>{{  obj.timestamp  }}</td>
+             {% endif %}
+      </tr>
+            <tr class="bg-light">
+          {% if obj.mission4 %}
+              <td>M I S S I O N</td> <td>{{  obj.mission4  }}</td><td>{{  obj.timestamp  }}</td>
+             {% endif %}
+      </tr>
+            <tr class="bg-light">
+          {% if obj.mission5 %}
+              <td>M I S S I O N</td> <td>{{  obj.mission5 }}</td><td>{{  obj.timestamp  }}</td>
+             {% endif %}
+      </tr>
+        {% endfor %}
+    </tbody>
+      </table>
+    <!--******************************************************************************************************-->
+    <!--++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++-->
+    <!--######################################################################################################-->
+      <!--****************************************************************************************************--->
+    <!--++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++-->
+    <!--######################################################################################################-->
+      <table class="table">
+       <thead>
+      <tr class="bg-danger">
+        <th >الاســـم</th>
+        <th> {{ asala }} </th>
+        <th> التـاريـــخ </th>
+
+      </tr>
+    </thead>
+
+     {% for obj in asalah %}
+
+    <tbody>
+      <tr class="bg-light">
+          {% if obj.mission1 %}
+              <td>M I S S I O N</td> <td>{{  obj.mission1  }}</td><td>{{  obj.timestamp  }}</td>
+            {% endif %}
+      </tr>
+            <tr class="bg-light">
+          {% if obj.mission2 %}
+              <td>M I S S I O N</td> <td>{{  obj.mission2  }}</td><td>{{  obj.timestamp  }}</td>
+             {% endif %}
+      </tr>
+            <tr class="bg-light">
+          {% if obj.mission3 %}
+              <td>M I S S I O N</td> <td>{{  obj.mission3  }}</td><td>{{  obj.timestamp  }}</td>
+             {% endif %}
+      </tr>
+            <tr class="bg-light">
+          {% if obj.mission4 %}
+              <td>M I S S I O N</td> <td>{{  obj.mission4  }}</td><td>{{  obj.timestamp  }}</td>
+             {% endif %}
+      </tr>
+            <tr class="bg-light">
+          {% if obj.mission5 %}
+              <td>M I S S I O N</td> <td>{{  obj.mission5 }}</td><td>{{  obj.timestamp  }}</td>
+             {% endif %}
+      </tr>
+        {% endfor %}
+    </tbody>
+      </table>
+    <!--******************************************************************************************************-->
+    <!--++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++-->
+    <!--######################################################################################################-->
+      <!--****************************************************************************************************--->
+    <!--++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++-->
+    <!--######################################################################################################-->
+      <table class="table">
+       <thead>
+      <tr class="bg-danger">
+        <th >الاســـم</th>
+        <th> {{ asaod }} </th>
+        <th> التـاريـــخ </th>
+
+      </tr>
+    </thead>
+
+     {% for obj in asaoud %}
+
+    <tbody>
+      <tr class="bg-light">
+          {% if obj.mission1 %}
+              <td>M I S S I O N</td> <td>{{  obj.mission1  }}</td><td>{{  obj.timestamp  }}</td>
+            {% endif %}
+      </tr>
+            <tr class="bg-light">
+          {% if obj.mission2 %}
+              <td>M I S S I O N</td> <td>{{  obj.mission2  }}</td><td>{{  obj.timestamp  }}</td>
+             {% endif %}
+      </tr>
+            <tr class="bg-light">
+          {% if obj.mission3 %}
+              <td>M I S S I O N</td> <td>{{  obj.mission3  }}</td><td>{{  obj.timestamp  }}</td>
+             {% endif %}
+      </tr>
+            <tr class="bg-light">
+          {% if obj.mission4 %}
+              <td>M I S S I O N</td> <td>{{  obj.mission4  }}</td><td>{{  obj.timestamp  }}</td>
+             {% endif %}
+      </tr>
+            <tr class="bg-light">
+          {% if obj.mission5 %}
+              <td>M I S S I O N</td> <td>{{  obj.mission5 }}</td><td>{{  obj.timestamp  }}</td>
+             {% endif %}
+      </tr>
+        {% endfor %}
+    </tbody>
+      </table>
+    <!--******************************************************************************************************-->
+    <!--++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++-->
+    <!--######################################################################################################-->
+      <!--****************************************************************************************************--->
+    <!--++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++-->
+    <!--######################################################################################################-->
+      <table class="table">
+       <thead>
+      <tr class="bg-danger">
+        <th >الاســـم</th>
+        <th> {{ aaal }} </th>
+        <th> التـاريـــخ </th>
+
+      </tr>
+    </thead>
+
+     {% for obj in asaoud %}
+
+    <tbody>
+      <tr class="bg-light">
+          {% if obj.mission1 %}
+              <td>M I S S I O N</td> <td>{{  obj.mission1  }}</td><td>{{  obj.timestamp  }}</td>
+            {% endif %}
+      </tr>
+            <tr class="bg-light">
+          {% if obj.mission2 %}
+              <td>M I S S I O N</td> <td>{{  obj.mission2  }}</td><td>{{  obj.timestamp  }}</td>
+             {% endif %}
+      </tr>
+            <tr class="bg-light">
+          {% if obj.mission3 %}
+              <td>M I S S I O N</td> <td>{{  obj.mission3  }}</td><td>{{  obj.timestamp  }}</td>
+             {% endif %}
+      </tr>
+            <tr class="bg-light">
+          {% if obj.mission4 %}
+              <td>M I S S I O N</td> <td>{{  obj.mission4  }}</td><td>{{  obj.timestamp  }}</td>
+             {% endif %}
+      </tr>
+            <tr class="bg-light">
+          {% if obj.mission5 %}
+              <td>M I S S I O N</td> <td>{{  obj.mission5 }}</td><td>{{  obj.timestamp  }}</td>
+             {% endif %}
+      </tr>
+        {% endfor %}
+    </tbody>
+      </table>
+    <!--******************************************************************************************************-->
+    <!--++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++-->
+    <!--######################################################################################################-->
+      <!--****************************************************************************************************--->
+    <!--++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++-->
+    <!--######################################################################################################-->
+      <table class="table">
+       <thead>
+      <tr class="bg-danger">
+        <th >الاســـم</th>
+        <th> {{ hmost }} </th>
+        <th> التـاريـــخ </th>
+
+      </tr>
+    </thead>
+
+     {% for obj in hmostafa %}
+
+    <tbody>
+      <tr class="bg-light">
+          {% if obj.mission1 %}
+              <td>M I S S I O N</td> <td>{{  obj.mission1  }}</td><td>{{  obj.timestamp  }}</td>
+            {% endif %}
+      </tr>
+            <tr class="bg-light">
+          {% if obj.mission2 %}
+              <td>M I S S I O N</td> <td>{{  obj.mission2  }}</td><td>{{  obj.timestamp  }}</td>
+             {% endif %}
+      </tr>
+            <tr class="bg-light">
+          {% if obj.mission3 %}
+              <td>M I S S I O N</td> <td>{{  obj.mission3  }}</td><td>{{  obj.timestamp  }}</td>
+             {% endif %}
+      </tr>
+            <tr class="bg-light">
+          {% if obj.mission4 %}
+              <td>M I S S I O N</td> <td>{{  obj.mission4  }}</td><td>{{  obj.timestamp  }}</td>
+             {% endif %}
+      </tr>
+            <tr class="bg-light">
+          {% if obj.mission5 %}
+              <td>M I S S I O N</td> <td>{{  obj.mission5 }}</td><td>{{  obj.timestamp  }}</td>
+             {% endif %}
+      </tr>
+        {% endfor %}
+    </tbody>
+      </table>
+    <!--******************************************************************************************************-->
+    <!--++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++-->
+    <!--######################################################################################################-->
+      <!--****************************************************************************************************--->
+    <!--++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++-->
+    <!--######################################################################################################-->
+      <table class="table">
+       <thead>
+      <tr class="bg-danger">
+        <th >الاســـم</th>
+        <th> {{ iwahab }} </th>
+        <th> التـاريـــخ </th>
+
+      </tr>
+    </thead>
+
+     {% for obj in iwahab %}
+
+    <tbody>
+      <tr class="bg-light">
+          {% if obj.mission1 %}
+              <td>M I S S I O N</td> <td>{{  obj.mission1  }}</td><td>{{  obj.timestamp  }}</td>
+            {% endif %}
+      </tr>
+            <tr class="bg-light">
+          {% if obj.mission2 %}
+              <td>M I S S I O N</td> <td>{{  obj.mission2  }}</td><td>{{  obj.timestamp  }}</td>
+             {% endif %}
+      </tr>
+            <tr class="bg-light">
+          {% if obj.mission3 %}
+              <td>M I S S I O N</td> <td>{{  obj.mission3  }}</td><td>{{  obj.timestamp  }}</td>
+             {% endif %}
+      </tr>
+            <tr class="bg-light">
+          {% if obj.mission4 %}
+              <td>M I S S I O N</td> <td>{{  obj.mission4  }}</td><td>{{  obj.timestamp  }}</td>
+             {% endif %}
+      </tr>
+            <tr class="bg-light">
+          {% if obj.mission5 %}
+              <td>M I S S I O N</td> <td>{{  obj.mission5 }}</td><td>{{  obj.timestamp  }}</td>
+             {% endif %}
+      </tr>
+        {% endfor %}
+    </tbody>
+      </table>
+    <!--******************************************************************************************************-->
+    <!--++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++-->
+    <!--######################################################################################################-->
+      <!--****************************************************************************************************--->
+    <!--++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++-->
+    <!--######################################################################################################-->
+      <table class="table">
+       <thead>
+      <tr class="bg-danger">
+        <th >الاســـم</th>
+        <th> {{ mahm }} </th>
+        <th> التـاريـــخ </th>
+
+      </tr>
+    </thead>
+
+     {% for obj in mahamed %}
+
+    <tbody>
+      <tr class="bg-light">
+          {% if obj.mission1 %}
+              <td>M I S S I O N</td> <td>{{  obj.mission1  }}</td><td>{{  obj.timestamp  }}</td>
+            {% endif %}
+      </tr>
+            <tr class="bg-light">
+          {% if obj.mission2 %}
+              <td>M I S S I O N</td> <td>{{  obj.mission2  }}</td><td>{{  obj.timestamp  }}</td>
+             {% endif %}
+      </tr>
+            <tr class="bg-light">
+          {% if obj.mission3 %}
+              <td>M I S S I O N</td> <td>{{  obj.mission3  }}</td><td>{{  obj.timestamp  }}</td>
+             {% endif %}
+      </tr>
+            <tr class="bg-light">
+          {% if obj.mission4 %}
+              <td>M I S S I O N</td> <td>{{  obj.mission4  }}</td><td>{{  obj.timestamp  }}</td>
+             {% endif %}
+      </tr>
+            <tr class="bg-light">
+          {% if obj.mission5 %}
+              <td>M I S S I O N</td> <td>{{  obj.mission5 }}</td><td>{{  obj.timestamp  }}</td>
+             {% endif %}
+      </tr>
+        {% endfor %}
+    </tbody>
+      </table>
+    <!--******************************************************************************************************-->
+    <!--++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++-->
+    <!--######################################################################################################-->
+      <!--****************************************************************************************************--->
+    <!--++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++-->
+    <!--######################################################################################################-->
+      <table class="table">
+       <thead>
+      <tr class="bg-danger">
+        <th >الاســـم</th>
+        <th> {{ mgad }} </th>
+        <th> التـاريـــخ </th>
+
+      </tr>
+    </thead>
+
+     {% for obj in mgad %}
+
+    <tbody>
+      <tr class="bg-light">
+          {% if obj.mission1 %}
+              <td>M I S S I O N</td> <td>{{  obj.mission1  }}</td><td>{{  obj.timestamp  }}</td>
+            {% endif %}
+      </tr>
+            <tr class="bg-light">
+          {% if obj.mission2 %}
+              <td>M I S S I O N</td> <td>{{  obj.mission2  }}</td><td>{{  obj.timestamp  }}</td>
+             {% endif %}
+      </tr>
+            <tr class="bg-light">
+          {% if obj.mission3 %}
+              <td>M I S S I O N</td> <td>{{  obj.mission3  }}</td><td>{{  obj.timestamp  }}</td>
+             {% endif %}
+      </tr>
+            <tr class="bg-light">
+          {% if obj.mission4 %}
+              <td>M I S S I O N</td> <td>{{  obj.mission4  }}</td><td>{{  obj.timestamp  }}</td>
+             {% endif %}
+      </tr>
+            <tr class="bg-light">
+          {% if obj.mission5 %}
+              <td>M I S S I O N</td> <td>{{  obj.mission5 }}</td><td>{{  obj.timestamp  }}</td>
+             {% endif %}
+      </tr>
+        {% endfor %}
+    </tbody>
+      </table>
+    <!--******************************************************************************************************-->
+    <!--++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++-->
+    <!--######################################################################################################-->
+      <!--****************************************************************************************************--->
+    <!--++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++-->
+    <!--######################################################################################################-->
+      <table class="table">
+       <thead>
+      <tr class="bg-danger">
+        <th >الاســـم</th>
+        <th> {{ mmoha }} </th>
+        <th> التـاريـــخ </th>
+
+      </tr>
+    </thead>
+
+     {% for obj in mmohamed %}
+
+    <tbody>
+      <tr class="bg-light">
+          {% if obj.mission1 %}
+              <td>M I S S I O N</td> <td>{{  obj.mission1  }}</td><td>{{  obj.timestamp  }}</td>
+            {% endif %}
+      </tr>
+            <tr class="bg-light">
+          {% if obj.mission2 %}
+              <td>M I S S I O N</td> <td>{{  obj.mission2  }}</td><td>{{  obj.timestamp  }}</td>
+             {% endif %}
+      </tr>
+            <tr class="bg-light">
+          {% if obj.mission3 %}
+              <td>M I S S I O N</td> <td>{{  obj.mission3  }}</td><td>{{  obj.timestamp  }}</td>
+             {% endif %}
+      </tr>
+            <tr class="bg-light">
+          {% if obj.mission4 %}
+              <td>M I S S I O N</td> <td>{{  obj.mission4  }}</td><td>{{  obj.timestamp  }}</td>
+             {% endif %}
+      </tr>
+            <tr class="bg-light">
+          {% if obj.mission5 %}
+              <td>M I S S I O N</td> <td>{{  obj.mission5 }}</td><td>{{  obj.timestamp  }}</td>
+             {% endif %}
+      </tr>
+        {% endfor %}
+    </tbody>
+      </table>
+    <!--******************************************************************************************************-->
+    <!--++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++-->
+    <!--######################################################################################################-->
+      <!--****************************************************************************************************--->
+    <!--++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++-->
+    <!--######################################################################################################-->
+      <table class="table">
+       <thead>
+      <tr class="bg-danger">
+        <th >الاســـم</th>
+        <th> {{ mmos }} </th>
+        <th> التـاريـــخ </th>
+
+      </tr>
+    </thead>
+
+     {% for obj in mmostafa %}
+
+    <tbody>
+      <tr class="bg-light">
+          {% if obj.mission1 %}
+              <td>M I S S I O N</td> <td>{{  obj.mission1  }}</td><td>{{  obj.timestamp  }}</td>
+            {% endif %}
+      </tr>
+            <tr class="bg-light">
+          {% if obj.mission2 %}
+              <td>M I S S I O N</td> <td>{{  obj.mission2  }}</td><td>{{  obj.timestamp  }}</td>
+             {% endif %}
+      </tr>
+            <tr class="bg-light">
+          {% if obj.mission3 %}
+              <td>M I S S I O N</td> <td>{{  obj.mission3  }}</td><td>{{  obj.timestamp  }}</td>
+             {% endif %}
+      </tr>
+            <tr class="bg-light">
+          {% if obj.mission4 %}
+              <td>M I S S I O N</td> <td>{{  obj.mission4  }}</td><td>{{  obj.timestamp  }}</td>
+             {% endif %}
+      </tr>
+            <tr class="bg-light">
+          {% if obj.mission5 %}
+              <td>M I S S I O N</td> <td>{{  obj.mission5 }}</td><td>{{  obj.timestamp  }}</td>
+             {% endif %}
+      </tr>
+        {% endfor %}
+    </tbody>
+      </table>
+    <!--******************************************************************************************************-->
+    <!--++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++-->
+    <!--######################################################################################################-->
+      <!--****************************************************************************************************--->
+    <!--++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++-->
+    <!--######################################################################################################-->
+      <table class="table">
+       <thead>
+      <tr class="bg-danger">
+        <th >الاســـم</th>
+        <th> {{ mnad }} </th>
+        <th> التـاريـــخ </th>
+
+      </tr>
+    </thead>
+
+     {% for obj in mnady %}
+
+    <tbody>
+      <tr class="bg-light">
+          {% if obj.mission1 %}
+              <td>M I S S I O N</td> <td>{{  obj.mission1  }}</td><td>{{  obj.timestamp  }}</td>
+            {% endif %}
+      </tr>
+            <tr class="bg-light">
+          {% if obj.mission2 %}
+              <td>M I S S I O N</td> <td>{{  obj.mission2  }}</td><td>{{  obj.timestamp  }}</td>
+             {% endif %}
+      </tr>
+            <tr class="bg-light">
+          {% if obj.mission3 %}
+              <td>M I S S I O N</td> <td>{{  obj.mission3  }}</td><td>{{  obj.timestamp  }}</td>
+             {% endif %}
+      </tr>
+            <tr class="bg-light">
+          {% if obj.mission4 %}
+              <td>M I S S I O N</td> <td>{{  obj.mission4  }}</td><td>{{  obj.timestamp  }}</td>
+             {% endif %}
+      </tr>
+            <tr class="bg-light">
+          {% if obj.mission5 %}
+              <td>M I S S I O N</td> <td>{{  obj.mission5 }}</td><td>{{  obj.timestamp  }}</td>
+             {% endif %}
+      </tr>
+        {% endfor %}
+    </tbody>
+      </table>
+    <!--******************************************************************************************************-->
+    <!--++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++-->
+    <!--######################################################################################################-->
+      <!--****************************************************************************************************--->
+    <!--++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++-->
+    <!--######################################################################################################-->
+      <table class="table">
+       <thead>
+      <tr class="bg-danger">
+        <th >الاســـم</th>
+        <th> {{ mshab }} </th>
+        <th> التـاريـــخ </th>
+
+      </tr>
+    </thead>
+
+     {% for obj in mshaban %}
+
+    <tbody>
+      <tr class="bg-light">
+          {% if obj.mission1 %}
+              <td>M I S S I O N</td> <td>{{  obj.mission1  }}</td><td>{{  obj.timestamp  }}</td>
+            {% endif %}
+      </tr>
+            <tr class="bg-light">
+          {% if obj.mission2 %}
+              <td>M I S S I O N</td> <td>{{  obj.mission2  }}</td><td>{{  obj.timestamp  }}</td>
+             {% endif %}
+      </tr>
+            <tr class="bg-light">
+          {% if obj.mission3 %}
+              <td>M I S S I O N</td> <td>{{  obj.mission3  }}</td><td>{{  obj.timestamp  }}</td>
+             {% endif %}
+      </tr>
+            <tr class="bg-light">
+          {% if obj.mission4 %}
+              <td>M I S S I O N</td> <td>{{  obj.mission4  }}</td><td>{{  obj.timestamp  }}</td>
+             {% endif %}
+      </tr>
+            <tr class="bg-light">
+          {% if obj.mission5 %}
+              <td>M I S S I O N</td> <td>{{  obj.mission5 }}</td><td>{{  obj.timestamp  }}</td>
+             {% endif %}
+      </tr>
+        {% endfor %}
+    </tbody>
+      </table>
+    <!--******************************************************************************************************-->
+    <!--++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++-->
+    <!--######################################################################################################-->
+      <!--****************************************************************************************************--->
+    <!--++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++-->
+    <!--######################################################################################################-->
+      <table class="table">
+       <thead>
+      <tr class="bg-danger">
+        <th >الاســـم</th>
+        <th> {{ rsam }} </th>
+        <th> التـاريـــخ </th>
+
+      </tr>
+    </thead>
+
+     {% for obj in rsamir %}
+
+    <tbody>
+      <tr class="bg-light">
+          {% if obj.mission1 %}
+              <td>M I S S I O N</td> <td>{{  obj.mission1  }}</td><td>{{  obj.timestamp  }}</td>
+            {% endif %}
+      </tr>
+            <tr class="bg-light">
+          {% if obj.mission2 %}
+              <td>M I S S I O N</td> <td>{{  obj.mission2  }}</td><td>{{  obj.timestamp  }}</td>
+             {% endif %}
+      </tr>
+            <tr class="bg-light">
+          {% if obj.mission3 %}
+              <td>M I S S I O N</td> <td>{{  obj.mission3  }}</td><td>{{  obj.timestamp  }}</td>
+             {% endif %}
+      </tr>
+            <tr class="bg-light">
+          {% if obj.mission4 %}
+              <td>M I S S I O N</td> <td>{{  obj.mission4  }}</td><td>{{  obj.timestamp  }}</td>
+             {% endif %}
+      </tr>
+            <tr class="bg-light">
+          {% if obj.mission5 %}
+              <td>M I S S I O N</td> <td>{{  obj.mission5 }}</td><td>{{  obj.timestamp  }}</td>
+             {% endif %}
+      </tr>
+        {% endfor %}
+    </tbody>
+      </table>
+    <!--******************************************************************************************************-->
+    <!--++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++-->
+    <!--######################################################################################################-->
+      <!--****************************************************************************************************--->
+    <!--++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++-->
+    <!--######################################################################################################-->
+      <table class="table">
+       <thead>
+      <tr class="bg-danger">
+        <th >الاســـم</th>
+        <th> {{ wtaw }} </th>
+        <th> التـاريـــخ </th>
+
+      </tr>
+    </thead>
+
+     {% for obj in wtaweel %}
+
+    <tbody>
+      <tr class="bg-light">
+          {% if obj.mission1 %}
+              <td>M I S S I O N</td> <td>{{  obj.mission1  }}</td><td>{{  obj.timestamp  }}</td>
+            {% endif %}
+      </tr>
+            <tr class="bg-light">
+          {% if obj.mission2 %}
+              <td>M I S S I O N</td> <td>{{  obj.mission2  }}</td><td>{{  obj.timestamp  }}</td>
+             {% endif %}
+      </tr>
+            <tr class="bg-light">
+          {% if obj.mission3 %}
+              <td>M I S S I O N</td> <td>{{  obj.mission3  }}</td><td>{{  obj.timestamp  }}</td>
+             {% endif %}
+      </tr>
+            <tr class="bg-light">
+          {% if obj.mission4 %}
+              <td>M I S S I O N</td> <td>{{  obj.mission4  }}</td><td>{{  obj.timestamp  }}</td>
+             {% endif %}
+      </tr>
+            <tr class="bg-light">
+          {% if obj.mission5 %}
+              <td>M I S S I O N</td> <td>{{  obj.mission5 }}</td><td>{{  obj.timestamp  }}</td>
+             {% endif %}
+      </tr>
+        {% endfor %}
+    </tbody>
+      </table>
+    <!--******************************************************************************************************-->
+    <!--++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++-->
+    <!--######################################################################################################-->
+      <!--****************************************************************************************************--->
+    <!--++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++-->
+    <!--######################################################################################################-->
+      <table class="table">
+       <thead>
+      <tr class="bg-danger">
+        <th >الاســـم</th>
+        <th> {{ walaa }} </th>
+        <th> التـاريـــخ </th>
+
+      </tr>
+    </thead>
+
+     {% for obj in wtawfaik %}
+
+    <tbody>
+      <tr class="bg-light">
+          {% if obj.mission1 %}
+              <td>M I S S I O N</td> <td>{{  obj.mission1  }}</td><td>{{  obj.timestamp  }}</td>
+            {% endif %}
+      </tr>
+            <tr class="bg-light">
+          {% if obj.mission2 %}
+              <td>M I S S I O N</td> <td>{{  obj.mission2  }}</td><td>{{  obj.timestamp  }}</td>
+             {% endif %}
+      </tr>
+            <tr class="bg-light">
+          {% if obj.mission3 %}
+              <td>M I S S I O N</td> <td>{{  obj.mission3  }}</td><td>{{  obj.timestamp  }}</td>
+             {% endif %}
+      </tr>
+            <tr class="bg-light">
+          {% if obj.mission4 %}
+              <td>M I S S I O N</td> <td>{{  obj.mission4  }}</td><td>{{  obj.timestamp  }}</td>
+             {% endif %}
+      </tr>
+            <tr class="bg-light">
+          {% if obj.mission5 %}
+              <td>M I S S I O N</td> <td>{{  obj.mission5 }}</td><td>{{  obj.timestamp  }}</td>
+             {% endif %}
+      </tr>
+        {% endfor %}
+    </tbody>
+      </table>
+    <!--******************************************************************************************************-->
+    <!--++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++-->
+    <!--######################################################################################################-->
+      <!--****************************************************************************************************--->
+    <!--++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++-->
+    <!--######################################################################################################-->
+      <table class="table">
+       <thead>
+      <tr class="bg-danger">
+        <th >الاســـم</th>
+        <th> {{ ygoh }} </th>
+        <th> التـاريـــخ </th>
+
+      </tr>
+    </thead>
+
+     {% for obj in ygohary %}
+
+    <tbody>
+      <tr class="bg-light">
+          {% if obj.mission1 %}
+              <td>M I S S I O N</td> <td>{{  obj.mission1  }}</td><td>{{  obj.timestamp  }}</td>
+            {% endif %}
+      </tr>
+            <tr class="bg-light">
+          {% if obj.mission2 %}
+              <td>M I S S I O N</td> <td>{{  obj.mission2  }}</td><td>{{  obj.timestamp  }}</td>
+             {% endif %}
+      </tr>
+            <tr class="bg-light">
+          {% if obj.mission3 %}
+              <td>M I S S I O N</td> <td>{{  obj.mission3  }}</td><td>{{  obj.timestamp  }}</td>
+             {% endif %}
+      </tr>
+            <tr class="bg-light">
+          {% if obj.mission4 %}
+              <td>M I S S I O N</td> <td>{{  obj.mission4  }}</td><td>{{  obj.timestamp  }}</td>
+             {% endif %}
+      </tr>
+            <tr class="bg-light">
+          {% if obj.mission5 %}
+              <td>M I S S I O N</td> <td>{{  obj.mission5 }}</td><td>{{  obj.timestamp  }}</td>
+             {% endif %}
+      </tr>
+        {% endfor %}
+    </tbody>
+      </table>
+    <!--******************************************************************************************************-->
+    <!--++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++-->
+    <!--######################################################################################################-->
+      <!--****************************************************************************************************--->
+    <!--++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++-->
+    <!--######################################################################################################-->
+
+    <!--******************************************************************************************************-->
+    <!--++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++-->
+    <!--######################################################################################################-->
+</div>
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>
+
+
+   {% endblock %}
+
+

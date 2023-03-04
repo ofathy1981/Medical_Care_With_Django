@@ -1,0 +1,177 @@
+
+{% include 'navbar.html' %}
+
+
+{% block content %}
+
+
+
+<style>
+
+    .bb{
+ margin-bottom: 50px;
+ margin-top:90px;
+
+}
+.cc{
+ margin-top:0px;
+ margin-bottom: 90px;
+}
+table{
+    font-size: 9px;
+}
+
+
+</style>
+<html>
+<body>
+<ul class="nav nav-tabs nav-pills bb " id="myTab" role="tablist">
+
+  <li class="nav-item">
+    <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Servers Details</a>
+  </li>
+
+</ul>
+<div class="tab-content" id="myTabContent">
+  <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+      
+<table class="table table-bordered table-striped ">
+  <thead class="thead-inverse">
+    <tr class="table-success">
+            <th >id</th>
+
+        <th >اسم الفرع</th>
+      <th>رقم الطابق</th>
+      <th>اسم المصنع</th>
+      <th>رقم الموديل</th>
+      <th>سعة الذاكره(الرام)</th>
+      <th>سعة التخزين (الهارد ديسك)</th>
+      <th>نوع المعالج</th>
+      <th>تاريخ الاضافه </th>
+      <th>بواسطة</th>
+
+
+    </tr>
+  </thead>
+  <tbody>
+  {% for obj in servers_list %}
+
+   <tr> 
+   <th scope="row"> {{ obj.id }}</th>
+   <td>  {{ obj.bransh }} </td>
+   <td>  {{ obj.floor }}  </td>
+   <td>  {{ obj.server_vendor }}  </td>
+   <td>  {{ obj.server_model }}  </td>
+   <td>  {{ obj.ram_size }}  </td>
+   <td>  {{ obj.harddis_size }}  </td>
+   <td>  {{ obj.processor }}  </td>
+   <td>  {{ obj.created }}  </td>
+   <td>  {{ obj.publisher }}  </td>
+
+     </tr>
+   </tr>
+
+  {% endfor %}
+  </tbody>
+</table>
+
+
+
+
+<ul class="pagination justify-content-center ">
+    <li class="page-item ">
+        {% if server_list.has_previous %}
+            <a class="page-link"  href="?page={{ server_res.previous_page_number }}">previous</a>
+        {% endif %}
+    </li>   
+ <li class="page-item "><a class="page-link" >Page</a></li>
+ <li class="page-item ">
+
+  <a class="page-link active" href="#">  {{ server_list.number }} </a> </li> <li class="page-item "> <a class="page-link" >of</a></li>  <li class="page-item "><a class="page-link" href="?page={{  server_list.paginator.num_pages }}">{{ server_list.paginator.num_pages }}.</a>
+    </li>
+    <li class="page-item">
+        {% if server_list.has_next %}
+            <a class="page-link" href="?page={{ server_res.next_page_number }}">next</a>
+        {% endif %}
+    </li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <div class="tab-pane fade" id="print" role="tabpanel" aria-labelledby="print-tab">...</div>
+  <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">...</div>
+  <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">...</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+
+
+
+
+
+
+
+
+
+
+   {% endblock %}
+</body>
+</html>
+

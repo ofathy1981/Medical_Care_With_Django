@@ -1,0 +1,126 @@
+{% extends 'base.html' %}
+{% include 'navbar.html' %}
+{%  load static %}
+{% load staticfiles %}
+
+{% block content %}
+<script src="http://code.highcharts.com/highcharts.js"></script>
+<script src="http://code.highcharts.com/modules/exporting.js"></script>
+<style>
+
+    .list-group{
+ margin-top:90px;
+ padding:0px;
+
+    }
+    .panel{
+ margin-top:90px;
+
+    }
+
+</style>
+<html>
+<body>
+
+
+
+<table class="table">
+  <thead class="thead-inverse">
+    <tr>
+      <th>مسلسل</th>
+     <th>اسم المريض</th>
+      <th>الرقم الطبى</th>
+      <th>Actions</th>
+
+    </tr>
+  </thead>
+  <tbody>
+  {% for obj in monthly_medical_script3s_list %}
+
+   <tr>
+   <th scope="row"> {{ obj.id }}</th>
+  <td>  {{ obj.patient_name }} </td>
+
+   <td>  {{ obj.medical_number }} </td>
+ 
+ <td> <a href='{% url "monthly_medical_script3_detail" id=obj.id %}'><button type="button" class="btn btn-danger btn-lg">حذف</button></a></td>
+
+</td>
+
+
+
+  {% endfor %}
+  </tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>
+
+
+<!--
+  <div class="list-group">
+  <div class="list-group-item">{{ instance.problem_desc }}</div>
+  <div class="list-group-item"> {{ instance.problem_date }}</div>
+  <div class="list-group-item">{{ instance.user_fullname}}</div>
+  <div class="list-group-item">{{ instance.user_sector}}</div>
+  <div class="list-group-item">{{ instance.pc_type }}</div>
+
+
+-->
+
+
+   {% endblock %}
+
+

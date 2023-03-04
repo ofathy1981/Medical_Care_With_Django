@@ -1,0 +1,408 @@
+
+{% include 'navbar.html' %}
+
+
+{% block content %}
+
+
+<style >
+#h{
+
+}
+#b01 {
+    color: red;
+    font-family:'f4';
+
+}
+#sidebar {
+    overflow: hidden;
+    z-index: 3;
+}
+#sidebar .list-group {
+    min-width: 400px;
+    background-color: #333;
+    min-height: 100vh;
+}
+#sidebar i {
+    margin-right: 6px;
+}
+
+#sidebar .list-group-item {
+    border-radius: 0;
+    background-color: #333;
+    color: #ccc;
+    border-left: 0;
+    border-right: 0;
+    border-color: #2c2c2c;
+    white-space: nowrap;
+    font-family:'f6';
+    font-size:9pt;
+
+}
+
+/* highlight active menu */
+#sidebar .list-group-item:not(.collapsed) {
+    background-color: #222;
+}
+
+/* closed state */
+#sidebar .list-group .list-group-item[aria-expanded="false"]::after {
+  content: " ";
+  font-family: 'f6';
+  display: inline;
+  text-align: left;
+  padding-left: 5px;
+}
+
+/* open state */
+#sidebar .list-group .list-group-item[aria-expanded="true"] {
+  background-color: #222;
+}
+#sidebar .list-group .list-group-item[aria-expanded="true"]::after {
+  content: "";
+  font-family: 'f6';
+  display: inline;
+  text-align: left;
+  padding-left: 5px;
+}
+
+/* level 1*/
+#sidebar .list-group .collapse .list-group-item,
+#sidebar .list-group .collapsing .list-group-item  {
+  padding-left: 20px;
+}
+
+/* level 2*/
+#sidebar .list-group .collapse > .collapse .list-group-item,
+#sidebar .list-group .collapse > .collapsing .list-group-item {
+  padding-left: 30px;
+}
+
+/* level 3*/
+#sidebar .list-group .collapse > .collapse > .collapse .list-group-item {
+  padding-left: 40px;
+}
+
+@media (max-width:768px) {
+    #sidebar {
+        min-width: 35px;
+        max-width: 40px;
+        overflow-y: auto;
+        overflow-x: visible;
+        transition: all 0.25s ease;
+        transform: translateX(-45px);
+        position: fixed;
+        z-index: 1; /* Stay on top */
+       top: 0; /* Stay at the top */
+    }
+    
+    #sidebar.show {
+        transform: translateX(0);
+    }
+
+    #sidebar::-webkit-scrollbar{ width: 0px; }
+    
+    #sidebar, #sidebar .list-group {
+        min-width: 35px;
+        overflow: visible;
+    }
+    /* overlay sub levels on small screens */
+    #sidebar .list-group .collapse.show, #sidebar .list-group .collapsing {
+        position: relative;
+        z-index: 1;
+        width: 190px;
+        top: 0;
+    }
+    #sidebar .list-group > .list-group-item {
+        text-align: left;
+        padding: .75rem .5rem;
+    }
+    /* hide caret icons of top level when collapsed */
+    #sidebar .list-group > .list-group-item[aria-expanded="true"]::after,
+    #sidebar .list-group > .list-group-item[aria-expanded="false"]::after {
+        display:none;
+    }
+}
+
+.collapse.show {
+  visibility: visible;
+}
+.collapsing {
+  visibility: visible;
+  height: 0;
+  -webkit-transition-property: height, visibility;
+  transition-property: height, visibility;
+  -webkit-transition-timing-function: ease-out;
+  transition-timing-function: ease-out;
+}
+.collapsing.width {
+  -webkit-transition-property: width, visibility;
+  transition-property: width, visibility;
+  width: 0;
+  height: 100%;
+  -webkit-transition-timing-function: ease-out;
+  transition-timing-function: ease-out;
+}
+.container-fluid{
+margin-top:80px;
+
+}
+</style>
+<html>
+<body>
+<div class="container-fluid " id="demo2">
+    <div class="row d-flex d-md-block flex-nowrap wrapper">
+        <div class="col-md-3 float-right col-1 pl-0 pr-0 collapse width show" id="sidebar">
+                <div class="list-group border-0 card text-center text-md-left">
+
+
+<center><a  class="list-group-item d-inline-block btn-primary collapsed"  aria-expanded="false"><i class="fa fa-database"></i> <span id="h" class="d-none d-md-inline"><b id="b01">A S S E T S</b> </span></a></center>
+               
+<a href="#menu2" class="list-group-item d-inline-block collapsed" data-toggle="collapse" aria-expanded="false"><i class="fa fa-arrow-circle-o-down"></i> <span class="d-none d-md-inline">اجهزة الحاسب</span></a>
+                <div class="collapse" id="menu2" data-parent="#sidebar">
+           <a href="#pos1" class="list-group-item" data-parent="#menu9" data-toggle="collapse" data-target="#demo2">  <i class="fa fa-university" >   جاردن سيتى</i></a>
+           <a href="#" class="list-group-item" data-parent="#menu9" > <i class="fa fa-university" >المهندسيين</i> </a>
+           <a href="#" class="list-group-item" data-parent="#menu9"> <i class="fa fa-university" >الفواله</i></a>
+          <a href="#" class="list-group-item" data-parent="#menu9"> <i class="fa fa-university" >سيتى بنك</i></a>
+          <a href="#" class="list-group-item" data-parent="#menu9" > <i class="fa fa-university" >قصر النيل </i></a>
+          <a href="#" class="list-group-item" data-parent="#menu9"> <i class="fa fa-university" >التوفيقيه</i></a>             
+                </div>
+
+
+<a href="#menu4" class="list-group-item d-inline-block collapsed" data-toggle="collapse" aria-expanded="false"><i class="fa fa-arrow-circle-o-down"></i> <span  class="d-none d-md-inline">الطــــابعـــات</span></a>
+                <div class="collapse" id="menu4" data-parent="#sidebar">
+           <a href="#" class="list-group-item" data-parent="#menu9">  <i class="fa fa-university" >   جاردن سيتى</i></a>
+           <a href="#" class="list-group-item" data-parent="#menu9" > <i class="fa fa-university" >المهندسيين</i> </a>
+           <a href="#" class="list-group-item" data-parent="#menu9"> <i class="fa fa-university" >الفواله</i></a>
+          <a href="#" class="list-group-item" data-parent="#menu9"> <i class="fa fa-university" >سيتى بنك</i></a>
+          <a href="#" class="list-group-item" data-parent="#menu9" > <i class="fa fa-university" >قصر النيل </i></a>
+          <a href="#" class="list-group-item" data-parent="#menu9"> <i class="fa fa-university" >التوفيقيه</i></a>             
+                </div>
+
+<a href="#menu5" class="list-group-item d-inline-block collapsed" data-toggle="collapse" aria-expanded="false"><i class="fa fa-arrow-circle-o-down"></i> <span  class="d-none d-md-inline">المــاسح الضــوئى</span></a>
+                <div class="collapse" id="menu5" data-parent="#sidebar">
+        <a href="#" class="list-group-item" data-parent="#menu9">  <i class="fa fa-university" >   جاردن سيتى</i></a>
+           <a href="#" class="list-group-item" data-parent="#menu9" > <i class="fa fa-university" >المهندسيين</i> </a>
+           <a href="#" class="list-group-item" data-parent="#menu9"> <i class="fa fa-university" >الفواله</i></a>
+          <a href="#" class="list-group-item" data-parent="#menu9"> <i class="fa fa-university" >سيتى بنك</i></a>
+          <a href="#" class="list-group-item" data-parent="#menu9" > <i class="fa fa-university" >قصر النيل </i></a>
+          <a href="#" class="list-group-item" data-parent="#menu9"> <i class="fa fa-university" >التوفيقيه</i></a>  
+                </div>
+
+
+<a href="#menu6" class="list-group-item d-inline-block collapsed" data-toggle="collapse" aria-expanded="false"><i class="fa fa-arrow-circle-o-down "></i> <span class="d-none d-md-inline">ماكينات التصوير</span></a>
+                <div class="collapse" id="menu6" data-parent="#sidebar">
+        <a href="#" class="list-group-item" data-parent="#menu9">  <i class="fa fa-university" >   جاردن سيتى</i></a>
+           <a href="#" class="list-group-item" data-parent="#menu9" > <i class="fa fa-university" >المهندسيين</i> </a>
+           <a href="#" class="list-group-item" data-parent="#menu9"> <i class="fa fa-university" >الفواله</i></a>
+          <a href="#" class="list-group-item" data-parent="#menu9"> <i class="fa fa-university" >سيتى بنك</i></a>
+          <a href="#" class="list-group-item" data-parent="#menu9" > <i class="fa fa-university" >قصر النيل </i></a>
+          <a href="#" class="list-group-item" data-parent="#menu9"> <i class="fa fa-university" >التوفيقيه</i></a>  
+                </div>
+
+
+
+<center><a  class="list-group-item d-inline-block collapsed" " aria-expanded="false"><i class="fa fa-database"></i> <span id="h" class="d-none d-md-inline"><b id="b01">INFRASTRUCTURE</b> </span></a></center>
+            
+
+
+<a href="#menu8" class="list-group-item d-inline-block collapsed" data-toggle="collapse" aria-expanded="false"><i class="fa fa-arrow-circle-o-down"></i> <span class="d-none d-md-inline">SERVERS</span></a>
+                <div class="collapse" id="menu8" data-parent="#sidebar">
+                   <a href="#" class="list-group-item" data-parent="#menu8">  <i class="fa fa-university" >   GardenCity</i></a>
+                    <a href="#" class="list-group-item" data-parent="#menu8" > <i class="fa fa-university" >Mohandseen</i> </a>
+                    <a href="#" class="list-group-item" data-parent="#menu8"> <i class="fa fa-university" >Fawalla</i></a>
+                    <a href="#" class="list-group-item" data-parent="#menu8"> <i class="fa fa-university" >CityBank</i></a>
+                    <a href="#" class="list-group-item" data-parent="#menu8" > <i class="fa fa-university" >KaserElNile </i></a>
+                    <a href="#" class="list-group-item" data-parent="#menu8"> <i class="fa fa-university" >Tawfikia</i></a>
+                </div>
+
+
+<a href="#menu9" class="list-group-item d-inline-block collapsed" data-toggle="collapse" aria-expanded="false"><i class="fa fa-arrow-circle-o-down"></i> <span class="d-none d-md-inline">SWITCHES </span></a>
+                <div class="collapse" id="menu9" data-parent="#sidebar">
+
+                   <a href="#" class="list-group-item" data-parent="#menu9">  <i class="fa fa-university" >   GardenCity</i></a>
+                    <a href="#" class="list-group-item" data-parent="#menu9" > <i class="fa fa-university" >Mohandseen</i> </a>
+                    <a href="#" class="list-group-item" data-parent="#menu9"> <i class="fa fa-university" >Fawalla</i></a>
+                    <a href="#" class="list-group-item" data-parent="#menu9"> <i class="fa fa-university" >CityBank</i></a>
+                    <a href="#" class="list-group-item" data-parent="#menu9" > <i class="fa fa-university" >KaserElNile </i></a>
+                    <a href="#" class="list-group-item" data-parent="#menu9"> <i class="fa fa-university" >Tawfikia</i></a>
+                </div>
+
+
+
+
+<a href="#menu10" class="list-group-item d-inline-block collapsed" data-toggle="collapse" aria-expanded="false"><i class="fa fa-arrow-circle-o-down"></i> <span class="d-none d-md-inline">ACCESS POINTS</span></a>
+                <div class="collapse" id="menu10" data-parent="#sidebar">
+                    <a href="#" class="list-group-item" data-parent="#menu10"><i class="fa fa-university" >GardenCity</i></a>
+                    <a href="#" class="list-group-item" data-parent="#menu10" ><i class="fa fa-university" >Mohandseen </i></a>
+                    <a href="#" class="list-group-item" data-parent="#menu10"><i class="fa fa-university" >Fawalla</i></a>
+                    <a href="#" class="list-group-item" data-parent="#menu10"><i class="fa fa-university" >CityBank</i></a>
+                    <a href="#" class="list-group-item" data-parent="#menu10" ><i class="fa fa-university" >KaserElNile</i> </a>
+                    <a href="#" class="list-group-item" data-parent="#menu10"><i class="fa fa-university" >Tawfikia</i></a>
+
+
+
+
+                </div>
+
+<a href="#menu11" class="list-group-item d-inline-block collapsed" data-toggle="collapse" aria-expanded="false"><i class="fa fa-arrow-circle-o-down"></i> <span class="d-none d-md-inline">WIRELESS STICKS </span></a>
+                <div class="collapse" id="menu11" data-parent="#sidebar">
+           <a href="#" class="list-group-item" data-parent="#menu11">  <i class="fa fa-university" >   GardenCity</i></a>
+            <a href="#" class="list-group-item" data-parent="#menu11" > <i class="fa fa-university" >Mohandseen</i> </a>
+            <a href="#" class="list-group-item" data-parent="#menu11"> <i class="fa fa-university" >Fawalla</i></a>
+            <a href="#" class="list-group-item" data-parent="#menu11"> <i class="fa fa-university" >CityBank</i></a>
+            <a href="#" class="list-group-item" data-parent="#menu11" > <i class="fa fa-university" >KaserElNile </i></a>
+            <a href="#" class="list-group-item" data-parent="#menu11"> <i class="fa fa-university" >Tawfikia</i></a>
+                </div>
+
+
+<a href="#menu12" class="list-group-item d-inline-block collapsed" data-toggle="collapse" aria-expanded="false"><i class="fa fa-arrow-circle-o-down"></i> <span class="d-none d-md-inline">REPEATERS </span></a>
+                <div class="collapse" id="menu12" data-parent="#sidebar">
+                   <a href="#" class="list-group-item" data-parent="#menu12">  <i class="fa fa-university" >   GardenCity</i></a>
+                    <a href="#" class="list-group-item" data-parent="#menu12" > <i class="fa fa-university" >Mohandseen</i> </a>
+                    <a href="#" class="list-group-item" data-parent="#menu12"> <i class="fa fa-university" >Fawalla</i></a>
+                    <a href="#" class="list-group-item" data-parent="#menu12"> <i class="fa fa-university" >CityBank</i></a>
+                    <a href="#" class="list-group-item" data-parent="#menu12" > <i class="fa fa-university" >KaserElNile </i></a>
+                    <a href="#" class="list-group-item" data-parent="#menu12"> <i class="fa fa-university" >Tawfikia</i></a>
+                </div>
+
+
+
+
+
+            </div>
+        </div>
+
+
+
+
+
+        <main class="col-md-9 float-left col px-5 pl-md-2 pt-2 main">
+            <a href="#" data-target="#sidebar" data-toggle="collapse"><i class="fa fa-navicon fa-2x py-2 p-1"></i></a>
+            <div class="page-header">
+                <h2>Statistics & Informatics</h2>
+            </div>
+            <p class="lead">A responsive, multi-level vertical accordion.</p>
+            <hr>
+            <div class="row">
+                <div class="col-lg-6">
+                    <button role="button" class="btn btn-danger" data-toggle="collapse" data-target="#demo" aria-expanded="true">
+                        horizontal collapsible
+                    </button>
+                    <div id="demo" class="width collapse show" aria-expanded="true">
+                        <div class="list-group" style="width:400px">
+                            <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
+                            <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
+                        </div>
+                    </div>
+                </div>
+                <!--<div class="col-lg-6">-->
+                    <!--<button role="button" class="btn btn-danger" data-toggle="collapse" data-target="#demo2" aria-expanded="true">-->
+                       <!--vertical collapsible-->
+                    <!--</button>-->
+                    <!--<div id="demo2" class="height collapse show" aria-expanded="true">-->
+                        <!--<div>-->
+                            <!--<p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>-->
+                            <!--<p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>-->
+                       <!--<a href="#Foo" class="btn btn-default" data-toggle="collapse">Toggle Foo</a>-->
+<!--<button href="#Bar" class="btn btn-default" data-toggle="collapse">Toggle Bar</button>-->
+<!--<div id="Foo" class="collapse">-->
+    <!--This div (Foo) is hidden by default-->
+<!--</div>-->
+<!--<div id="Bar" class="collapse in">-->
+    <!--This div (Bar) is shown by default and can toggle-->
+<!--</div>-->
+
+
+ <!--</div>-->
+                    <!--</div>-->
+                <!--</div>-->
+            </div>
+        </main>
+    </div>
+</div>
+                    <div id="demo2" class="height collapse show" aria-expanded="true"></div>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+
+<br/>
+
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+                    <div id="pos1" >if you are</div>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+
+<br/>
+
+ <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" />
+    <script src="//cdnjs.cloudflare.com/ajax/libs/popper.js/1.13.0/umd/popper.min.js"></script>
+
+
+</body>
+</html>
+
+   {% endblock %}
+
+

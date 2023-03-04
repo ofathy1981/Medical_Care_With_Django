@@ -1,0 +1,130 @@
+ {% extends 'base.html' %}
+ {% include 'navbar.html' %}
+ {% include 'footer.html' %}
+{%  load static %}
+{% load staticfiles %}
+{% load crispy_forms_tags %}
+
+
+{% block content %}
+<!--<script src='{% static "js/jquery-3.1.1.min.js"  %}'></script>-->
+<!--<script src='{% static "js/bootstrap.min.js"  %}'></script>-->
+<script src='{% static "js/moment.min.js"  %}'></script>
+<script src='{% static "js/bootstrap-datetimepicker.js"  %}'></script>
+<link href='{% static   "css/bootstrap-datetimepicker.min.css"  %}' rel="stylesheet">
+<link href='{% static   "css/bootstrap-datetimepicker.css"  %}' rel="stylesheet">
+<script type="text/javascript">
+$(function () {
+    $('.datepicker').datetimepicker(
+    {
+        format: 'YYYY-MM-DD HH:mm:ss',
+        sideBySide: true
+    }
+    );
+});
+</script>
+
+
+<style>
+.conatiner{
+margin-top: 80px;
+margin-bottom: 70px;
+}
+.vv{
+background-color: #004C99
+
+}
+.v{
+background-color: #004C99
+
+}
+.c{ font-size:12pt;
+width:210;
+}
+.pa{
+padding:5px}
+.btn-lg{
+    width: 190px;
+}
+.c{
+font-family:'f2';
+    font-size:10pt;
+    color: black;
+}
+</style>
+
+
+<div class="container-fluid" >
+<br/>
+
+<center><div class="col-md-12 justify-content-center text-white list-group-item vv">  الـــــــتحويلات الطبيـــــــــة </div>
+    <br/>
+    <img class=" " src='{% static "imge/labortatory.jpeg"  %}' alt="Generic placeholder imavge" width="290" height="140">
+</center>
+    <br/>
+
+<div class="row  align-items-center float fluid justify-content-center ">
+    <!-- <center>    <div class="pa"><a href="{% url 'add_master' %}"> <button class= 'btn-lg btn-outline-primary c' value="" >  </button></a></div>
+</center> -->
+
+   <!-- <div class="pa"><a href="{% url 'searchcases' %}"> <button class= 'btn-lg btn-outline-primary c' value=" " >  </button></a></div>
+
+<div class="pa"><a href="{% url 'cases_list' %}"> <button class= 'btn-lg btn-outline-primary c' value="" >   </button></a></div> -->
+<div class="pa"><a   href="{% url 'add_medical_transform3' %}" > <button class= 'btn-lg btn-info fnt c' value="" >  تسجيل تحويل طبى لعضو مجلس إدارة  </button></a></div>
+<!-- <div class="pa"><a   href="{% url 'add_medical_transform2' %}" target="popup" onclick="window.open('{% url 'add_medical_transform2' %}','popup',width=600,height=550,top=(screen.height-550)/4,left=(screen.width-1050)/2,'location=no','resizable=no'); return false;"> <button class= 'btn-lg btn-info fnt c' value="" >  تسجيل تحويل طبى لمريض بالمعاش</button></a></div> -->
+
+<div class="pa"><a   href="{% url 'add_medical_transform2' %}" > <button class= 'btn-lg btn-info fnt c' value="" >  تسجيل تحويل طبى لمريض بالمعاش</button></a></div>
+<div class="pa"><a   href="{% url 'add_medical_transform1' %}" > <button class= 'btn-lg btn-info fnt c' value="" >  تسجيل تحويل طبى لمريض بالخدمة </button></a></div>
+
+
+
+
+
+   </div>
+   <div class="row  align-items-center float fluid justify-content-center ">
+    <!-- <center>    <div class="pa"><a href="{% url 'add_master' %}"> <button class= 'btn-lg btn-outline-primary c' value="" >  </button></a></div>
+</center> -->
+
+   <!-- <div class="pa"><a href="{% url 'searchcases' %}"> <button class= 'btn-lg btn-outline-primary c' value=" " >  </button></a></div>
+
+<div class="pa"><a href="{% url 'cases_list' %}"> <button class= 'btn-lg btn-outline-primary c' value="" >   </button></a></div> -->
+<div class="pa"><a   href="{% url 'trans_search_toprint3' %}" > <button class= 'btn-lg btn-info fnt c' value="" >  طباعة تحويل طبى  لعضو مجلس إدارة  </button></a></div>
+
+<div class="pa"><a   href="{% url 'trans_search_toprint2' %}" > <button class= 'btn-lg btn-info fnt c' value="" >  طباعة تحويل طبى لمريض بالمعاش</button></a></div>
+<!-- <div class="pa"><a   href="{% url 'add_medical_script_v1' %}" > <button class= 'btn-lg btn-info fnt c' value="" >  طباعة  تحويل طبى لمريض بالخدمة </button></a></div> -->
+
+<div class="pa"><a   href="{% url 'trans_search_toprint' %}" > <button class= 'btn-lg btn-info fnt c' value="" >  طباعة تحويل طبى  لمريض عامل  </button></a></div>
+
+
+
+
+
+
+   </div>
+</div>
+<!--
+ <div class="col-md-4">
+
+ <form method='POST' action= ''>{% csrf_token %}
+
+ {{form|crispy}}
+<a class="btn btn-primary" href= {{  clicker }} >clcik me</a>
+ <input class= 'btn btn-primary' type=submit  onClick="{{  clicker }}">
+ </form>
+ </div>
+
+     <div class="col-md-4">
+
+ <form method='POST' action= ''>{% csrf_token %}
+
+ {{form|crispy}}
+<a class="btn btn-primary" href= {{  clicker }} >clcik me</a>
+ <input class= 'btn btn-primary' type=submit onClick="{{  clicker }}">
+ </form>
+ </div>
+-->
+
+
+
+
+   {% endblock %}

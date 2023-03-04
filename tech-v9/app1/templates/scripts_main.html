@@ -1,0 +1,139 @@
+ {% extends 'base.html' %}
+ {% include 'navbar.html' %}
+ {% include 'footer.html' %}
+{%  load static %}
+{% load staticfiles %}
+{% load crispy_forms_tags %}
+
+
+{% block content %}
+<!--<script src='{% static "js/jquery-3.1.1.min.js"  %}'></script>-->
+<!--<script src='{% static "js/bootstrap.min.js"  %}'></script>-->
+<script src='{% static "js/moment.min.js"  %}'></script>
+<script src='{% static "js/bootstrap-datetimepicker.js"  %}'></script>
+<link href='{% static   "css/bootstrap-datetimepicker.min.css"  %}' rel="stylesheet">
+<link href='{% static   "css/bootstrap-datetimepicker.css"  %}' rel="stylesheet">
+<script type="text/javascript">
+$(function () {
+    $('.datepicker').datetimepicker(
+    {
+        format: 'YYYY-MM-DD HH:mm:ss',
+        sideBySide: true
+    }
+    );
+});
+</script>
+
+
+<style>
+.conatiner{
+margin-top: 80px;
+margin-bottom: 70px;
+}
+.vv{
+background-color: #004C99
+
+}
+.v{
+background-color: #004C99
+
+}
+.c{ font-size:12pt;
+width:210;
+}
+.pa{
+padding:5px}
+
+.c{
+font-family:'f2';
+    font-size:10pt;
+    color: black;
+}
+</style>
+
+
+<div class="container-fluid" >
+<br/>
+
+<center><div class="col-md-12 justify-content-center text-white list-group-item vv">   الوصفات الطبية </div>
+    <br/>
+    <img class=" " src='{% static "imge/pharmacy.jpg"  %}' alt="Generic placeholder image" width="290" height="140">
+</center>
+    <br/>
+
+<div class="row  align-items-center float fluid justify-content-center ">
+    <!-- <center>    <div class="pa"><a href="{% url 'add_master' %}"> <button class= 'btn-lg btn-outline-primary c' value="" >  </button></a></div>
+</center> -->
+
+   <!-- <div class="pa"><a href="{% url 'searchcases' %}"> <button class= 'btn-lg btn-outline-primary c' value=" " >  </button></a></div>
+
+<div class="pa"><a href="{% url 'cases_list' %}"> <button class= 'btn-lg btn-outline-primary c' value="" >   </button></a></div> -->
+
+<div class="pa"><a   href="{% url 'add_medical_script_v3' %}" > <button class= 'btn-lg btn-info fnt c' value="" >  تسجيل علاج لعضو مجلس إدارة </button></a></div>
+<div class="pa"><a   href="{% url 'add_medical_script_v2' %}" > <button class= 'btn-lg btn-info fnt c' value="" >  تسجيل علاج لمريض بالمعاش</button></a></div>
+<div class="pa"><a   href="{% url 'add_medical_script_v1' %}" > <button class= 'btn-lg btn-info fnt c' value="" >  تسجيل علاج لمريض بالخدمة </button></a></div>
+
+
+
+
+   </div>
+   <div class="row  align-items-center float fluid justify-content-center ">
+    <!-- <center>    <div class="pa"><a href="{% url 'add_master' %}"> <button class= 'btn-lg btn-outline-primary c' value="" >  </button></a></div>
+</center> -->
+
+   <!-- <div class="pa"><a href="{% url 'searchcases' %}"> <button class= 'btn-lg btn-outline-primary c' value=" " >  </button></a></div>
+
+<div class="pa"><a href="{% url 'cases_list' %}"> <button class= 'btn-lg btn-outline-primary c' value="" >   </button></a></div> -->
+
+<div class="pa"><a   href="{% url 'monthlyscript_member_search' %}"> <button class= 'btn-lg btn-info fnt c' value="" >  تسجيل علاج شهرى لعضو مجلس إدارة  </button></a></div>
+<div class="pa"><a   href="{% url 'monthlyscript_retired_search' %}"> <button class= 'btn-lg btn-info fnt c' value="" >  تسجيل علاج شهرى لمريض بالمعاش</button></a></div>
+<div class="pa"><a   href="{% url 'monthlyscript_working_search' %}"> <button class= 'btn-lg btn-info fnt c' value="" >  تسجيل علاج شهرى لمريض بالخدمة </button></a></div>
+
+
+
+
+   </div>
+
+   <div class="row  align-items-center float fluid justify-content-center ">
+    <!-- <center>    <div class="pa"><a href="{% url 'add_master' %}"> <button class= 'btn-lg btn-outline-primary c' value="" >  </button></a></div>
+</center> -->
+
+   <!-- <div class="pa"><a href="{% url 'searchcases' %}"> <button class= 'btn-lg btn-outline-primary c' value=" " >  </button></a></div>
+
+<div class="pa"><a href="{% url 'cases_list' %}"> <button class= 'btn-lg btn-outline-primary c' value="" >   </button></a></div> -->
+
+<div class="pa"><a   href="{% url 'monthlyscript_member_search' %}"> <button class= 'btn-lg btn-info fnt c' value="" >  تسجيل كشف وعلاج خارجى  لعضو مجلس إدارة  </button></a></div>
+<div class="pa"><a   href="{% url 'monthlyscript_retired_search' %}"> <button class= 'btn-lg btn-info fnt c' value="" >  تسجيل كشف  وعلاج  خارجى لموظف بالمعاش</button></a></div>
+<div class="pa"><a   href="{% url 'add_external_clinic_cure1_v' %}"> <button class= 'btn-lg btn-info fnt c' value="" >  تسجيل كشف وعلاج خارجى لموظف حالى </button></a></div>
+
+
+
+
+   </div>
+</div>
+<!--
+ <div class="col-md-4">
+
+ <form method='POST' action= ''>{% csrf_token %}
+
+ {{form|crispy}}
+<a class="btn btn-primary" href= {{  clicker }} >clcik me</a>
+ <input class= 'btn btn-primary' type=submit  onClick="{{  clicker }}">
+ </form>
+ </div>
+
+     <div class="col-md-4">
+
+ <form method='POST' action= ''>{% csrf_token %}
+
+ {{form|crispy}}
+<a class="btn btn-primary" href= {{  clicker }} >clcik me</a>
+ <input class= 'btn btn-primary' type=submit onClick="{{  clicker }}">
+ </form>
+ </div>
+-->
+
+
+
+
+   {% endblock %}

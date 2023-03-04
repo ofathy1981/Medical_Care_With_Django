@@ -1,0 +1,215 @@
+{% extends 'base.html' %}
+{% include 'navbar.html' %}
+{% include 'footer.html' %}
+{%  load static %}
+{% load staticfiles %}
+{% load crispy_forms_tags %}
+
+
+{% block content %}
+<!--<script src='{% static "js/jquery-3.1.1.min.js"  %}'></script>-->
+<!--<script src='{% static "js/bootstrap.min.js"  %}'></script>-->
+<link rel="stylesheet" href="{% static 'css/jquery-ui.css' %}"  rel="stylesheet">
+<script type="text/javascript" src="{% static 'js/jquery-1.12.4.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/jquery-ui.js' %}"></script>
+<!-- <script type="text/javascript">
+$(function () {
+   $('.datepicker').datetimepicker(
+   {
+       format: 'YYYY-MM-DD HH:mm:ss',
+       sideBySide: true
+   }
+   );
+});
+</script> -->
+<script type="text/javascript">
+   var res1=[];
+
+for(i=0;i<={{ qslen }};){
+      {% for obj in qs %}
+res1[i]="{{obj.midicine_name}}";
+i=i+1;
+{% endfor %}
+}
+var res = res1.splice(0, Math.ceil(res1.length / 2));
+res1=[]
+
+</script>
+
+<style>
+.container{
+margin-top: 100px;
+margin-bottom: 70px;
+}
+.vv{
+background-color: #004C99
+
+}
+.v{
+background-color: #004C99
+
+}
+</style>
+
+
+<div class="container" >
+
+<center><div class="col-md-12 justify-content-center text-white list-group-item vv ">  تسجيل روشتة علاج لعضو  مجلس  </div></center>
+
+<div class="row  align-items-center float fluid justify-content-center ">
+   <div class="row align-items-center  float fluid justify-content-center">
+<div class="col-md-12 justify-content-center float fluid  ">
+<form method='POST' autocomplete="off" action= " ">{% csrf_token %}
+   <div class="row">
+     <div class="col-md-4 "> {{ form.auth_doc|as_crispy_field }} </div>
+     <div class="col-md-4 "> {{ form.medical_number|as_crispy_field }} </div>
+     <div class="col-md-4 "> {{ form.patient_name|as_crispy_field }} </div>
+
+  </div>
+ <div class="row">
+   <div class="col-md-4 "> {{ form.medic3_name|as_crispy_field }} </div>
+   <div class="col-md-4 "> {{ form.medic2_name|as_crispy_field }} </div>
+   <div class="col-md-4 "> {{ form.medic1_name|as_crispy_field }} </div>
+
+ </div>
+<div class="row">
+ <div class="col-md-4 "> {{ form.medic6_name|as_crispy_field }} </div>
+ <div class="col-md-4 "> {{ form.medic5_name|as_crispy_field }} </div>
+ <div class="col-md-4 "> {{ form.medic4_name|as_crispy_field }} </div>
+
+</div>
+<input class= 'btn btn-primary btn-lg'  style="font-size: large;color:cornsilk; "  value="إعادة ضبط " type=reset >
+<b><a   target="popup" ,'popup','width=600,height=600','location=no','resizable=no'); return false;"> <input class= 'btn  btn-primary  btn-lg'  style="font-size: large; "  value="إضافه  " type=submit ></a>
+
+</form>
+</div>
+   </div>
+</div>
+
+<div class="row">
+
+ <table class="table table-hover ta" >
+   <tr class="" style="background-color:rgb(6, 204, 105)">
+   <th>اخر تاريخ</th>
+     <th>الرقم الطبى</th>
+     <th>اسم الموظف</th>
+
+     <th >مسلسل</th>
+
+
+
+
+   </tr>
+   {% with counter=0 %}
+   {% with rank=1 %}
+
+{% for obj in q %}
+<tr>
+ <td>  {{  obj.timestamp }} </td>
+   <td>{{ obj.medical_number  }}</td>
+   <td><a href='{% url "medical_script_report1" id=obj.id %}'>{{ obj.patient_name}}</a></td>
+   <!-- '{% url "add_medical_script1_cost_v" id=obj.id %}' -->
+   <td>{{ forloop.counter }}</td>
+
+</tr>
+
+
+{% endfor %}
+{% endwith %}{% endwith %}
+</table>
+
+
+
+
+
+</div>
+
+
+
+
+
+</div>
+
+
+<script>
+$(function() {
+
+$('#id_medical_number').change(function() {
+
+   $.ajax({
+       type: "GET",
+       url: "/add_medical_script_v1/",
+       data: {
+           'search_text' : $('#id_medical_number').val(),
+           'csrfmiddlewaretoken' : $("input[name=csrfmiddlewaretoken]").val()
+       },
+       success: searchSuccess,
+       dataType: 'html'
+   });
+});
+});
+
+
+
+
+
+</script>
+
+
+
+
+
+
+
+<script>
+
+
+   $( function() {
+ 
+     $( "#id_medic1_name" ).autocomplete({
+       source: res
+     });
+   } );
+
+
+   $( function() {
+ 
+ $( "#id_medic2_name" ).autocomplete({
+   source: res
+ });
+} );
+
+$( function() {
+ 
+ $( "#id_medic3_name" ).autocomplete({
+   source: res
+ });
+} );
+$( function() {
+ 
+ $( "#id_medic4_name" ).autocomplete({
+   source: res
+ });
+} );
+$( function() {
+ 
+ $( "#id_medic5_name" ).autocomplete({
+   source: res
+ });
+} );
+$( function() {
+ 
+ $( "#id_medic6_name" ).autocomplete({
+   source: res
+ });
+} );
+$( function() {
+ 
+ $( "#id_medic7_name" ).autocomplete({
+   source: res
+ });
+} );
+   </script>
+
+
+  {% endblock %}

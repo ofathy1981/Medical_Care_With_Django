@@ -1,0 +1,116 @@
+
+{% include 'navbar3.html' %}
+{% load crispy_forms_tags %}
+
+{% load static %}
+{% block content %}
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>jQuery UI Autocomplete - Default functionality</title>
+<!--<link rel="stylesheet" href="{% static 'css/itlst.css' %}"  rel="stylesheet">-->
+<!--<script type="text/javascript" src="{% static 'js/itlst.js' %}"></script>-->
+<link rel="stylesheet" href="{% static 'css/jquery-ui.css' %}"  rel="stylesheet">
+<script type="text/javascript" src="{% static 'js/jquery-1.12.4.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/jquery-ui.js' %}"></script>
+<script src='{% static "js/moment.min.js"  %}'></script>
+<script src='{% static "js/bootstrap-datetimepicker.js"  %}'></script>
+<link href='{% static   "css/bootstrap-datetimepicker.min.css"  %}' rel="stylesheet">
+<link href='{% static   "css/bootstrap-datetimepicker.css"  %}' rel="stylesheet">
+<script type="text/javascript">
+$(function () {
+    $('.datepicker').datetimepicker(
+    {
+        format: 'YYYY-MM-DD HH:mm:ss',
+        sideBySide: true
+    }
+    );
+});
+</script>
+
+<style>
+@font-face {
+    font-family: 'f2';
+    src: url('{% static '/fonts/Almudid.ttf' %}');
+    font-weight: 500;
+    font-style: normal;
+    font-size:9pt;
+}
+body form{
+font-family:'f2';
+    font-size:13pt;
+
+
+}
+    .bb{
+ margin-top:90px;
+
+}
+.cc{
+ margin-top:0px;
+ margin-bottom: 90px;
+}
+@font-face {
+    font-family: 'fall';
+    src: url('{% static '/fonts/ext/LateefRegOT.ttf' %}');
+    font-weight: 10;
+    font-style: normal;
+    font-size:16pt;
+}
+form input[type=text]{
+    font-family:'f2';
+    font-size:12pt;
+    font-style: bold;
+
+}
+form .tarea{
+    font-family:'f2';
+    font-size:15pt;
+    font-style: bold;
+
+}
+form .select{
+    font-family:'f2';
+    font-size:12px;
+    font-style: bold;
+    font-weight: 19;
+    height:3em;
+
+}
+
+</style>
+<html>
+<hr>
+<hr class="my-6">
+<div class="container justify-content-center">
+<center><img src="{% static 'imge/court1.jpg'%}"  width="240" height="140" ></center>
+
+    <!--<div class="col-md-6" ><img src="{% static 'imge/m1.jpg'%}"></div>-->
+    <!--<div class="col-md-6" ><img src="{% static 'imge/m2.jpg'%}"></div>-->
+ <hr class="my-6">
+
+ <center style="background:#ffeedd;"><h5>نموذچ تســچــيل قــضيه</h5></center>
+<hr class="my-6">
+
+<div class="row align-items-center justify-content-center">
+ <div class="col-md-8 bg-faded" style="background:#e0e0e0">
+ <form method='POST' action= " ">{% csrf_token %}
+
+ {{form|crispy}}
+ <input class= 'btn btn-primary btn-lg'  style="font-size: large;color:cornsilk; "  value="إعادة ضبط " type=reset >
+ <b><input class= 'btn btn-primary btn-lg lead' value="تسـچيل پيــانات الــقضيه" type=submit ></b>
+
+</form>
+
+</div></div>
+</div>
+<hr class="my-6">
+
+
+</body>
+</html>
+
+
+   {% endblock %}
+
+

@@ -1,0 +1,104 @@
+{% extends 'base.html' %}
+{% include 'navbar.html' %}
+{%  load static %}
+{% load staticfiles %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<br>
+
+<link href="{% static 'css/fonts.css'  %}" rel="stylesheet">
+
+{% block content %}
+<!-- <link rel="stylesheet" type="text/css" href="//www.fontstatic.com/f=dubai-medium,kawkab-light,alahed" /> -->
+<style type="text/css">
+.container{
+margin-top: 120px;
+}
+@font-face {
+    font-family: 'f1';
+    src: url('{% static '/fonts/Almudid.ttf' %}');
+    font-weight: 500;
+    font-style: normal;
+    font-size:9pt;
+}
+@font-face {
+    font-family: 'f2';
+    src: url('{% static '/fonts/Bahij_TheSansArabic-Bold.ttf' %}');
+    font-weight: 500;
+    font-style: normal;
+    font-size:18px;
+p.b{
+    font-family:'f2';
+    color: red;
+    font-size:18px;
+}
+p{
+    font-family:'f1';
+}
+.x{
+width:290px !important;
+}
+
+
+
+
+
+</style>
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+
+</body>
+</html>
+<!-- <link href="//fonts.googleapis.com/css?family=Lobster&subset=latin,latin-ext" rel="stylesheet" type="text/css"> -->
+
+<div class="container align-items-center justify-content-center  ">
+<div class="row">
+        <div class="col-lg-3 col-md-3  "><center>
+            <img class="" src='{% static "imge/maedicmaster.jpg"  %}' alt="Generic placeholder image"  width="190" height="140">
+            <h3 style="font-family:f1" class="row align-items-center justify-content-center  m   "><p class="b">البيانات الاساسية</p></h3>
+          <p><a class="btn btn-outline-primary btn-lg x" href="{% url 'master_main'%}"  role="button">دخــول</a></p>          </center>
+
+        </div><!-- /.col-lg-4 -->
+        <div class="col-lg-3 col-md-3  ">
+            <center><img class="" src='{% static "imge/pationthist.jpg"  %}' alt="Generic placeholder image" width="190" height="140">
+          <h3 class="row align-items-center justify-content-center m"><p class="b">سجل المرضى</p></h3>
+          <p><a class="btn btn-outline-primary btn-lg x" href="{% url 'medical_record_main'%}" role="button">دخــول</a></p></center>
+        </div><!-- /.col-lg-4 -->
+        <div class="col-lg-3 col-md-3 ">
+         <center>   <img class=" " src='{% static "imge/labortatory.jpeg"  %}' alt="Generic placeholder image" width="190" height="140">
+          <h3 class="row align-items-center justify-content-center m " >   <p class="b"> تسجيل التحويلات الطبية</p>     </h3>
+          <p><a class="btn btn-outline-primary btn-lg x" href="{% url 'transforms_main'%}" role="button">دخــول</a></p></center>
+        </div><!-- /.col-lg-4 -->
+       <div class="col-lg-3 col-md-3 ">
+         <center>   <img class=" " src='{% static "imge/pharmacy.jpg"  %}' alt="Generic placeholder image" width="190" height="140">
+          <h3 class="row align-items-center justify-content-center m " >   <p class="b"> تسجيل وطباعة الوصفات العلاجية</p>     </h3>
+          <p><a class="btn btn-outline-primary btn-lg x" href="{% url 'scripts_main'%}" role="button">دخــول</a></p></center>
+        </div>
+      </div>
+
+<hr style="background-color: midnightblue;"/>
+<div class="row align-items-center justify-content-center">
+  <div class="col-lg-3 col-md-3  "><center>
+    <img class="" src='{% static "imge/finance.jpeg"  %}' alt="Generic placeholder image"  width="190" height="140">
+    <h3 style="font-family:f1" class="row align-items-center justify-content-center  m   "><p class="b">البيانات المالية والتكاليف </p></h3>
+  <p><a class="btn btn-outline-primary btn-lg x" href="{% url 'financial_main'%}"  role="button">دخــول</a></p>          </center>
+
+</div>
+
+</div>
+
+   {% endblock %}
+
+</body>
+</html>

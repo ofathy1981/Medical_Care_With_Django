@@ -1,0 +1,118 @@
+
+{% include 'navbar.html' %}
+
+{% load static %}
+
+{% block content %}
+
+<link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css" rel="stylesheet">
+<style>
+
+    .bb{
+ margin-top:90px;
+
+}
+.cc{
+ margin-top:90px;
+ margin-bottom: 90px;
+}
+
+
+
+</style>
+<html>
+<body>
+
+
+<ul class="nav nav-tabs nav nav-tabs nav-pills bb " id="myTab" role="tablist">
+  <li class="nav-item">
+    <a class="nav-link active lead" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true"><p>طلبات قطع الغيار التى قمت بارسالها</p></a>
+  </li>
+
+</ul>
+
+<div class="tab-content" id="myTabContent">
+
+  <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab"><div class="list-group">
+      
+<table class="table">
+  <thead class="thead-inverse">
+    <tr>
+      <th>مسلسل</th>
+      <th>اسم المستخدم</th>
+      <th>اسم القطاع</th>
+      <th>status0</th>	
+    
+    </tr>
+  </thead>
+  <tbody>
+  {% for obj in spare_res %}
+
+   <tr> 
+   <th scope="row"> {{ obj.id }}</th>
+   <td> <a href='{% url "user_detail5" id=obj.id %}'> {{ obj.user_fullname }}</a> </td>
+   <td>  {{ obj.user_sector }}  </td>
+
+
+  {% if obj.status  %}
+   <td> <img class="" src='{% static "imge/wrong.png"  %}'  width="30" height="30"></td>
+ {% else %}
+      <td><img class="" src='{% static "imge/ok.png"  %}'  width="30" height="30"></td>
+  {% endif %}
+   </tr>
+
+  {% endfor %}
+  </tbody>
+</table>
+
+
+<ul class="pagination justify-content-center cc">
+    <li class="page-item ">
+        {% if spare_res.has_previous %}
+            <a class="page-link"  href="?page={{ spare_res.previous_page_number }}">previous</a>
+        {% endif %}
+    </li>   
+ <li class="page-item "><a class="page-link" >Page</a></li>
+ <li class="page-item ">
+
+  <a class="page-link active" href="#">  {{ spare_res.number }} </a> </li> <li class="page-item "> <a class="page-link" >of</a></li>  <li class="page-item "><a class="page-link" href="#">{{ spare_res.paginator.num_pages }}.</a> 
+    </li>
+    <li class="page-item">
+        {% if spare_res.has_next %}
+            <a class="page-link" href="?page={{ spare_res.next_page_number }}">next</a>
+        {% endif %}
+    </li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+</div></div>
+
+
+
+
+...</div>
+</div>
+
+
+
+
+
+
+
+
+
+
+   {% endblock %}
+</body>
+</html>
+

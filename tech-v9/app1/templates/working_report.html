@@ -1,0 +1,254 @@
+{% extends 'base.html' %}
+{% include 'navbar.html' %}
+{% include 'footer.html' %}
+{%  load static %}
+{% load staticfiles %}
+{% load crispy_forms_tags %}
+
+
+{% block content %}
+
+
+
+
+
+<style>
+.cc{
+margin-top:100px;
+margin-bottom:70px;
+}
+.vv{
+background-color:#004C99
+
+}
+.v{
+background-color:#004C99
+
+}
+
+.pa{
+padding:5px}
+
+.c{
+font-family:'f2';
+font-size:10pt;
+color:black;
+}
+
+
+
+.x{
+    background-color: palegreen;
+    padding: 6pt;
+}
+
+.t{
+    background-color: red;
+}
+
+.td{
+    align:right;
+}
+@media print{
+
+.container{
+    width:auto;
+    margin-top: 80;
+
+}
+
+}
+
+</style>
+<div class="list-group-item justify-content-center"  >إستعلاماتالسجلاتالطبية</div>
+
+<br/>
+
+
+
+
+medicalcodeis {{ emp_code}}
+<div class="container p-0 my-0">
+        <div class="row justify-content-center ">
+          <div class="col-md-2 "> <img src='{% static "imge/unk.jpeg"  %}' alt="Generic placeholder imavge" width="150" height="170">
+          </div>
+          <div class="col-md-4">              <hr/> </div>
+          <div class="col-md-6 ">
+            <div class="list-group">
+                <a href="#" class="list-group-item active" align="right">البيانات الاساسية   </a>
+                           
+                  <table class="table">
+                <tbody>
+                  <tr>
+                    <td></td>
+              
+                    <td align="right">  السن</td>
+                      <td  >  </td>
+                    <td align="right">الاسم </td>
+                  </tr>
+                     
+              
+                    <tr>
+                      <td> </td>
+              
+                      <td align="right"> الكود الوظيفى</td>
+                    <td></td>
+                    <td align="right"> الوظيفة </td>
+                  </tr>
+              
+                   
+              
+                    <tr>
+                      <td></td>
+                      <td align="right">الامراض المزمنة</td>
+                    <td></td>
+              
+                    <td align="right">الكود الطبى </td>
+                  </tr>
+              
+                   
+              
+                    <tr>
+                      <td></td>
+                      <td align="right"> رقم الهاتف</td>
+                    <td></td>
+                    <td align="right">رئاسة قطاعات</td>
+                  </tr>
+              
+                 
+              
+              
+              
+              
+                </tbody>
+              </table>
+              
+                </div>
+
+
+
+
+
+
+
+
+          </div>
+        </div>
+      <!-- +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+
+      <div class="row justify-content-center ">
+        <div class="col-md-2 "> 
+        </div>
+        <div class="col-md-4">              <hr/> </div>
+        <div class="col-md-6 ">
+          <div class="list-group">
+              <a href="#" class="list-group-item active" align="right">البيانات الطبية   </a>
+                         
+                <table class="table">
+              <tbody>
+                <tr>
+                    <td  >  </td>
+                  <td align="right">بنود العلاج الشهرى ان وجد </td>
+                </tr>
+                    <tr>
+                    <td></td>
+            
+                  <td align="right">  اخر روشتة علاج تم صرفها</td>
+                </tr>
+            
+                  <tr>
+                  <td></td>
+                  <td align="right"> تاريخ اخر روشتة </td>
+                </tr>
+            
+                  <tr>
+                  <td> </td>
+            
+                  <td align="right"> عدد التحويلات الطبية </td>
+                </tr>
+            
+                  <tr>
+                  <td></td>
+            
+                  <td align="right">تاريخ اخر تحويل </td>
+                </tr>
+              
+            
+            
+            
+              </tbody>
+            </table>
+            
+              </div>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+
+<!-- +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+<div class="row justify-content-center ">
+    <div class="col-md-2 "> 
+    </div>
+    <div class="col-md-4">              <hr/> </div>
+    <div class="col-md-6 ">
+      <div class="list-group">
+          <a href="#" class="list-group-item active" align="right">البيانات المالية   </a>
+                     
+            <table class="table">
+          <tbody>
+            <tr>
+                <td  >  </td>
+              <td align="right">تكلفة العلاج الشهرى "ان وجدت" </td>
+            </tr>
+                <tr>
+                <td></td>
+        
+              <td align="right">  تكلفة الادوية التى تم صرفها</td>
+            </tr>
+        
+              <tr>
+              <td></td>
+              <td align="right">   تكلفة التحويلات  </td>
+            </tr>
+        
+              <tr>
+              <td> </td>
+        
+              <td align="right">   تكلفة روشتات الادوية الخارجية </td>
+            </tr>
+        
+            <tr>
+              <td></td>
+        
+              <td align="right">  تكلفة الكشوف الطبية الخارجية </td>
+            </tr>
+        
+            
+        
+        
+        
+        
+          </tbody>
+        </table>
+        
+          </div>
+
+
+
+
+
+
+
+
+    </div>
+  </div>
+
+</div>
+
+{%  endblock  %}

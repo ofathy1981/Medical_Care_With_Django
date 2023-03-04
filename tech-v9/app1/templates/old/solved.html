@@ -1,0 +1,32 @@
+
+{% include 'navbar.html' %}
+
+
+{% block content %}
+
+
+<style>
+
+    .alert{
+ margin-top: 200px;
+
+    }
+
+
+</style>
+<html>
+<body>
+<div class="alert alert-success" role="alert">
+
+    تم اغلاق المشكله او الطلب
+        <a href="{% url 'main'%}">
+
+    اضغط هنا
+       </a>
+    للصفحه الرئيسيه
+
+</div>
+   {% endblock %}
+</body>
+</html>
+

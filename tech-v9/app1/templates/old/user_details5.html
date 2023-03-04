@@ -1,0 +1,91 @@
+
+{% include 'navbar.html' %}
+{%  load static %}
+{% load staticfiles %}
+
+{% block content %}
+
+<style>
+
+    .list-group{
+ margin-top:90px;
+ padding:0px;
+
+    }
+    .panel{
+ margin-top:90px;
+
+    }
+
+</style>
+<html>
+<body>
+<div class="row justify-content-md-center">
+ <div class="list-group col-md-8 justify-content-md-center">
+  <a href="#" class="list-group-item active">معلومات تفصيليه عن الطلب</a>
+
+
+    <table class="table">
+  <tbody>
+    <tr class="table-info">
+      <td >اسم المستخدم</td>
+      <td >{{ instance.user_fullname}}</td>
+    </tr>
+        <tr class="table-light">
+      <td>القطاع التابع له</td>
+      <td>{{ instance.user_sector}}</td>
+    </tr>
+         <tr class="table-info">
+      <td>نوع قطعة الغيار</td>
+      <td>{{ instance.part_type}}</td>
+    </tr>
+      <tr  >
+      <td>تاريخ الطلب</td>
+      <td>{{ instance.demand_date}}</td>
+    </tr>
+        <tr class="table-info" >
+      <td >address</td>
+      <td>{{ instance.ip}}</td>
+     </tr>
+  {% if instance.status %}
+  <tr><td><a href="/app1/{{ instance.id }}/solved5/"> <button type="button" class="btn btn-danger">تم استيفاء الطلب  والاستلام</button></a></td></tr>
+   {% else %}
+            <tr class="table-light" >
+      <td >تم الاغلاق بواسطة</td>
+      <td>{{ instance.closed_by}}</td>
+     </tr>
+            <tr class="table-info" >
+      <td >تاريخ الاغلاق</td>
+      <td>{{ instance.close_date}}</td>
+     </tr>
+<tr><td><a href="#" class="disabled"> <button type="button" class="btn btn-primary disabled">الطلب تم استيفائه   </button></a></td></tr>
+{% endif %}
+
+
+
+  </tbody>
+</table>
+
+  </div>
+</div>
+</body>
+</html>
+
+
+<!--
+  <div class="list-group">
+  <div class="list-group-item">{{ instance.problem_desc }}</div>
+  <div class="list-group-item"> {{ instance.problem_date }}</div>
+  <div class="list-group-item">{{ instance.user_fullname}}</div>
+  <div class="list-group-item">{{ instance.user_sector}}</div>
+  <div class="list-group-item">{{ instance.pc_type }}</div>
+
+
+-->
+
+
+
+
+   {% endblock %}
+
+
